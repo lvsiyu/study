@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=1024" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<title></title>
+
+		<style>
+			html,
+			body,
+			div,
+			span,
+			applet,
+			object,
+			iframe,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			p,
+			blockquote,
+			pre,
+			a,
+			abbr,
+			acronym,
+			address,
+			big,
+			cite,
+			code,
+			del,
+			dfn,
+			em,
+			img,
+			ins,
+			kbd,
+			q,
+			s,
+			samp,
+			small,
+			strike,
+			strong,
+			sub,
+			sup,
+			tt,
+			var,
+			b,
+			u,
+			i,
+			center,
+			dl,
+			dt,
+			dd,
+			ol,
+			ul,
+			li,
+			fieldset,
+			form,
+			label,
+			legend,
+			table,
+			caption,
+			tbody,
+			tfoot,
+			thead,
+			tr,
+			th,
+			td,
+			article,
+			aside,
+			canvas,
+			details,
+			embed,
+			figure,
+			figcaption,
+			footer,
+			header,
+			hgroup,
+			menu,
+			nav,
+			output,
+			ruby,
+			section,
+			summary,
+			time,
+			mark,
+			audio,
+			video {
+				margin: 0;
+				padding: 0;
+				border: 0;
+				font-size: 100%;
+				font: inherit;
+				vertical-align: baseline;
+			}
+			/* HTML5 display-role reset for older browsers */
+			
+			article,
+			aside,
+			details,
+			figcaption,
+			figure,
+			footer,
+			header,
+			hgroup,
+			menu,
+			nav,
+			section {
+				display: block;
+			}
+			
+			body {
+				line-height: 1;
+			}
+			
+			ol,
+			ul {
+				list-style: none;
+			}
+			
+			blockquote,
+			q {
+				quotes: none;
+			}
+			
+			blockquote:before,
+			blockquote:after,
+			q:before,
+			q:after {
+				content: '';
+				content: none;
+			}
+			
+			table {
+				border-collapse: collapse;
+				border-spacing: 0;
+			}
+			
+			body {
+				font-family: 'PT Sans', sans-serif;
+				min-height: 740px;
+				background: rgb(215, 215, 215);
+				background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 500, from(rgb(240, 240, 240)), to(rgb(190, 190, 190)));
+				background: -webkit-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
+				background: -moz-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
+				background: -ms-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
+				background: -o-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
+				background: radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
+			}
+			
+			#its-in-3d span,
+			#its-in-3d b {
+				display: inline-block;
+				-webkit-transform: translateZ(40px);
+				-moz-transform: translateZ(40px);
+				-ms-transform: translateZ(40px);
+				-o-transform: translateZ(40px);
+				transform: translateZ(40px);
+				-webkit-transition: 0.5s;
+				-moz-transition: 0.5s;
+				-ms-transition: 0.5s;
+				-o-transition: 0.5s;
+				transition: 0.5s;
+			}
+			
+			#its-in-3d .have {
+				-webkit-transform: translateZ(-40px);
+				-moz-transform: translateZ(-40px);
+				-ms-transform: translateZ(-40px);
+				-o-transform: translateZ(-40px);
+				transform: translateZ(-40px);
+			}
+			
+			#its-in-3d .you {
+				-webkit-transform: translateZ(20px);
+				-moz-transform: translateZ(20px);
+				-ms-transform: translateZ(20px);
+				-o-transform: translateZ(20px);
+				transform: translateZ(20px);
+			}
+			
+			#its-in-3d .noticed {
+				-webkit-transform: translateZ(-40px);
+				-moz-transform: translateZ(-40px);
+				-ms-transform: translateZ(-40px);
+				-o-transform: translateZ(-40px);
+				transform: translateZ(-40px);
+			}
+			
+			#its-in-3d .its {
+				-webkit-transform: translateZ(60px);
+				-moz-transform: translateZ(60px);
+				-ms-transform: translateZ(60px);
+				-o-transform: translateZ(60px);
+				transform: translateZ(60px);
+			}
+			
+			#its-in-3d .in {
+				-webkit-transform: translateZ(-10px);
+				-moz-transform: translateZ(-10px);
+				-ms-transform: translateZ(-10px);
+				-o-transform: translateZ(-10px);
+				transform: translateZ(-10px);
+			}
+			
+			#its-in-3d .footnote {
+				font-size: 32px;
+				-webkit-transform: translateZ(-10px);
+				-moz-transform: translateZ(-10px);
+				-ms-transform: translateZ(-10px);
+				-o-transform: translateZ(-10px);
+				transform: translateZ(-10px);
+			}
+			
+			#its-in-3d.present span,
+			#its-in-3d.present b {
+				-webkit-transform: translateZ(0px);
+				-moz-transform: translateZ(0px);
+				-ms-transform: translateZ(0px);
+				-o-transform: translateZ(0px);
+				transform: translateZ(0px);
+			}
+			
+			#overview {
+				display: none
+			}
+			
+			.impress-on-overview .step {
+				opacity: 1;
+				cursor: pointer;
+			}
+			
+			.step {
+				position: relative;
+				width: 900px;
+				padding: 40px;
+				margin: 20px auto;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				-ms-box-sizing: border-box;
+				-o-box-sizing: border-box;
+				box-sizing: border-box;
+				font-family: 'PT Serif', georgia, serif;
+				font-size: 48px;
+				line-height: 1.5;
+			}
+			
+			.aa {
+				display: block;
+				width: 900px;
+				height: 700px;
+				padding: 40px 60px;
+				background-color: white;
+				border: 1px solid rgba(0, 0, 0, .3);
+				border-radius: 10px;
+				box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
+				color: rgb(102, 102, 102);
+				text-shadow: 0 2px 2px rgba(0, 0, 0, .1);
+				font-family: 'Open Sans', Arial, sans-serif;
+				font-size: 30px;
+				line-height: 36px;
+				letter-spacing: -1px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="impress-not-supported">
+		</div>
+
+		<div id="impress">
+			<div id="one" class="step aa" data-x="-1000" data-y="0">
+				<div>贾文豪是个大傻逼！</div>
+			</div>
+
+			<div id="two" class="step aa" data-x="0" data-y="0">
+				<div>贾文豪是个大傻逼！</div>
+			</div>
+
+			<div id="three" class="step aa" data-x="1000" data-y="0">
+				<div>贾文豪是个大傻逼！</div>
+			</div>
+
+			<div id="tiny" class="step" data-x="1000" data-y="0" data-z="-8000" data-rotate="300" data-scale="1">
+				贾文豪是个大傻逼！
+			</div>
+
+			<div id="3dd" class="step" data-x="1800" data-y="800">贾文豪是个大傻逼！</div>
+
+			<div id="its-in-3d" class="step" data-x="2000" data-y="1000" data-z="-100" data-rotate-x="-90" data-rotate-y="10" data-scale="2">
+				<p><span class="have">贾文豪</span> <span class="you">是个</span> <span class="noticed">大</span> <span class="its">傻逼</span> <span class="in">!!</span></p>
+				
+			</div>
+
+		</div>
+
+		<script src="../../../../lib/js/impress/impress.js"></script>
+
+		<script>
+			impress().init();
+		</script>
+	</body>
+
+</html>

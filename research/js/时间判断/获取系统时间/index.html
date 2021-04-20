@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>上午橘黄色，下午蓝色</title>
+		<script type="text/javascript" src="../../../../lib/js/jquery-1.11.3.min.js" ></script>
+	</head>
+	<style>
+			.clock {
+				position: relative;
+				width: 8%;
+				height: auto;
+				border: 1px solid black;
+				text-align: center;
+				/*设置水平居中*/
+				
+				margin: 10px auto;
+				font-size: 20px;
+				background-color: orange;
+			}
+			.country {
+				width: 80%;
+				border: 1px solid black;
+				text-align: center;
+				margin: 10px auto;
+				font-size: 20px;
+			}
+			.time {
+				position: relative;
+				width: 15%;
+				height: auto;
+				border: 1px solid black;
+				text-align: center;
+				margin: 20px auto;
+			}
+			.bb{
+				background-color: royalblue;
+				color: #FFF;
+			}
+		</style>
+		<script>
+			function startTime() {
+				var today = new Date();
+				var h = today.getHours();
+				var m = today.getMinutes();
+				var s = today.getSeconds();
+				//在小于10的数字前面加上0
+				m = checkTime(m);
+				s = checkTime(s);
+				document.getElementById('txt').innerHTML = h + ":" + m + ":" + s;
+				$(".clock").each(function(){
+					var kk = $(this).text();
+					var aa = parseFloat(kk.substring(0,2));
+					if(aa <= 12){
+						$(this).addClass("bb");
+					}else{
+						$(this).addClass("bb");
+					}
+				});
+				setTimeout('startTime()', 500);
+			}
+
+			function checkTime(i) {
+				if (i < 10) {
+					i = "0" + i;
+				}
+				return i;
+			}
+			
+			$(document).ready(function(){
+				
+				
+			});
+		</script>
+	</head>
+
+	<body onload="startTime()">
+		<div class="clock" id="txt"></div>
+		<div class="cc"></div>
+	</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../lib/js/jquery-1.11.3.min.js"></script>
+		<style>
+			.aa {
+				position: relative;
+				display: block;
+				margin: 20px 0px;
+			}
+			
+			.bb {
+				position: relative;
+				width: 50px;
+				height: 50px;
+				background-color: orange;
+				cursor: pointer;
+				display: inline-block;
+			}
+			
+			.cc {
+				position: relative;
+				width: 50px;
+				height: 50px;
+				background-color: black;
+				cursor: pointer;
+				display: inline-block;
+			}
+			
+			.dd {
+				position: relative;
+				width: 50px;
+				height: 50px;
+				background-color: green;
+				cursor: pointer;
+				display: inline-block;
+			}
+		</style>
+		<script>
+			/*function init(){
+										val = $(".aa").val();
+									}*/
+			$(document).ready(function() {
+				$(".bb").click(function() {
+					var val = $(".aa").val();
+					localStorage.setItem("key", val);
+				})
+				$(".cc").click(function() {
+					alert(localStorage.getItem("key"));
+				});
+			});
+			$(document).ready(function() {
+				var val = $(".aa").val();
+				$(".dd").click(function() {
+					localStorage.removeItem("key", val);
+				})
+			});
+		</script>
+	</head>
+
+	<body>
+		<input class="aa" type="text" value="" />
+		<div class="bb"></div>
+		<div class="cc"></div>
+		<div class="dd"></div>
+	</body>
+
+</html>

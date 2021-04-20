@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../lib/js/jquery-1.11.3.min.js" ></script>
+		
+		<style> 
+			html,body{
+				text-align: center;
+			}
+			.aa{
+				position: relative;
+				width: 50px;
+				height: 50px;
+				background-color: #FFFFFF;
+				border: 1px solid black;
+				display: inline-block;
+			}
+		</style>
+		
+		<script>
+			function scroll() {
+				var scrollFunc = function(e) {
+					e = e || window.event;
+					if (e.wheelDelta) { // 判断浏览器IE，谷歌滑轮事件
+						if (e.wheelDelta > 0) { // 当滑轮向上滚动时
+							/*alert("上")*/
+							$(".aa").css("background-color",getRandomColor1());
+							$(".bb").css("background-color",getRandomColor2());
+							$(".cc").css("background-color",getRandomColor3());
+							$(".dd").css("background-color",getRandomColor4());
+							$(".ee").css("background-color",getRandomColor5());
+							$(".ff").css("background-color",getRandomColor6());
+							$(".gg").css("background-color",getRandomColor7());
+							$(".hh").css("background-color",getRandomColor8());
+							$(".ii").css("background-color",getRandomColor9());
+							$(".jj").css("background-color",getRandomColor10());
+							$(".kk").css("background-color",getRandomColor11());
+							$(".ll").css("background-color",getRandomColor12());
+							$(".mm").css("background-color",getRandomColor13());
+							$(".nn").css("background-color",getRandomColor14());
+							$(".oo").css("background-color",getRandomColor15());
+							$(".pp").css("background-color",getRandomColor16());
+							$(".qq").css("background-color",getRandomColor17());
+							$(".rr").css("background-color",getRandomColor18());
+							$(".ss").css("background-color",getRandomColor19());
+							$(".tt").css("background-color",getRandomColor20());
+						} else if (e.wheelDelta < 0) { // 当滑轮向下滚动时
+							/*alert("下")*/
+							$(".aa").css("background-color",getRandomColor1());
+							$(".bb").css("background-color",getRandomColor2());
+							$(".cc").css("background-color",getRandomColor3());
+							$(".dd").css("background-color",getRandomColor4());
+							$(".ee").css("background-color",getRandomColor5());
+							$(".ff").css("background-color",getRandomColor6());
+							$(".gg").css("background-color",getRandomColor7());
+							$(".hh").css("background-color",getRandomColor8());
+							$(".ii").css("background-color",getRandomColor9());
+							$(".jj").css("background-color",getRandomColor10());
+							$(".kk").css("background-color",getRandomColor11());
+							$(".ll").css("background-color",getRandomColor12());
+							$(".mm").css("background-color",getRandomColor13());
+							$(".nn").css("background-color",getRandomColor14());
+							$(".oo").css("background-color",getRandomColor15());
+							$(".pp").css("background-color",getRandomColor16());
+							$(".qq").css("background-color",getRandomColor17());
+							$(".rr").css("background-color",getRandomColor18());
+							$(".ss").css("background-color",getRandomColor19());
+							$(".tt").css("background-color",getRandomColor20());
+						}
+					} else if (e.detail) { // Firefox滑轮事件
+						if (e.detail < 0) { // 当滑轮向上滚动时
+							/*alert("上")*/
+							$(".aa").css("background-color",getRandomColor1());
+							$(".bb").css("background-color",getRandomColor2());
+							$(".cc").css("background-color",getRandomColor3());
+							$(".dd").css("background-color",getRandomColor4());
+							$(".ee").css("background-color",getRandomColor5());
+							$(".ff").css("background-color",getRandomColor6());
+							$(".gg").css("background-color",getRandomColor7());
+							$(".hh").css("background-color",getRandomColor8());
+							$(".ii").css("background-color",getRandomColor9());
+							$(".jj").css("background-color",getRandomColor10());
+							$(".kk").css("background-color",getRandomColor11());
+							$(".ll").css("background-color",getRandomColor12());
+							$(".mm").css("background-color",getRandomColor13());
+							$(".nn").css("background-color",getRandomColor14());
+							$(".oo").css("background-color",getRandomColor15());
+							$(".pp").css("background-color",getRandomColor16());
+							$(".qq").css("background-color",getRandomColor17());
+							$(".rr").css("background-color",getRandomColor18());
+							$(".ss").css("background-color",getRandomColor19());
+							$(".tt").css("background-color",getRandomColor20());
+						} else if (e.detail > 0) { // 当滑轮向下滚动时
+							/*alert("下")*/
+							$(".aa").css("background-color",getRandomColor1());
+							$(".bb").css("background-color",getRandomColor2());
+							$(".cc").css("background-color",getRandomColor3());
+							$(".dd").css("background-color",getRandomColor4());
+							$(".ee").css("background-color",getRandomColor5());
+							$(".ff").css("background-color",getRandomColor6());
+							$(".gg").css("background-color",getRandomColor7());
+							$(".hh").css("background-color",getRandomColor8());
+							$(".ii").css("background-color",getRandomColor9());
+							$(".jj").css("background-color",getRandomColor10());
+							$(".kk").css("background-color",getRandomColor11());
+							$(".ll").css("background-color",getRandomColor12());
+							$(".mm").css("background-color",getRandomColor13());
+							$(".nn").css("background-color",getRandomColor14());
+							$(".oo").css("background-color",getRandomColor15());
+							$(".pp").css("background-color",getRandomColor16());
+							$(".qq").css("background-color",getRandomColor17());
+							$(".rr").css("background-color",getRandomColor18());
+							$(".ss").css("background-color",getRandomColor19());
+							$(".tt").css("background-color",getRandomColor20());
+						}
+					}
+				}
+			
+				// 给页面绑定滑轮滚动事件
+				if (document.addEventListener) { // firefox
+					document.addEventListener('DOMMouseScroll', scrollFunc, false);
+				}
+				// 滚动滑轮触发scrollFunc方法 //ie 谷歌
+				document.onmousewheel = scrollFunc;
+			}
+			scroll();
+			
+			function getRandomColor1(){ 
+				var c = '#'; 
+				var cArray = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']; 
+					for(var i = 0; i < 6;i++) 
+				{ 
+				var cIndex = Math.round(Math.random()*15); 
+					c += cArray[cIndex]; 
+				} 
+				return c; 
+			} 
+			
+			function getRandomColor2(){ 
+				var c = '#'; 
+				var cArray = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']; 
+					for(var i = 0; i < 6;i++) 
+				{ 
+				var cIndex = Math.round(Math.random()*15); 
+					c += cArray[cIndex]; 
+				} 
+				return c; 
+			} 
+			
+			function getRandomColor3(){ 
+				var c = '#'; 
+				var cArray = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']; 
+					for(var i = 0; i < 6;i++) 
+				{ 
+				var cIndex = Math.round(Math.random()*15); 
+					c += cArray[cIndex]; 
+				} 
+				return c; 
+			} 
+			
+			function getRandomColor4(){ 
+				var c = '#'; 
+				var cArray = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']; 
+					for(var i = 0; i < 6;i++) 
+				{ 
+				var cIndex = Math.round(Math.random()*15); 
+					c += cArray[cIndex]; 
+				} 
+				return c; 
+			} 
+			
+			function getRandomColor5(){ 
+				var c = '#'; 
+				var cArray = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']; 
+					for(var i = 0; i < 6;i++) 
+				{ 
+				var cIndex = Math.round(Math.random()*15); 
+					c += cArray[cIndex]; 
+				} 
+				return c; 
+			} 
+			
+			function getRandomColor6(){ 
+				var c = '#'; 
+				var cArray = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']; 
+					for(var i = 0; i < 6;i++) 
+				{ 
+				var cIndex = Math.round(Math.random()*15); 
+					c += cArray[cIndex]; 
+				} 
+				return c; 
+			} 
+			
+			function getRandomColor7(){ 
+				var c = '#'; 
+				var cArray = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']; 
+					for(var i = 0; i < 6;i++) 
+				{ 
+				var cIndex = Math.round(Math.random()*15); 
+					c += cArray[cIndex]; 
+				} 
+				return c; 
+			} 
+			
+			function getRandomColor8(){ 
+				var c = '#'; 
+				var cArray = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']; 
+					for(var i = 0; i < 6;i++) 
+				{ 
+				var cIndex = Math.round(Math.random()*15); 
+					c += cArray[cIndex]; 
+				} 
+				return c; 
+			} 
+			
+			function getRandomColor9(){ 
+				var c = '#'; 
+				var cArray = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']; 
+					for(var i = 0; i < 6;i++) 
+				{ 
+				var cIndex = Math.round(Math.random()*15); 
+					c += cArray[cIndex]; 
+				} 
+				return c; 
+			} 
+			
+			function getRandomColor10(){ 
+				var c = '#'; 
+				var cArray = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']; 
+					for(var i = 0; i < 6;i++) 
+				{ 
+				var cIndex = Math.round(Math.random()*15); 
+					c += cArray[cIndex]; 
+				} 
+				return c; 
+			} 
+			
+			function getRandomColor11(){ 
+				var c = '#'; 
+				var cArray = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']; 
+					for(var i = 0; i < 6;i++) 
+				{ 
+				var cIndex = Math.round(Math.random()*15); 
+					c += cArray[cIndex]; 
+				} 
+				return c; 
+			} 
+			
+			function getRandomColor12(){ 
+				var c = '#'; 
+				var cArray = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']; 
+					for(var i = 0; i < 6;i++) 
+				{ 
+				var cIndex = Math.round(Math.random()*15); 
+					c += cArray[cIndex]; 
+				} 
+				return c; 
+			} 
+			
+			function getRandomColor13(){ 
+				var c = '#'; 
+				var cArray = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']; 
+					for(var i = 0; i < 6;i++) 
+				{ 
+				var cIndex = Math.round(Math.random()*15); 
+					c += cArray[cIndex]; 
+				} 
+				return c; 
+			} 
+			
+			function getRandomColor14(){ 
+				var c = '#'; 
+				var cArray = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']; 
+					for(var i = 0; i < 6;i++) 
+				{ 
+				var cIndex = Math.round(Math.random()*15); 
+					c += cArray[cIndex]; 
+				} 
+				return c; 
+			} 
+			
+			function getRandomColor15(){ 
+				var c = '#'; 
+				var cArray = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']; 
+					for(var i = 0; i < 6;i++) 
+				{ 
+				var cIndex = Math.round(Math.random()*15); 
+					c += cArray[cIndex]; 
+				} 
+				return c; 
+			} 
+			
+			
+			function getRandomColor16(){ 
+				var c = '#'; 
+				var cArray = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']; 
+					for(var i = 0; i < 6;i++) 
+				{ 
+				var cIndex = Math.round(Math.random()*15); 
+					c += cArray[cIndex]; 
+				} 
+				return c; 
+			} 
+			
+			function getRandomColor17(){ 
+				var c = '#'; 
+				var cArray = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']; 
+					for(var i = 0; i < 6;i++) 
+				{ 
+				var cIndex = Math.round(Math.random()*15); 
+					c += cArray[cIndex]; 
+				} 
+				return c; 
+			} 
+			
+			function getRandomColor18(){ 
+				var c = '#'; 
+				var cArray = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']; 
+					for(var i = 0; i < 6;i++) 
+				{ 
+				var cIndex = Math.round(Math.random()*15); 
+					c += cArray[cIndex]; 
+				} 
+				return c; 
+			} 
+			
+			function getRandomColor19(){ 
+				var c = '#'; 
+				var cArray = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']; 
+					for(var i = 0; i < 6;i++) 
+				{ 
+				var cIndex = Math.round(Math.random()*15); 
+					c += cArray[cIndex]; 
+				} 
+				return c; 
+			} 
+			
+			function getRandomColor20(){ 
+				var c = '#'; 
+				var cArray = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']; 
+					for(var i = 0; i < 6;i++) 
+				{ 
+				var cIndex = Math.round(Math.random()*15); 
+					c += cArray[cIndex]; 
+				} 
+				return c; 
+			} 
+			
+			$(function () {
+			    setInterval(function () {
+			        $(".aa").css("background-color",getRandomColor1());
+					$(".bb").css("background-color",getRandomColor2());
+					$(".cc").css("background-color",getRandomColor3());
+					$(".dd").css("background-color",getRandomColor4());
+					$(".ee").css("background-color",getRandomColor5());
+					$(".ff").css("background-color",getRandomColor6());
+					$(".gg").css("background-color",getRandomColor7());
+					$(".hh").css("background-color",getRandomColor8());
+					$(".ii").css("background-color",getRandomColor9());
+					$(".jj").css("background-color",getRandomColor10());
+					$(".kk").css("background-color",getRandomColor11());
+					$(".ll").css("background-color",getRandomColor12());
+					$(".mm").css("background-color",getRandomColor13());
+					$(".nn").css("background-color",getRandomColor14());
+					$(".oo").css("background-color",getRandomColor15());
+					$(".pp").css("background-color",getRandomColor16());
+					$(".qq").css("background-color",getRandomColor17());
+					$(".rr").css("background-color",getRandomColor18());
+					$(".ss").css("background-color",getRandomColor19());
+					$(".tt").css("background-color",getRandomColor20());
+			    }, 500);
+			})
+			
+		</script>
+	</head>
+	<body>
+		<div class="aa"></div>
+		<div class="aa bb"></div>
+		<div class="aa cc"></div>
+		<div class="aa dd"></div>
+		<div class="aa ee"></div>
+		<div class="aa ff"></div>
+		<div class="aa gg"></div>
+		<div class="aa hh"></div>
+		<div class="aa ii"></div>
+		<div class="aa jj"></div>
+		<div class="aa kk"></div>
+		<div class="aa ll"></div>
+		<div class="aa mm"></div>
+		<div class="aa nn"></div>
+		<div class="aa oo"></div>
+		<div class="aa pp"></div>
+		<div class="aa qq"></div>
+		<div class="aa rr"></div>
+		<div class="aa ss"></div>
+		<div class="aa tt"></div>
+	</body>
+</html>

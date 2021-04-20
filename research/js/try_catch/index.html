@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.aa{
+				position: relative;
+				width: 50px;
+				height: 50px;
+				background-color: black;
+			}
+		</style>
+		<script type="text/javascript" src="../../../lib/js/jquery-1.11.3.min.js" ></script>
+		<script language="javascript">
+			$(document).ready(function(){
+				$(".cc").css("background-color","orange");
+				
+				try {
+					$(".cc").css("background-color","orange");
+				　　　/*document.writeln("开始执行try块语句 ---> ")
+				　　　document.writeln("还没有发生例外 ---> ")
+				　　 　alert((prompt("输入一个值：","")))*/
+			　　 } catch(err) {
+					$(".aa").css("background-color","orange");
+			　　 　　	/*document.writeln("捕捉到例外，开始执行catch块语句 --->");
+			　　 　　	document.writeln("错误名称: " + err.name+" ---> ");
+			　　 　　	document.writeln("错误信息: " + err.message+" ---> ");*/
+			　　} finally {
+			　　 　　	$(".aa").css("background-color","orange");
+			　　}
+			});
+		
+		
+		　　
+		　</script>
+	</head>
+	<body>
+		<div class="aa"></div>
+	</body>
+</html>

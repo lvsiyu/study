@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<!--<script src="//cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
+		<script src="../../../lib/js/jquery-1.11.3.min.js"></script>
+
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+			
+			html,
+			body {
+				position: relative;
+				width: 100%;
+				height: 100%;
+				overflow: auto;
+				margin: 0;
+				padding: 0;
+				background: #C4C4C4;
+			}
+			
+			.container {
+				position: absolute;
+				width: 40%;
+				height: 50%;
+				margin: auto;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				border: 3px solid orange;
+				background-color: #FFF;
+				border-radius: 10px;
+				overflow: hidden;
+				padding: 5px;
+			}
+			
+			.top {
+				position: relative;
+				width: 100%;
+				height: calc(100% - 100px);
+				border: 1px solid black;
+				overflow: auto;
+			}
+			
+			.down {
+				position: relative;
+				width: 100%;
+				border: 1px solid black;
+			}
+			
+			.test_box {
+				position: relative;
+				width: calc(100% - 120px);
+				height: 100px;
+				overflow: auto;
+			}
+			
+			.chose {
+				position: absolute;
+				width: 120px;
+				height: 100px;
+				top: 0;
+				right: 0;
+				background-color: #CECECE;
+			}
+			
+			.submit {
+				position: absolute;
+				width: 100px;
+				height: 40px;
+				right: 10px;
+				bottom: 5px;
+				background-color: cornflowerblue;
+				line-height: 40px;
+				color: #FFF;
+				font-size: 20px;
+				font-weight: bold;
+				text-align: center;
+				cursor: pointer;
+			}
+			
+			.clear {
+				position: absolute;
+				width: 100px;
+				height: 40px;
+				right: 10px;
+				bottom: 55px;
+				background-color: cornflowerblue;
+				line-height: 40px;
+				color: #FFF;
+				font-size: 20px;
+				font-weight: bold;
+				text-align: center;
+				cursor: pointer;
+			}
+			
+			.people {
+				position: relative;
+				width: 100%;
+				margin: 5px 0px;
+				padding: 0px 5px;
+			}
+			
+			.people:after {
+				content: "";
+				display: block;
+				clear: both;
+			}
+			
+			.pic {
+				position: relative;
+				width: 25px;
+				height: 25px;
+				background-color: orange;
+				float: left;
+				text-align: center;
+				line-height: 25px;
+				font-weight: bold;
+				font-size: 18px;
+			}
+			
+			.content {
+				position: relative;
+				display: inline-block;
+				vertical-align: top;
+				padding: 0px 15px;
+				background-color: cornflowerblue;
+				line-height: 30px;
+				margin-left: 15px;
+				border-radius: 5px;
+				top: -2.5px;
+				max-width: 80%;
+			}
+			
+			.pic2 {
+				position: relative;
+				width: 25px;
+				height: 25px;
+				background-color: cornflowerblue;
+				float: right;
+				text-align: center;
+				line-height: 25px;
+				font-weight: bold;
+				font-size: 18px;
+			}
+			
+			.content2 {
+				position: relative;
+				display: inline-block;
+				vertical-align: top;
+				padding: 0px 15px;
+				background-color: orange;
+				line-height: 30px;
+				margin-right: 15px;
+				max-width: 80%;
+				float: right;
+				border-radius: 5px;
+				top: -2.5px;
+			}
+		</style>
+
+		<script>
+			function lala() {
+				msg = ["手榴弹见你都会自爆。。",
+				"逗逼", "傻吊", "尼玛的", "你个大傻逼", 
+				"有病", "狗日的", "你长得真随心所欲啊！", 
+				"任何人工智能都敌不过阁下这款天然傻瓜。", 
+				"你小时候被猪亲过吧?", "你在做自我介绍吗？",
+				"你的样子真的很棒哦！就跟个棒槌一个样。",
+				"2B形容你，人家铅笔不乐意！",
+				"当你拿起镜子，看着自己，你以为是多余的，其实吧……你还真是多余的。",
+				"听你说话，一种智商上的优越感油然而生。",
+				"你肺活量得有多大啊？把牛B都吹得那么大。",
+				"怪只怪我太年轻，是人是狗都分不清！",
+				"瞧来瞧去漫山遍野的傻逼，原来你也在这里！"
+				];	
+			}
+
+			$(document).ready(function() {
+				lala();
+				var ran = msg[Math.floor(Math.random() * msg.length)];
+				document.getElementById("text").focus();
+				$(".submit").click(function() {
+					var html = $(".test_box").html();
+					if(html == "") {
+						alert("请输入内容");
+						document.getElementById("text").focus();
+					} else {
+						$(".top").append("<div class='people'><div class='pic'>A</div><div class='content'>" + html + "</div></div>");
+						$(".test_box").html("");
+						document.getElementById("text").focus();
+						setTimeout(function() {
+							$(".top").append("<div class='people'><div class='pic2'>B</div><div class='content2'>" + ran + "</div></div>");
+							$('.top').scrollTop($('.top')[0].scrollHeight);
+							$(".test_box").html("");
+						}, 200);
+
+					}
+
+				})
+
+				$(".clear").click(function() {
+					$(".top").html("");
+				});
+			})
+
+			$(document).keydown(function(event) {
+				//判断当event.keyCode 为37时（即左方面键），执行函数to_left();
+				//判断当event.keyCode 为39时（即右方面键），执行函数to_right();
+				lala();
+				var ran = msg[Math.floor(Math.random() * msg.length)];
+				document.getElementById("text").focus();
+				if(event.keyCode == 13) {
+					var html = $(".test_box").html();
+					if(html == "") {
+						alert("请输入内容");
+						document.getElementById("text").focus();
+
+					} else {
+						$(".top").append("<div class='people'><div class='pic'>A</div><div class='content'>" + html + "</div></div>");
+						$(".test_box").html("");
+						document.getElementById("text").focus();
+						setTimeout(function() {
+							$(".top").append("<div class='people'><div class='pic2'>B</div><div class='content2'>" + ran + "</div></div>");
+							$('.top').scrollTop($('.top')[0].scrollHeight);
+							$(".test_box").html("");
+						}, 200);
+
+					}
+				}
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="top">
+				<!--<div class="people"><div class="pic"></div><div class="content"></div></div>-->
+				<!--<div class="people"><div class="pic2"></div><div class="content2">555</div></div>-->
+			</div>
+			<div class="down">
+				<div id="text" class="test_box" contenteditable="true"></div>
+				<div class="chose">
+					<div class="clear">清空</div>
+					<div class="submit">提交</div>
+				</div>
+
+			</div>
+		</div>
+	</body>
+
+</html>

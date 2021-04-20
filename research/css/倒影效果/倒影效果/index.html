@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../../lib/js/jquery-1.11.3.min.js"></script>
+		<style>
+			.demo img {
+				width: 256px;
+				height: 191px;
+			}
+			
+			.reflect-below-p {
+				padding-bottom: 176px;
+			}
+			
+			.reflect-below {
+				-webkit-box-reflect: below;
+			}
+			
+			.reflect-right {
+				-webkit-box-reflect: right;
+			}
+			
+			.reflect-right-translate {
+				-webkit-box-reflect: right 10px;
+			}
+			
+			.reflect-below-mask {
+				-webkit-box-reflect: below 0 linear-gradient(transparent, white);
+			}
+			
+			.reflect-below-img {
+				-webkit-box-reflect: below 0 url("../../../../lib/img/beautiful/shuai2.png");
+			}
+			
+			.list {
+				min-width: 220px;
+				display: inline-block;
+				vertical-align: top;
+			}
+			
+			.reflect-below-mask {
+				-webkit-box-reflect: below 0 linear-gradient(transparent, white);
+			}
+			
+			#reflect{
+				position: relative;
+				display: inline-block;
+			}
+			
+			.element-reflect-below {
+				width: 256px;
+				height: 191px;
+				background: -moz-element(#reflect);
+				transform: scaleY(-1);
+			}
+			
+			.element-reflect-below:before {
+				content: '';
+				display: block;
+				height: 100%;
+				background-image: linear-gradient(to top, hsla(0, 0%, 100%, 0), white);
+			}
+			
+			.spin {
+				animation: spin 3s infinite linear;
+			}
+			
+			@keyframes spin {
+				form {
+					transform: rotate(0);
+				}
+				to {
+					transform: rotate(360deg);
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="demo">
+			<div class="list">
+				<strong>下倒影</strong>
+				<p class="reflect-below-p"><img src="../../../../lib/img/beautiful/mm3.jpg" class="reflect-below"></p>
+			</div>
+			<div class="list">
+				<strong>右倒影</strong>
+				<p><img src="../../../../lib/img/beautiful/mm3.jpg" class="reflect-right"></p>
+				<strong>右倒影同时有偏移</strong>
+				<p><img src="../../../../lib/img/beautiful/mm3.jpg" class="reflect-right-translate"></p>
+			</div>
+			<p></p>
+			<div class="list">
+				<strong>下倒影同时有遮罩（线性渐变）</strong>
+				<p class="reflect-below-p"><img src="../../../../lib/img/beautiful/mm3.jpg" class="reflect-below-mask"></p>
+			</div>
+			<div class="list">
+				<strong>下倒影同时有遮罩（使用png图片）</strong>
+				<p class="reflect-below-p"><img src="../../../../lib/img/beautiful/mm3.jpg" class="reflect-below-img"></p>
+			</div>
+		</div>
+
+		<p><strong>下倒影同时有遮罩（线性渐变）</strong></p>
+		<div id="reflect" class="wrap"><img src="../../../../lib/img/beautiful/mm3.jpg" class="reflect-below-mask"></div>
+		<div class="element-reflect-below"></div>
+		<p><button id="button">图片转起来</button></p>
+
+		<script>
+			var button = document.getElementById('button'),
+				reflect = document.getElementById('reflect');
+
+			if(button && reflect) {
+				button.onclick = function() {
+					if(/spin/.test(reflect.className) == false) {
+						reflect.classList.add('spin');
+						this.innerHTML = '旋转停止';
+					} else {
+						reflect.classList.remove('spin');
+						this.innerHTML = '图片转起来';
+					}
+				};
+			}
+		</script>
+	</body>
+
+</html>

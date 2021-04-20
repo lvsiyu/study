@@ -1,0 +1,12 @@
+.aa {
+	position: relative;
+	width: 500px;
+	height: 500px;
+	background-color: red;
+}
+
+@media screen and (min-width: 1px) and (max-width: 640px) {
+	.aa {
+		background-color: blue;
+	}
+}

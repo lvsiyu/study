@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.languages {
+				counter-reset: characters;
+			}
+			
+			input:checked {
+				counter-increment: characters;
+			}
+			
+			.total:after {
+				content: counter(characters);
+			}
+			
+			body {
+				font-family: Verdana, sans-serif;
+			}
+			
+			label {
+				font-size: 15px;
+				margin: 0 10px 0 0;
+				display: inline-block;
+			}
+			
+			input[type=checkbox] {
+				position: absolute;
+				left: -10000px;
+			}
+			
+			input[type=checkbox]+ label:before {
+				content: "";
+				border: 1px solid #000;
+				color: transparent;
+				cursor: pointer;
+				display: inline-block;
+				font-size: 15px;
+				line-height: 16px;
+				margin: 0 5px 0 0;
+				height: 18px;
+				width: 18px;
+				text-align: center;
+				vertical-align: middle;
+				transition: color ease .4s;
+			}
+			
+			input[type=checkbox]:checked+ label:before {
+				content: "\2713";
+				color: #000;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="languages">
+			<input id="c" type="checkbox"><label for="c">C</label>
+			<input id="C++" type="checkbox"><label for="C++">C++</label>
+			<input id="C#" type="checkbox"><label for="C#">C#</label>
+			<input id="Java" type="checkbox"><label for="Java">Java</label>
+			<input id="JavaScript" type="checkbox"><label for="JavaScript">JavaScript</label>
+			<input id="PHP" type="checkbox"><label for="PHP">PHP</label>
+			<input id="Python" type="checkbox"><label for="Python">Python</label>
+			<input id="Ruby" type="checkbox"><label for="Ruby">Ruby</label>
+		</div>
+		<p class="total">
+			Total selected:
+		</p>
+	</body>
+
+</html>

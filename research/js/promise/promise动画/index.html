@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../../lib/js/jquery-1.11.3.min.js"></script>
+
+		<style>
+			.aa {
+				position: absolute;
+				width: 50px;
+				height: 50px;
+				top: 0;
+				left: 0;
+				background-color: orange;
+			}
+			
+			.bb {
+				position: absolute;
+				width: 50px;
+				height: 50px;
+				top: 0;
+				left: 0;
+				background-color: green;
+			}
+			
+			.cc {
+				position: absolute;
+				width: 50px;
+				height: 50px;
+				top: 0;
+				left: 0;
+				background-color: red;
+			}
+		</style>
+
+		<script>
+			/*这是原生写的，不停地嵌套嵌套，贼烦*/
+			/*$(document).ready(function(){
+				$('.aa').animate({ 
+				    opacity:'.5'
+				}, 4000,function(){
+				    $('.bb').animate({
+				        left:'100px'
+				    },2000,function(){
+				        $('.cc').animate({
+				            top:'100px'
+				        },2000);
+				    });
+				});
+			});*/
+
+			$(document).ready(function() {
+				var animate1 = function() {
+					return $('.aa').animate({
+						opacity: '.5'
+					}, 2000).promise();
+				};
+				var animate2 = function() {
+					return $('.bb').animate({
+						left: '100px'
+					}, 2000).promise();
+				};
+				var animate3 = function() {
+					return $('.cc').animate({
+						top: '100px'
+					}, 2000).promise();
+				};
+				$.when(animate1()).then(animate2).then(animate3);
+			})
+		</script>
+	</head>
+
+	<body>
+		<div class="cc"></div>
+		<div class="bb"></div>
+		<div class="aa"></div>
+	</body>
+
+</html>

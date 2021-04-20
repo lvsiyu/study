@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <meta charset="utf-8"></meta>
+        <title>字数多余隐藏</title>
+		<script type="text/javascript" src="../../../../lib/js/jquery-1.11.3.min.js"></script>
+		<style type="text/css">
+			.ellipsis {
+				width: 10%;
+				height: 100px;
+				margin-bottom: 30px;
+				border: 1px solid red;
+			}
+			
+			.ellipsis-child {
+				letter-spacing: 0px;
+				line-height: 20px;
+				font-size: 16px;
+			}
+		</style>
+    </head>
+    <body>
+		<ul>
+			
+			<li class="ellipsis">
+				<div class="ellipsis-child">
+				新增的属性，现在有很多浏览器都支持新增的属性，新增的属性，现在有很多浏览器都支持新增的属性0000000现在有很多浏览器都支持新增的属性0000000
+				</div>
+			</li>
+		</ul>
+		<script>
+			$(function(){
+				$(".ellipsis").each(function(){
+					ellipsis($(this));
+				});
+			});
+			
+			$(window).resize(function() {
+				$(".ellipsis").each(function(){
+					ellipsis($(this));
+				});
+			});
+			
+			function ellipsis(obj) {
+				//debugger;
+				var child  = obj.find(".ellipsis-child");
+				var h1     = obj.height();
+				var h2     = child.height();
+				var str    = child.html();
+				var width  = $(".ellipsis").width();
+				var height = $(".ellipsis").height();
+				var widthline = width / 16;
+				var heightline = height / 20;
+				var kk = widthline * heightline;
+				//debugger;
+				
+				if(h1 < h2) {
+					if(str && str.length > 2) {
+						str = str.substring(0, str.length-2);
+						child.html(str);
+						ellipsis(obj);
+					}
+					else {
+						
+						return;
+					}
+				}
+				else {
+					if(str.length > 0 && str.length < kk-2) {
+						child.html(str);
+					}else{
+						str = str.substring(0, str.length-2);
+						str = str + "...";
+						child.html(str);
+						return;
+					}
+					
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<script type="text/javascript" src="../../../lib/js/jquery-1.11.3.min.js" ></script>
+		<style>
+			.noise {
+				height: 500px;
+				background-color: #333;
+				position: relative;
+			}
+			
+			.noise canvas {
+				height: 100%;
+				width: 100%;
+				opacity: .2;
+			}
+			
+			.noise::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background-image: -webkit-radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .4));
+				background-image: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .4));
+			}
+			
+			#nosicCanvas{
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+		<script>
+			$(document).ready(function(){
+				setInterval(function(){
+					aa();
+				},5);
+			});
+		</script>
+	</head>
+
+	<body>
+		<canvas id="nosicCanvas"></canvas>
+		<script>
+		
+		function aa(){
+			var canvasNoise = (function(document, window) {
+				"use strict";
+
+				var defaults = {
+					// canvas实际宽度，如果没有设置，就按照载入页面的canvas可视宽度作为其宽度
+					width: 0,
+					// 上面注释所有“宽度”换成“高度”            
+					height: 0,
+					// 噪点重复单元片段的宽度和高度                 
+					pieceWidth: 100,
+					pieceHeight: 100,
+					// 噪点的尺寸大小
+					pixelWidth: 1,
+					pixelHeight: 1
+				};
+
+				// 绘制一个噪点片段
+				// 原因在于：
+				// 如果满屏绘制，性能会很差
+				// 像墙面的瓷砖一样，只要弄一个，其他再重复拼起来就可以
+				var canvasPiece = function(options) {
+					var canvas = document.createElement('canvas'),
+						context = canvas.getContext('2d');
+					// 尺寸
+					var pieceWidth = options.pieceWidth,
+						pieceHeight = options.pieceHeight;
+					// 像素点大小
+					var pixelWidth = options.pixelWidth,
+						pixelHeight = options.pixelHeight;
+
+					// 在特定的小尺寸上，绘制满满的随机灰色系的颜色
+					for(var y = 0; y < pieceHeight; y += pixelHeight) {
+						for(var x = 0; x < pieceWidth; x += pixelWidth) {
+							var color = Math.floor(Math.random() * 150);
+							context.fillStyle = "rgba(" + color + "," + color + "," + color + ",1)";
+							context.fillRect(x, y, pixelWidth, pixelHeight);
+						}
+					}
+					return canvas;
+				};
+
+				// 根据上面绘制的噪点片段拼接成一个大的完整的噪点效果
+				var draw = function(canvas, options) {
+					// 片段噪点canvas
+					var piece = canvasPiece(options);
+
+					// 这里的canvas参数就是页面中的canvas啦
+					var context = canvas.getContext('2d');
+					// 根据尺寸算出需要多少个片段可以拼出来
+					var width = options.width,
+						height = options.height;
+					var pieceWidth = options.pieceWidth,
+						pieceHeight = options.pieceHeight;
+
+					// 片段个数
+					var tileNumH = Math.ceil(width / pieceWidth),
+						tileNumV = Math.ceil(height / pieceHeight);
+
+					// 使用drawImage方法把片段噪点一个一个绘制到大的画布上
+					for(var x = 0; x < tileNumH; x++) {
+						for(var y = 0; y < tileNumV; y++) {
+							context.drawImage(
+								// 被用来复制的片段canvas图形
+								piece,
+								// 拿来绘制的画布的起始点和区域大小
+								0, 0,
+								pieceWidth, pieceHeight,
+								// 当前画布绘制的起始点和区域大小
+								x * pieceWidth,
+								y * pieceHeight,
+								pieceWidth,
+								pieceHeight
+							);
+						}
+					}
+
+				};
+
+				return function(canvas, options) {
+					// 下面这么多行就是参数的合并什么的
+					var params = {};
+					options = options || {};
+					for(var key in defaults) {
+						params[key] = options[key] || defaults[key];
+					}
+
+					if(!params.width) {
+						params.width = canvas.clientWidth;
+					}
+					if(!params.height) {
+						params.height = canvas.clientHeight;
+					}
+
+					// 设定尺寸，避免拉伸
+					canvas.width = params.width;
+					canvas.height = params.height;
+
+					// 噪点画起来
+					draw(canvas, params);
+				};
+			})(document, window);
+
+			// IE9+浏览器才支持canvas，因此，忽略IE8-
+			if([].map) {
+				var canvas = document.querySelector('#nosicCanvas');
+				canvasNoise(canvas, {
+					pieceWidth: 300,
+					pieceHeight: 150
+				});
+			}
+		}
+			
+			
+			
+		</script>
+
+		
+
+	</body>
+
+</html>

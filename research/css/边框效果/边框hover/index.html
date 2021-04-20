@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/hover_biankuang.css" />
+		<script type="text/javascript" src="../../../../lib/js/jquery-1.11.3.min.js"></script>
+
+		<script type="text/javascript">
+			$(function() {
+				$('.link .button').hover(function() {
+					var title = $(this).attr('data-title');
+					$('.tip em').text(title);
+					var pos = $(this).offset().left;
+					var dis = ($('.tip').outerWidth() - $(this).outerWidth()) / 2;
+					var l = pos - dis;
+					$('.tip').css({
+						'left': l + 'px'
+					}).animate({
+						'top': 180,
+						'opacity': 1
+					}, 300);
+				}, function() {
+					$('.tip').animate({
+						'top': 160,
+						'opacity': 0
+					}, 300);
+				})
+			})
+		</script>
+	</head>
+
+	<body>
+
+		<div class="box">
+			<div class="link mission-link">
+				<span class="icon animated"></span>
+				<a class="button" data-title="My mission is clear">
+					<span class="line line-top"></span>
+					<span class="line line-right"></span>
+					<span class="line line-bottom"></span>
+					<span class="line line-left"></span> Mission
+				</a>
+			</div>
+			<div class="link play-link">
+				<span class="icon animated"></span>
+				<a class="button" data-title="This is my playground">
+					<span class="line line-top"></span>
+					<span class="line line-right"></span>
+					<span class="line line-bottom"></span>
+					<span class="line line-left"></span> Play
+				</a>
+			</div>
+			<div class="link touch-link">
+				<span class="icon animated"></span>
+				<a class="button" data-title="This is my playground demos">
+					<span class="line line-top"></span>
+					<span class="line line-right"></span>
+					<span class="line line-bottom"></span>
+					<span class="line line-left"></span> Touch
+				</a>
+			</div>
+			<p class="tip" style="left: 592.5px; top: 160px; opacity: 0;"><em>My mission is clear</em><span></span></p>
+		</div>
+
+	</body>
+
+</html>

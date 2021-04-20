@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../lib/js/jquery-1.11.3.min.js" ></script>
+		<style>
+			*{
+				box-sizing: border-box;
+			}
+			html,body{
+				margin: 0;
+				padding: 0;
+				border: 0;
+				overflow: hidden;
+			}
+			
+			::-webkit-scrollbar {
+			    -webkit-appearance: none;
+			    width: 7px;
+			    height: 7px;
+			}
+			
+			::-webkit-scrollbar-thumb {
+			    border-radius: 4px;
+			    background-color: #888;
+			}
+			
+			.all_father{
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				overflow: auto;
+			}
+			
+			.father{
+				position: relative;
+				width: 100%;
+			}
+			
+			.block{
+				position: relative;
+				width: 100%;
+				height: 500px;
+			}
+			
+			.aa{
+				background-color: orange;
+			}
+			
+			.bb{
+				background-color: black;
+			}
+			
+			.cc{
+				background-color: yellow;
+			}
+			
+			.dd{
+				background-color: green;
+			}
+			
+			.ee{
+				background-color: red;
+			}
+			
+			.ff{
+				background-color: blue;
+			}
+			
+			.gg{
+				background-color: blueviolet;
+			}
+			
+			.guide_father{
+				position: fixed;
+				margin: auto;
+				height: 300px;
+				right: 0;
+				top: 0;
+				bottom: 0;
+			}
+			
+			.guide_list{
+				position: absolute;
+				width: 60px;
+				height: 60px;
+				left: auto;
+				right: 0;
+				background-color: brown;
+				color: #FFF;
+				line-height: 60px;
+				text-align: center;
+				border: 2px solid #FFF;
+				cursor: pointer;
+			}
+			
+			.a{
+				top: 0px;
+			}
+			
+			.b{
+				top: 60px;
+			}
+			
+			.c{
+				top: 120px;
+			}
+			
+			.d{
+				top: 180px;
+			}
+			
+			.e{
+				top: 240px;
+			}
+			
+			.f{
+				top: 300px;
+			}
+			
+			.g{
+				top: 360px;
+			}
+		</style>
+		
+		<script>
+			$(document).ready(function(){
+				var aa=$(".aa").offset().top;
+				var bb=$(".bb").offset().top;
+				var cc=$(".cc").offset().top;
+				var dd=$(".dd").offset().top;
+				var ee=$(".ee").offset().top;
+				var ff=$(".ff").offset().top;
+				var gg=$(".gg").offset().top;
+				
+				var a_width = $(window).width();
+				var b_width = $(".all_father")[0].scrollWidth;
+				var scroll_width = a_width - b_width;//获得滚动条宽度
+				
+				$(".guide_father").css("right",scroll_width + "px");
+				
+				
+				$(".guide_list").hover(function(){
+					$(this).stop().animate({
+						width: "150px"
+					}, 500);
+					$(this).css("background-color","#FFF");
+					$(this).css("border","2px solid #000");
+					$(this).css("color","#000");
+				},function(){
+					$(this).stop().animate({
+						width: "60px"
+					}, 500);
+					$(this).css("background-color","brown");
+					$(this).css("border","2px solid #FFF");
+					$(this).css("color","#FFF");
+				});
+				
+				
+				$(".a").click(function(){
+					$(".all_father").animate({
+						scrollTop: aa
+					}, 500);
+				});
+				
+				$(".b").click(function(){
+					$(".all_father").animate({
+						scrollTop: bb
+					}, 500);
+				});
+				
+				$(".c").click(function(){
+					$(".all_father").animate({
+						scrollTop: cc
+					}, 500);
+				});
+				
+				$(".d").click(function(){
+					$(".all_father").animate({
+						scrollTop: dd
+					}, 500);
+				});
+				
+				$(".e").click(function(){
+					$(".all_father").animate({
+						scrollTop: ee
+					}, 500);
+				});
+				
+				$(".f").click(function(){
+					$(".all_father").animate({
+						scrollTop: ff
+					}, 500);
+				});
+				
+				$(".g").click(function(){
+					$(".all_father").animate({
+						scrollTop: gg
+					}, 500);
+				});
+				
+			});
+		</script>
+	</head>
+	<body>
+		<div class="all_father">
+			<div class="father">
+				<div class="block aa">a</div>
+				<div class="block bb">b</div>
+				<div class="block cc">c</div>
+				<div class="block dd">d</div>
+				<div class="block ee">e</div>
+				<div class="block ff">f</div>
+				<div class="block gg">g</div>
+			</div>
+		</div>
+		
+		<div class="guide_father">
+			<div class="guide_list a">a</div>
+			<div class="guide_list b">b</div>
+			<div class="guide_list c">c</div>
+			<div class="guide_list d">d</div>
+			<div class="guide_list e">e</div>
+			<div class="guide_list f">f</div>
+			<div class="guide_list g">g</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+
+		<link rel="shortcut icon" href="../../../lib/img/favicon/hahaha.ico" site="1">
+		<script type="text/javascript" src="../../../lib/js/jquery-1.11.3.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				/*var rurl = $("link[rel='shortcut icon']").attr("href");*/
+
+				setInterval(function() {
+					var site = $("link[rel='shortcut icon']").attr("site");
+					if(site == 1) {
+						$("link[rel='shortcut icon']").attr("href", "../../../lib/img/favicon/heihei.ico");
+						$("link[rel='shortcut icon']").attr("site", "2");
+					} else if(site == 2) {
+						$("link[rel='shortcut icon']").attr("href", "../../../lib/img/favicon/hahaha.ico");
+						$("link[rel='shortcut icon']").attr("site", "1");
+					} else {}
+				}, 100)
+			});
+		</script>
+	</head>
+
+	<body>
+		看上面的页签！！
+	</body>
+
+</html>

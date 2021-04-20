@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			/*
+			 [attr]只要元素有attr这个属性就可以
+			 [attr=”val”]元素的属性名是'attr'值必须是'val'
+			 [attr~=”val”]'attr'值需含有单词'val'，注意这里的措辞是“单词”而不是字符，CSS是老外发明的，老外的的母语是English, English的句子都是一个单词+空格+一个单词实现的
+			 [attr|=”bar”]'attr'属性值开头必须是bar的单词，或者开头是bar-。同样的，是“单词”，不是“字符”
+			 [attr=^”val”]值开头三个字符需要是val
+			 [attr$=”val”]属性值最后三个字符需要是val
+			 [attr*=”val”]属性值任意位置包含val这三个字符就可以
+			 [attr operator value i]就和正则表达式中的i作用一样，忽略大小写，由于类似中文这样的语言并没有大小写的概念，因此，此特性也只对ASCII范围的字符。
+			 * */
+		
+			li[lala^='t'] {
+				color: #cd0000;
+			}
+			
+			li[lala^='f'] {
+				color: blue;
+			}
+			
+			li[lala|='lala']{
+				color: orange;
+				font-weight: bold;
+			}
+			
+			li[lala^='f' i]:after {
+				content: '✓支持i正则';
+				margin-left: 30px;
+				color: green;
+				font-family: "Lucida Console", Monaco, monospace;
+			}
+		</style>
+	</head>
+
+	<body>
+		<li lala="one">data-index="one"</li>
+		<li lala="Two">data-index="Two"</li>
+		<li lala="three">data-index="three"</li>
+		<li lala="FOUr">data-INDEX="FOUr"</li>
+		<li LAla="five">DATA-index="five"</li>
+		<li lala="lala-haha">lala-haha</li>
+		<li lala="heihei-haha">heihei-haha</li>
+		<li lala="lala-heihei">lala-heihei</li>
+	</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="../../../lib/css/validate_Css/jquery.validate.css" />
+		<script type="text/javascript" src="../../../lib/js/jquery-2.2.2.min.js" ></script>
+		<script type="text/javascript" src="../../../lib/js/validate_Js/jquery.validate.js" ></script>
+		
+		
+		<title></title>
+		<style type="text/css">
+			input{
+				position: relative;
+				width: 200px;
+			}
+			.aa{
+				position: relative;
+				width: 200px;
+				height: 50px;
+				cursor: pointer;
+				background-color: orange;
+			}
+		</style>
+		<script>
+			$(function() {
+				$("#kkk").validate({
+					onfocusout: function(element){
+						$(element).valid();
+					},
+					//focusCleanup: true
+					//onsubmit : false		//取消校验		
+				});  
+			});
+		
+			//只校验不提交
+			function check() {
+				var validator = $( "#kkk" ).validate();
+				if(validator.form()==true) {
+					$( "#kkk" ).submit();
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<form id="kkk" action="http://www.baidu.com">
+			<div>
+				<input type="text" required="true"  />
+			</div>
+			<div>
+				<input type="submit" class="aa">
+			</div>
+		</form>
+	</body>
+</html>

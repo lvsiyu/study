@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>js手机号码验证以及隐藏中间四位数字</title>
+	<script type="text/jscript" src="../../../lib/js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="../../../lib/js/centerhide/center-hide.js" ></script>
+</head>
+<body>
+	  <input type="text" id="myText">
+	  	<p>js手机验证以及隐藏手机号码中间四位</p>
+	  <input type="button" value="提交" id="subBtn">
+	  <script type='text/javascript'>      
+      $(function(){
+      	  $("#subBtn").click(function(){
+      	  	 if($("#myText").val()==""){
+      	  	 	  alert("手机号码不能为空")
+      	  	 }else{
+      	  	 	  if(iphoneCheck(myText)){
+      	  	 	  	 alert("提交成功");
+      	  	 	  	 var phone=$("#myText").val();
+      	  	 	  	 var myphone=phone.substr(3,4);
+      	  	 	  	 //alert(myphone)
+      	  	 	  	 var lphone=phone.replace(myphone,"****");
+      	  	 	  	 $("#myText").val(lphone);
+      	  	 	  }else{
+      	  	 	  	 alert("请输入正确的手机号码")
+      	  	 	  }
+      	  	 }
+      	  	 
+      	  	 function iphoneCheck(id){
+      	  	 	  var temp=document.getElementById("myText");
+      	  	 	  var re=/^[1][34587]\d{9}$/;//手机号码验证正则表达式
+      	  	 	  if(re.test(temp.value)){
+      	  	 	  	 return true;
+      	  	 	  }else{
+      	  	 	  	 return false;
+      	  	 	  }
+      	  	 }
+      	  });
+      });
+	  </script>
+</body>
+</html>

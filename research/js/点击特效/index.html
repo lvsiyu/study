@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../lib/js/jquery-2.2.2.min.js" ></script>
+		<style>
+			body {
+			    background: white;
+			}
+			button {
+			    font-size: 16px;
+			    border: none;
+			    outline: none;
+			    padding: 20px 15px;
+			    background: rgba(13, 13, 111, 0.69);
+			    color: white;
+			    cursor: pointer;
+			}
+			/*  Ripple */
+			
+			.ripple {
+			    width: 0;
+			    height: 0;
+			    border-radius: 50%;
+			    background: rgba(255, 255, 255, 0.4);
+			    transform: scale(0);
+			    position: absolute;
+			    opacity: 1;
+			}
+			.rippleEffect {
+			    animation: rippleDrop .6s linear;
+			}
+			@keyframes rippleDrop {
+			    100% {
+			        transform: scale(2);
+			        opacity: 0;
+			    }
+			}
+		</style>
+		<script>
+			$(document).ready(function(){
+				$("button").click(function(e) {
+
+				    /* Add the ripple */
+				
+				    // Remove any old one
+				    $(".ripple").remove();
+				
+				    // Setup
+				    var posX = $(this).offset().left,
+				        posY = $(this).offset().top,
+				        buttonWidth = $(this).width(),
+				        buttonHeight = $(this).height();
+				
+				    // Add the element
+				    $(this).prepend("<span class='ripple'></span>");
+				
+				    // Make it round!
+				    if (buttonWidth >= buttonHeight) {
+				        buttonHeight = buttonWidth;
+				    } else {
+				        buttonWidth = buttonHeight;
+				    }
+				
+				    // Get the center of the element
+				    var x = e.pageX - posX - buttonWidth / 2;
+				    var y = e.pageY - posY - buttonHeight / 2;
+				
+				    // Add the ripples CSS and start the animation
+				    $(".ripple").css({
+				        width: buttonWidth,
+				        height: buttonHeight,
+				        top: y + 'px',
+				        left: x + 'px'
+				    }).addClass("rippleEffect");
+				});
+			})
+		
+			
+		</script>
+	</head>
+	<body>
+		<button>test material design button</button>
+	</body>
+</html>

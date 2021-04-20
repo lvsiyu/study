@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../../lib/js/jquery-1.11.3.min.js" ></script>
+		<style>
+			.aa:only-child{
+				color: red;
+			}
+		</style>
+		<!--<script>
+			$(document).ready(function(){
+				$(".aa:only-child").css("color","blue");
+			});
+		</script>-->
+		
+		<!--注：使用jquery的only-child选择，能够兼容ie8.但是使用css来写就不兼容ie8-->
+	</head>
+	<body>
+		<div>
+			<div class="aa">1111111111111111</div>
+		</div>
+		
+		<div>
+			<div class="aa">1111111111111111</div>
+			<div class="aa">1111111111111111</div>
+		</div>
+		
+		<div>
+			<div class="aa">1111111111111111</div>
+		</div>
+		
+		<div>
+			<div class="aa">1111111111111111</div>
+			<div class="aa">1111111111111111</div>
+			<div class="aa">1111111111111111</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+			<script type="text/javascript" src="../../../lib/js/jquery-1.11.3.min.js" ></script>
+		<title></title>
+		<style>
+			html,body{
+				position: relative;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+			}
+			.click{
+				position: absolute;
+				top: 500px;
+				left: 100px;
+				width: 50px;
+				height: 50px;
+				background-color: black;
+				display: inline-block;
+				cursor: pointer;
+			}
+			
+			.off{
+				position: absolute;
+				top: 500px;
+				left: 300px;
+				width: 50px;
+				height: 50px;
+				background-color: black;
+				cursor: pointer;
+				display: inline-block;
+			}
+			
+			.aa {
+			  stroke-dasharray: 2000;/*设定他的虚线长度。长度如果超过所画路径最大值，就显示一条直线，如果小于，就是虚线*/
+			  stroke-dashoffset: 2000;/*设定他的偏移量，如果是画出一条线，那么需要和虚线长度一样长。。。如果让虚线移动，那么给一个数值，决定了视觉上的移动速度*/
+			  -webkit-animation: dash 3s linear infinite;
+			  animation: dash 3s linear infinite;
+			}
+			
+			@-webkit-keyframes dash {
+			  to {
+			    stroke-dashoffset: 0;
+			  }
+			}
+			@keyframes dash {
+			  to {
+			    stroke-dashoffset: 0;
+			  }
+			}
+		</style>
+		
+		<script>
+			$(document).ready(function(){
+				$(".click").click(function(){
+					$("#svgForStroke").show();
+					$(".bb").attr("class","aa");
+				});
+				$(".off").click(function(){
+					$("#svgForStroke").hide();
+					$(".bb").attr("class","bb");
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<svg id="svgForStroke" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+			<!--<path d="M 15,100 L 115,0 Q 115,0 215,100 T 415,100" stroke="#cd0000" stroke-width="2" fill="none" />-->     <!--直线加曲线-->
+			<path class="bb" d="M 15,100 L 1615,100" stroke="#cd0000" stroke-width="2" fill="none" />
+			<path class="bb" d="M 15,100 Q 115,0 215,100 T 415,100 Q 515,0 615,100 T 815,100 Q 915,0 1015,100 T 1215,100 Q 1315,0 1415,100 T 1615,100" stroke="#cd0000" stroke-width="2" fill="none" />
+			<path class="bb" d="M 15,100 Q 115,200 215,100 T 415,100 Q 515,200 615,100 T 815,100 Q 915,200 1015,100 T 1215,100 Q 1315,200 1415,100 T 1615,100" stroke="#cd0000" stroke-width="2" fill="none" />
+			<!--<path d="M 15,100 Q 215,-100 415,100 T 815,100 Q 1015,-100 1215,100 T 1615,100" stroke="#cd0000" stroke-width="2" fill="none" />
+			<path d="M 15,100 Q 215,300 415,100 T 815,100 Q 1015,300 1215,100 T 1615,100" stroke="#cd0000" stroke-width="2" fill="none" />-->
+		</svg>
+		<div class="click"></div>
+		<div class="off"></div>
+	</body>
+</html>

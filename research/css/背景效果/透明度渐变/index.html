@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			html,
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.aa {
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 100%;
+				height: 200px;
+				background: -webkit-linear-gradient(bottom, #FFF, transparent);
+			}
+			
+			.bb {
+				position: relative;
+				width: 100%;
+				z-index: -1;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div style="position: relative;">
+			<div class="aa"></div>
+			<div class="bb">
+				<img src="../../../../lib/img/drop/img3.jpg" style="position: relative;width: 100%;" />
+			</div>
+		</div>
+	</body>
+
+</html>

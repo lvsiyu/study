@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="../../../../lib/css/media/aaa.css" />
+		<script type="text/javascript" src="../../../../lib/js/jquery-1.11.3.min.js"></script>
+
+		<script>
+			$(function() {
+				showMobileCss();
+			})
+
+			function showMobileCss() {
+				var list = $("link");
+				
+				list.each(function() {
+					var href = $(this).attr("href");
+
+					$.ajax({
+						url: href,
+						dataType: "text",
+						async: false,
+						success: function(result) {
+							var css = result;
+							
+							while(css.indexOf("@media") > -1) {
+								//获取每一个@media
+								var css = css.substring(css.indexOf("@media"), css.length);
+								var media = css.substring(0, css.indexOf("{"));
+								css = css.substring(css.indexOf("{"), css.length);
+								var i = 0;
+								var k = 0;
+
+								for(i = 0; i < css.length; i++) {
+									if(css[i] == "{") {
+										k++;
+									}
+									if(css[i] == "}") {
+										k--;
+									}
+									if(i != 0 && k == 0) {
+										break;
+									}
+								}
+								
+								var left = css.substring(i, css.length);
+								
+								css = css.substring(css.indexOf("{") + 1, i);
+								
+								//判断当前的media的max-width是否小于 1000
+								var maxWidth = 0;
+								var minWidth = 0;
+								var kk = $(".aa").width();
+
+								if(kk <= 960) {
+									if(media.indexOf("max-width") > -1) {
+										maxWidth = media.substring(media.indexOf("max-width:") + "max-width:".length, media.length);
+										maxWidth = maxWidth.substring(0, maxWidth.indexOf("px"));
+
+										if(parseInt(maxWidth) < 961) {
+											$("body").append("<style type='text/css' class='mobile-css'>" + css + "</style>");
+										}
+									}
+									if(media.indexOf("min-width") > -1) {
+										minWidth = media.substring(media.indexOf("min-width:") + "min-width:".length, media.length);
+										minWidth = minWidth.substring(0, minWidth.indexOf("px"));
+										if(parseInt(minWidth) < 961 && parseInt(maxWidth) > 960) {
+											$("body").append("<style type='text/css' class='mobile-css'>" + css + "</style>");
+										}
+									}
+								}
+
+								css = left;
+							}
+						},
+						error: function(x, h, s) {
+
+						}
+					});
+				});
+			}
+		</script>
+	</head>
+
+	<body>
+		<div class="aa">
+
+		</div>
+	</body>
+
+</html>

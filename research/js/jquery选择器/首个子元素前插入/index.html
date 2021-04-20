@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../../lib/js/jquery-1.11.3.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$(".buttom").click(function(){
+					$('.bb:first-child').before('<div class="bb">我是新插入的一个元素</div>');
+				})
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="aa">
+			<div class="bb">1</div>
+			<div class="bb">1</div>
+			<div class="bb">1</div>
+			<div class="bb">1</div>
+			<div class="bb">1</div>
+			<div class="bb">1</div>
+			<div class="bb">1</div>
+		</div>
+		<div class="buttom" style="position: relative;width: 100px;height: 50px;background-color: orange;cursor: pointer;"</div>
+	</body>
+
+</html>

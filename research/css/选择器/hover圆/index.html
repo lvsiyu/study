@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.aa {
+				position: relative;
+				width: 100px;
+				overflow: hidden;
+			}
+			
+			.bb {
+				position: relative;
+				width: 100%;
+				border-radius: 0px;
+				display: inline-block;
+				transition: border-radius 1s;
+				-moz-transition: border-radius 1s;
+				/* Firefox 4 */
+				-webkit-transition: border-radius 1s;
+				/* Safari 和 Chrome */
+				-o-transition: border-radius 1s;
+			}
+			
+			.bb:hover {
+				border-radius: 50%;
+			}
+			
+			.bbbbbbb {
+				-webkit-border-radius: 40px;
+				-webkit-box-shadow: 0 0 1px #fff, 0 0 3px #000, 0 0 3px #000;
+				-moz-border-radius: 40px;
+				-moz-box-shadow: 0 0 1px #fff, 0 0 3px #000, 0 0 3px #000, inset 0 1px #fff, inset 0 12px rgba(255, 255, 255, 0.15), inset 0 4px 10px #cef, inset 0 22px 5px #0773b4, inset 0 -5px 10px #0df;
+				height: 34px;
+				width: 80px;
+				text-align: center;
+				line-height: 34px;
+				font-weight: bold;
+				font-size: 18px;
+				color: #FFF;
+				border-radius: 40px;
+				background: #034a76;
+				box-shadow: 0 0 1px #fff, 0 0 3px #000, 0 0 3px #000, inset 0 1px #fff, inset 0 12px rgba(255, 255, 255, 0.15), inset 0 4px 10px #cef, inset 0 22px 5px #0773b4, inset 0 -5px 10px #0df;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="aa">
+			<img class="bb" src="../../../../lib/img/portrait/people_head.jpg" />
+		</div>
+
+		<div class="bbbbbbb">gogogo!</div>
+	</body>
+
+</html>

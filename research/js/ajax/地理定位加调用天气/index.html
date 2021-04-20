@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../../lib/js/jquery-1.11.3.min.js"></script>
+
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+			
+			html,
+			body {
+				position: fixed;
+				margin: 0px;
+				padding: 0px;
+				width: 100%;
+				height: 100%;
+				overflow: auto;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				-webkit-overflow-scrolling: touch;
+				font-family: "黑体";
+				background-color: #FFF;
+			}
+			
+			ul,
+			li {
+				margin: 0px;
+				padding: 0px;
+				display: block;
+			}
+			
+			img {
+				display: block;
+				float: none;
+				border: 0px;
+				margin: 0px;
+				padding: 0px;
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			
+			.father {
+				position: relative;
+				width: 20%;
+				margin: 20px auto;
+				background-color: #ececec;
+				box-shadow: 0px 0px 10px #888888;
+			}
+			
+			.father:after {
+				content: "";
+				display: block;
+				clear: both;
+			}
+			
+			.list_father {
+				position: relative;
+				width: 20%;
+				float: left;
+			}
+			
+			.list_father:after {
+				content: "";
+				display: block;
+				clear: both;
+			}
+			
+			.list_father:nth-child(2) {
+				width: calc(100% - 20%);
+			}
+			
+			.list1 {
+				position: relative;
+				width: 100%;
+				margin: 10px auto;
+				font-weight: bold;
+				text-align: center;
+			}
+			
+			.list2 {
+				position: relative;
+				width: 50%;
+				float: left;
+				text-align: left;
+				margin: 5px auto;
+			}
+			
+			.pic {
+				position: relative;
+				margin: 0px auto;
+			}
+			
+			@media only screen and (min-width: 1200px) and (max-width: 1919px) {
+				.father {
+					width: 25%;
+				}
+			}
+		</style>
+
+		<script>
+			$(document).ready(function() {
+				$.getScript('http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js', function(_result) {
+					if(remote_ip_info.ret == '1') {
+						$.ajax({
+							type: "get",
+							url: "http://api.map.baidu.com/telematics/v3/weather?location=" + remote_ip_info.city + "&output=json&ak=xRaOs60rbLMK5LWzqFbpGOwB4yqOligq",
+							/*url: "http://api.map.baidu.com/telematics/v3/weather?location=昆明&output=json&ak=xRaOs60rbLMK5LWzqFbpGOwB4yqOligq",*/
+							dataType: "jsonp",
+							data: null,
+							async: true,
+							success: function(result) {
+								var city = result.results[0].currentCity;
+								var pm25 = result.results[0].pm25;
+								var weather = result.results[0].weather_data[0].weather;
+								var wind = result.results[0].weather_data[0].wind;
+								var temperature = result.results[0].weather_data[0].temperature;
+								var dayPictureUrl = result.results[0].weather_data[0].dayPictureUrl;
+								var nightPictureUrl = result.results[0].weather_data[0].nightPictureUrl;
+
+								var date = new Date();
+								var hours = date.getHours();
+								var picUrl = null;
+
+								if("06" < hours && hours < "19") { //白天
+									picUrl = dayPictureUrl;
+								} else {
+									picUrl = nightPictureUrl;
+								}
+
+								$(".city").append(city);
+								$(".date").append(date.getFullYear() + "-" + parseInt(date.getMonth() + 1) + "-" + date.getDate() + "  ");
+								$(".pm25").append(pm25);
+								$(".picUrl").find("img").attr("src", picUrl);
+								$(".weatherDesc").append(weather);
+								$(".temperature").append(temperature);
+								$(".wind").append(wind);
+							}
+						});
+					} else {
+						alert('没有找到匹配的IP地址信息！');
+					}
+				});
+			});
+
+			/*时间计算，获取系统时间*/
+
+			$(document).ready(function() {
+				setInterval(function() {
+					var date = new Date();
+					var hour = add_zero(date.getHours());
+					var minute = add_zero(date.getMinutes());
+					var second = add_zero(date.getSeconds());
+
+					$(".time").html("时间：" + hour + ":" + minute + ":" + second);
+				}, 500);
+
+				function add_zero(temp) {
+					if(temp < 10) {
+						return "0" + temp;
+					} else {
+						return temp;
+					}
+				}
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="father">
+			<div class="list_father">
+				<div class="list1 city"></div>
+				<div class="list1 picUrl">
+					<img class="pic" src="" />
+				</div>
+			</div>
+			<div class="list_father">
+				<div class="list2 date">日期：</div>
+				<div class="list2 time"></div>
+				<div class="list2 weatherDesc">天气：</div>
+				<div class="list2 temperature">温度：</div>
+				<div class="list2 pm25">PM2.5：</div>
+				<div class="list2 wind">风速：</div>
+			</div>
+		</div>
+	</body>
+
+</html>

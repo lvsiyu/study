@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body onload="main()">
+		<canvas id="aa" width="400" height="400"></canvas>
+		<!--引入基础的WebGL的支持包，封装了很多有用的函数-->
+		<script type="text/javascript" src="js/webgl-utils.js"></script>
+		<script type="text/javascript" src="js/webgl-debug.js"></script>
+		<script type="text/javascript" src="js/cuon-utils.js"></script>
+		<script>
+			/*设置顶点着色器==>设置大小,位置*/
+			var VSHADER_SOURCE =//注：attribute变量只能适用于顶点着色器
+				'attribute vec4 a_Position;\n' +//设置attribute存储限定符，格式为存储限定符，类型，变量名
+				'void main() {\n' +
+				'gl_Position = a_Position;\n' +//设置位置，把attribute存储的变量获取后赋值
+				'gl_PointSize = 10.0;\n' +//设置大小
+				'}\n';
+			/*设置片元着色器==>设置颜色*/	
+			var FSHADER_SOURCE =
+				'void main() {\n' +
+				'gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);\n' +//设置颜色
+				'}\n';
+
+			function main() {
+				/*获取id为aa的canvas元素*/
+				var canvas = document.getElementById("aa");
+				/*获取WebGL绘图上下文*/
+				var gl = getWebGLContext(canvas);
+				/*判断浏览器支不支持WebGL*/
+				if(!gl) {
+					console.log("hahaha");
+					return;
+				}
+				/*初始化着色器，判断浏览器支不支持着色器*/
+				if(!initShaders(gl, VSHADER_SOURCE, FSHADER_SOURCE)) {
+					console.log("lalala");
+					return;
+				}
+				/*获取attribute变量存储位置*/
+				var a_Position = gl.getAttribLocation(gl.program, 'a_Position');
+				/*判断是否获取变量成功*/
+				if(a_Position < 0) {
+					console.log("heiheihei");
+					return;
+				}
+				/*注册鼠标点击事件响应函数，使用匿名函数注册*/
+				canvas.onmousedown = function(ev) {
+					click(ev, gl, canvas, a_Position);
+				}
+				/*设置清空画布颜色，使用rgba值*/
+				gl.clearColor(0.0, 0.0, 0.0, 1.0)
+				/*清空画布，调用创建好的颜色值来清空*/
+				gl.clear(gl.COLOR_BUFFER_BIT);
+			}
+	
+			/*定义鼠标点击位置数组*/
+			var g_points = [];
+			/*相应鼠标点击事件*/
+			function click(ev, gl, canvas, a_Position) {
+				/*鼠标点击的x轴坐标*/
+				var x = ev.clientX;
+				/*鼠标点击的y轴坐标*/
+				var y = ev.clientY;
+				/*获取canvas在浏览器客户区中的坐标*/
+				var rect = ev.target.getBoundingClientRect();
+				/*由于WebGL坐标原点是canvas中心点，所以需要通过下面算法，把canvas的原点平移到中心点*/
+				x = ((x - rect.left) - canvas.height / 2) / (canvas.height / 2);//改变x轴
+				y = (canvas.width / 2 - (y - rect.top)) / (canvas.width / 2);//改变y轴
+
+				//g_points.push(x);
+				//g_points.push(y);
+				/*将得到的x,y坐标的值传入g_points中*/
+				g_points.push([x, y]);
+				/*清空画布，调用创建好的颜色值来清空*/
+				gl.clear(gl.COLOR_BUFFER_BIT);
+				
+				/*由于绘图机制是每次点一下,就把画布清空,然后根据遍历的数组下标,依次在颜色缓冲区描绘点,
+				 * 所以需要每次都遍历一次数组里面的下标长度*/
+				var len = g_points.length;
+				
+				//for(var i = 0;i < len; i+=2){
+				//gl.vertexAttrib3f(a_Position,g_points[i],g_points[i+1],0.0);
+				//gl.drawArrays(gl.POINTS,0,1);
+				//}
+				/*进行遍历描绘*/
+				for(var i = 0; i < len; i ++) {
+					/*数组g_points保存了点击的位置*/
+					var xy = g_points[i];
+					/*将获取到的顶点位置传输给attribute变量，参数为位置，填充变量的分量值，3f就是三个分量值*/
+					gl.vertexAttrib3f(a_Position, xy[0], xy[1], 0.0);
+					/*把设置好的点描绘出来,drawArrays函数三个参数为画什么图形,指定从哪个顶点开始,绘制需要多少个顶点*/
+					gl.drawArrays(gl.POINTS, 0, 1);
+				}
+			}
+		</script>
+
+	</body>
+
+</html>

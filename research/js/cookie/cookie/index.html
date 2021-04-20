@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../../lib/js/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="../../../../lib/js/cookie_js/rember.js" ></script>
+		<style>
+			.a {
+				position: relative;
+				width: 30px;
+				height: 30px;
+				background-color: orange;
+				cursor: pointer;
+				display: inline-block;
+				text-align: center;
+				line-height: 30px;
+			}
+		</style>
+		<script>
+			$(document).ready(function() {
+				$(".aa").click(function() {
+					var kk = $(".value").val();
+					setCookie( "zhi", kk, "", "", "", "" )
+				});
+				$(".bb").click(function() {
+					var kk = getCookie( "zhi" );
+					alert(kk);
+				})
+				$(".cc").click(function(){
+					deleteCookie( "zhi", "", "" )
+				});
+			});
+			
+		</script>
+		
+	</head>
+
+	<body>
+		<input class="value" type="text" />
+
+		<div class="a aa">存</div>
+		<div class="a bb">读</div>
+		<div class="a cc">删</div>
+	</body>
+
+</html>

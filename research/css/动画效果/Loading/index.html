@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../../lib/js/jquery-1.11.3.min.js" ></script>
+		<style>
+			#loading-spinner {
+		    position: fixed;
+		    top: 0px;
+		    left: 0px;
+		    width: 100%;
+		    height: 100%;
+		    z-index: 999;
+		    cursor: wait;
+		    display: none;
+			}
+			
+			#loading-spinner:before {
+			    content: "";
+			    position: absolute;
+			    display: block;
+			    top: 0px;
+			    left: 0px;
+			    width: 100%;
+			    height: 100%;
+			    background-color: #fff;
+			    opacity: 0.3;
+			    z-index: 0;
+			}
+			
+			.double-bounce1, .double-bounce2 {
+			    position: absolute;
+			    top: 50%;
+			    left: 50%;
+			    width: 60px;
+			    height: 60px;
+			    border-radius: 50%;
+			    background-color: #67CF22;
+			    opacity: 0.65;
+			    z-index: 1;
+			    -webkit-transform: translate(-50%, -50%);
+			            transform: translate(-50%, -50%);
+			    -webkit-animation: bounce 2.0s infinite ease-in-out;
+			            animation: bounce 2.0s infinite ease-in-out;
+			}
+			
+			.double-bounce2 {
+			    -webkit-animation-delay: -1.0s;
+			    animation-delay: -1.0s;
+			}
+			
+			@-webkit-keyframes bounce {
+			    0%, 100% { -webkit-transform: scale(0.0) }
+			    50% { -webkit-transform: scale(1.0) }
+			}
+			
+			@keyframes bounce {
+			    0%, 100% {
+			        transform: scale(0.0);
+			        -webkit-transform: scale(0.0);
+			
+			    } 50% {
+			          transform: scale(1.0);
+			          -webkit-transform: scale(1.0);
+			    }
+			}
+			
+			.a{
+				position: relative;
+				width: 50px;
+				height: 50px;
+				background-color: black;
+			}
+		</style>
+		
+		<script>
+			/**
+			 * 显示遮罩层
+			 */
+			function showBlock() {
+			    $("#loading-spinner").css("display", "block");
+			}
+			
+			/**
+			 * 隐藏遮罩层
+			 */
+			function hideBlock() {
+			    $("#loading-spinner").css("display", "none");
+			}
+		</script>
+	</head>
+	<body>
+		<div id="loading-spinner">
+	        <div class="double-bounce1"></div>
+	        <div class="double-bounce2"></div>
+    	</div>
+    	
+    	<div class="a" onclick="showBlock()">begin</div>
+	</body>
+</html>

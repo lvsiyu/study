@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		html,body{
+			background-color: cornflowerblue;
+			color: #FFF;
+		}
+			.aa{
+				position: relative;
+				width: 100px;
+				height: 25px;
+				border: 3px solid orange;
+				display: inline-block;
+				text-align: center;
+				line-height: 25px;
+			}
+			
+			.bb{
+				position: relative;
+				width: 100px;
+				height: 25px;
+				border-width: 3px;
+				border-style:solid;/*很重要，border边框属性*/
+				border-top-color: red;
+				border-left-color: green;
+				border-bottom-color: orange;
+				border-right-color: black;
+				display: inline-block;
+				text-align: center;
+				line-height: 25px;
+			}
+			
+			.cc{
+				position: relative;
+				width: 100px;
+			    height: 25px;
+			    background-image:linear-gradient(to left, rgb(255, 255, 255), rgb(221, 221, 221), rgb(221, 221, 221), rgb(255, 255, 255) 100%);
+				background-repeat : no-repeat;
+				background-size :100px 3px;
+				background-position:bottom;	
+			 	padding-top:8px;
+			  	text-align:center;  
+			  	display: inline-block;    
+				text-align: center;
+				line-height: 25px;
+			}
+			.dd{
+				position: relative;
+				width: 100px;
+				height: 25px;
+			    border-width: 10px;
+			    -webkit-border-image: url("../../../../lib/img/bg-borderimage.png") 20 20 20 20 repeat;
+			    -moz-border-image: url("../../../../lib/img/bg-borderimage.png") 20 20 20 20 repeat;
+			    border-image: url("../../../../lib/img/bg-borderimage.png") 20 20 20 20 repeat;
+			    display: inline-block;
+				text-align: center;
+				line-height: 25px;
+			}
+			
+			
+			
+			.ee{
+				position: relative;
+				width: 100px;
+				height: 25px;
+				display: inline-block;
+				text-align: center;
+				line-height: 25px;
+			    border: double green 10px;
+			    -moz-border-image: url("../../../../lib/img/border/border.png") 27;
+			    -webkit-border-image: url("../../../../lib/img/border/border.png") 27;
+			    -o-border-image: url("../../../../lib/img/border/border.png") 27;
+			    border-image: url("../../../../lib/img/border/border.png") 27;
+			}
+			
+			.ff{
+				position: relative;
+				width: 100px;
+				height: 25px;
+				display: inline-block;
+				text-align: center;
+				line-height: 25px;
+				border: double green 10px;
+			    -webkit-border-image: url("../../../../lib/img/border/border.png") 27 repeat stretch;
+			    -moz-border-image: url("../../../../lib/img/border/border.png") 27 repeat stretch;
+			    -o-border-image: url("../../../../lib/img/border/border.png") 27 repeat stretch;
+			    border-image: url("../../../../lib/img/border/border.png") 27 repeat stretch;
+			}
+			
+			.gg{
+				position: relative;
+				width: 100px;
+				height: 25px;
+				display: inline-block;
+				text-align: center;
+				line-height: 25px;
+				border: double green 10px;
+			    -webkit-border-image: url("../../../../lib/img/border/border.png") 27 round stretch;
+			    -moz-border-image: url("../../../../lib/img/border/border.png") 27 round stretch;
+			    -o-border-image: url("../../../../lib/img/border/border.png") 27 round stretch;
+			    border-image: url("../../../../lib/img/border/border.png") 27 round stretch;
+			}
+			
+			.hh{
+				position: relative;
+				width: 100px;
+				height: 25px;
+				display: inline-block;
+				text-align: center;
+				line-height: 25px;
+				border: double green 10px;
+			    -webkit-border-image: url("../../../../lib/img/border/border.png") 27 stretch round;
+			    -moz-border-image: url("../../../../lib/img/border/border.png") 27 stretch round;
+			    -o-border-image: url("../../../../lib/img/border/border.png") 27 stretch round;
+			    border-image: url("../../../../lib/img/border/border.png") 27 stretch round;
+			}
+			
+			.ii{
+				position: relative;
+				width: 100px;
+				height: 25px;
+				display: inline-block;
+				text-align: center;
+				line-height: 25px;
+				border: double green 10px;
+			    -webkit-border-image: url("../../../../lib/img/border/border.png") 27 stretch repeat;
+			    -moz-border-image: url("../../../../lib/img/border/border.png") 27 stretch repeat;
+			    -o-border-image: url("../../../../lib/img/border/border.png") 27 stretch repeat;
+			    border-image: url("../../../../lib/img/border/border.png") 27 stretch repeat;  
+			}
+			
+			.jj{
+				position: relative;
+				width: 100px;
+				height: 25px;
+				display: inline-block;
+				text-align: center;
+				line-height: 25px;
+				border: double green 10px;
+			    -webkit-border-image: url("../../../../lib/img/border/border.png") 27 round;
+			    -moz-border-image: url("../../../../lib/img/border/border.png") 27 round;
+			    -o-border-image: url("../../../../lib/img/border/border.png") 27 round;
+			    border-image: url("../../../../lib/img/border/border.png") 27 round;
+			}
+			
+			.kk{
+				position: relative;
+				width: 100px;
+				height: 25px;
+				display: inline-block;
+				text-align: center;
+				line-height: 25px;
+				border: double green 10px;
+			    -webkit-border-image: url("../../../../lib/img/border/border.png") 27 repeat;
+			    -moz-border-image: url("../../../../lib/img/border/border.png") 27 repeat;
+			    -o-border-image: url("../../../../lib/img/border/border.png") 27 repeat;
+			    border-image: url("../../../../lib/img/border/border.png") 27 repeat;  
+			}
+			
+			.ll{
+				position: relative;
+				width: 50px;
+				height: 50px;
+				display: inline-block;
+				text-align: center;
+				line-height: 50px;
+				border-width: 10px;
+				border-image: linear-gradient(to right, purple 0%, red 50% ,green 100%) 15% stretch;
+			    -webkit-border-image: linear-gradient(to right, purple 0%, red 50% ,green 100%) 15% stretch;
+			    -moz-border-image: linear-gradient(to right, purple 0%, red 50% ,green 100%) 15% stretch;
+			    -ms-border-image: linear-gradient(to right, purple 0%, red 50% ,green 100%) 15% stretch;
+			    
+			}
+			
+			.mm{
+				position: relative;
+				width: 50px;
+				height: 50px;
+				display: inline-block;
+				text-align: center;
+				line-height: 50px;
+				border-width: 10px;
+			    border-image: linear-gradient(#00afda 17.5%, #ae589e 17.5%, #ae589e 35%, #f24d54 35%, #f24d54 52.5%, #ff914f 52.5%, #ff914f 70%, #ffc064 70%, #ffc064 87.5%, #62c373 87.5%) 5 6;
+			    -webkit-border-image: linear-gradient(#00afda 17.5%, #ae589e 17.5%, #ae589e 35%, #f24d54 35%, #f24d54 52.5%, #ff914f 52.5%, #ff914f 70%, #ffc064 70%, #ffc064 87.5%, #62c373 87.5%) 5 6;
+			    -moz-border-image: linear-gradient(#00afda 17.5%, #ae589e 17.5%, #ae589e 35%, #f24d54 35%, #f24d54 52.5%, #ff914f 52.5%, #ff914f 70%, #ffc064 70%, #ffc064 87.5%, #62c373 87.5%) 5 6;
+			    -ms-border-image: linear-gradient(#00afda 17.5%, #ae589e 17.5%, #ae589e 35%, #f24d54 35%, #f24d54 52.5%, #ff914f 52.5%, #ff914f 70%, #ffc064 70%, #ffc064 87.5%, #62c373 87.5%) 5 6;
+			}
+			
+			.nn{
+				position: relative;
+				width: 50px;
+				height: 50px;
+				display: inline-block;
+				text-align: center;
+				line-height: 50px;
+				border-width: 10px;
+			    border-image: linear-gradient(45deg, #000 50%, #fff 50%, #fff 100%) 20;
+			    -webkit-border-image: linear-gradient(45deg, #000 50%, #fff 50%, #fff 100%) 20;
+			    -moz-border-image: linear-gradient(45deg, #000 50%, #fff 50%, #fff 100%) 20;
+			    -ms-border-image: linear-gradient(45deg, #000 50%, #fff 50%, #fff 100%) 20;
+			}
+			
+			.oo{
+				position: relative;
+				width: 50px;
+				height: 50px;
+				display: inline-block;
+				text-align: center;
+				line-height: 50px;
+				border-width: 10px;
+			    border-image: radial-gradient(#000 70%, #fff 100%, #fff) 2%;
+			    -webkit-border-image: radial-gradient(#000 70%, #fff 100%, #fff) 2%;
+			    -moz-border-image: radial-gradient(#000 70%, #fff 100%, #fff) 2%;
+			    -ms-border-image: radial-gradient(#000 70%, #fff 100%, #fff) 2%;
+			}
+			
+			.pp{
+				position: relative;
+				width: 50px;
+				height: 50px;
+				display: inline-block;
+				text-align: center;
+				line-height: 50px;
+				border-width: 10px;
+			  	border-image: linear-gradient(#fff, #000) 15% stretch;
+			  	-webkit-border-image: linear-gradient(#fff, #000) 15% stretch;
+			  	-moz-border-image: linear-gradient(#fff, #000) 15% stretch;
+			  	-ms-border-image: linear-gradient(#fff, #000) 15% stretch;
+			}
+			
+			.qq{
+				position: relative;
+				width: 50px;
+				height: 50px;
+				display: inline-block;
+				text-align: center;
+				line-height: 50px;
+				border-width: 10px;
+			  	border-image: radial-gradient(#fff, #000) 20% round;
+			  	-webkit-border-image: radial-gradient(#fff, #000) 20% round;
+			  	-moz-border-image: radial-gradient(#fff, #000) 20% round;
+			  	-ms-border-image: radial-gradient(#fff, #000) 20% round;
+			}
+			
+			.rr{
+				position: relative;
+				width: 50px;
+				height: 50px;
+				display: inline-block;
+				text-align: center;
+				line-height: 50px;
+				border-width: 10px;
+			  	border-image: linear-gradient(45deg, #fff, #000) 30% round;
+			  	-webkit-border-image: linear-gradient(45deg, #fff, #000) 30% round;
+			  	-moz-border-image: linear-gradient(45deg, #fff, #000) 30% round;
+			  	-ms-border-image: linear-gradient(45deg, #fff, #000) 30% round;
+			}
+			
+			.ss{
+				position: relative;
+				width: 50px;
+				height: 50px;
+				display: inline-block;
+				text-align: center;
+				line-height: 50px;
+				border-width: 10px;
+			  	border-image: radial-gradient(#fff, #000) 40% repeat;
+			  	-webkit-border-image: radial-gradient(#fff, #000) 40% repeat;
+			  	-moz-border-image: radial-gradient(#fff, #000) 40% repeat;
+			  	-ms-border-image: radial-gradient(#fff, #000) 40% repeat;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="aa">啦啦啦</div>
+		<div class="bb">啦啦啦</div>
+		<div class="cc">啦啦啦</div>
+		<div class="dd">啦啦啦</div>
+		<div class="ee">啦啦啦</div>
+		<div class="ff">啦啦啦</div>
+		<div class="gg">啦啦啦</div>
+		<div class="hh">啦啦啦</div>
+		<div class="ii">啦啦啦</div>
+		<div class="jj">啦啦啦</div>
+		<div class="kk">啦啦啦</div>
+		<br/><br/><br/><br/>
+		<div class="ll">啦啦啦</div>
+		<div class="mm">啦啦啦</div>
+		<div class="nn">啦啦啦</div>
+		<div class="oo">啦啦啦</div>
+		<div class="pp">啦啦啦</div>
+		<div class="qq">啦啦啦</div>
+		<div class="rr">啦啦啦</div>
+		<div class="ss">啦啦啦</div>
+		<!--<div class="ll">啦啦啦</div>
+		<div class="ll">啦啦啦</div>
+		<div class="ll">啦啦啦</div>
+		<div class="ll">啦啦啦</div>
+		<div class="ll">啦啦啦</div>
+		<div class="ll">啦啦啦</div>
+		<div class="ll">啦啦啦</div>-->
+	</body>
+</html>

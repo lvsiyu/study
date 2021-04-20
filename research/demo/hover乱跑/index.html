@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../lib/js/jquery-1.11.3.min.js" ></script>
+		<style>
+			.aa{
+				position: absolute;
+				width: 50px;
+				height: 50px;
+				top: 0;
+				left: 0;
+				background-color: black;
+				cursor: pointer;
+			}
+		</style>
+		<script>
+			function windows(){
+				width = $(window).width()-50;
+				height = $(window).height()-50;
+				
+			}
+		
+			function random(){
+				windows();
+				ranWidth = Math.floor(Math.random()*width);
+				ranHeight = Math.floor(Math.random()*height);
+			};
+			
+			function getRandomColor(){ 
+				var c = '#'; 
+				var cArray = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']; 
+					for(var i = 0; i < 6;i++) 
+				{ 
+				var cIndex = Math.round(Math.random()*15); 
+					c += cArray[cIndex]; 
+				} 
+				return c; 
+			} 
+			$(document).ready(function(){
+				$(".aa").hover(function(){
+					random()
+					$(".aa").css("left",ranWidth);
+					$(".aa").css("top",ranHeight);
+					$(".aa").css("background-color",getRandomColor());
+				},function(){
+					/*$(".aa").css("background-color",getRandomColor());*/
+				});
+			});
+			
+			
+			/*随机颜色方法*/
+			/*$(document).ready(function(){
+				$(".aa").click(function(){
+					$(".aa").css("background-color",getRandomColor());
+				});
+			});*/
+		</script>
+		
+		
+	</head>
+	
+	<body>
+		<div class="aa"></div>
+	</body>
+</html>

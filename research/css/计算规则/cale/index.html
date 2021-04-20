@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../../lib/js/jquery-1.11.3.min.js" ></script>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+			
+			html,
+			body {
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				padding: 0;
+				border: 0;
+			}
+			
+			.sun {
+				width: auto;
+				/*width: 100%/3 - 5px;*/
+				height: 100px;
+				background-color: orange;
+				float: left;
+				margin-bottom: calc(5px*3 /2);
+				margin-right: calc(5px*3 /2);
+			}
+			
+			.sun:nth-child(3n){
+				margin-right: 0px;
+			}
+		</style>
+		
+		<script>
+			$(document).ready(function(){
+				var aa = $(window).width();
+				$(".sun").css("width","calc("+aa+"px/3 - 5px)")
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="sun"></div>
+		<div class="sun"></div>
+		<div class="sun"></div>
+		<div class="sun"></div>
+		<div class="sun"></div>
+		<div class="sun"></div>
+		<div class="sun"></div>
+		<div class="sun"></div>
+		<div class="sun"></div>
+		<div class="sun"></div>
+		<div class="sun"></div>
+		<div class="sun"></div>
+		<div class="sun"></div>
+		<div class="sun"></div>
+		<div class="sun"></div>
+	</body>
+
+</html>

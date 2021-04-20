@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../../lib/js/jquery-1.11.3.min.js" ></script>
+		<script>
+			$(function(){
+				var aa = $.ajax({
+					url:"../../../../lib/text/promise.txt",
+					
+					success: function(){
+						$("#myDiv").html(aa.responseText);
+			　　　　　　	alert("哈哈，成功了！");
+			　　　　	},
+			　　　　	error:function(){
+			　　　　　　	alert("出错啦！");
+			　　　　	}
+				});
+			})
+		</script>
+	</head>
+	<body>
+		<div id="myDiv"></div>
+	</body>
+</html>

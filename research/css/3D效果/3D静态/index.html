@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="../../../../lib/js/jquery-2.2.2.min.js" ></script>
+		<style>
+			.father{
+				position: relative;
+				width: 200px;
+				height: 200px;
+				margin: 30px auto;
+				perspective: 800px;
+			}
+			
+			.aa{
+				position: relative;
+				width: 100%;
+				height: 100%;
+				transform-style: preserve-3d;
+				transform: rotateY(50deg);
+				-webkit-transform: rotateY(0deg);
+				-moz-transform: rotateY(0deg);
+			}
+			
+			.cc{
+				position: absolute;
+				top: 300px;
+				width: 50%;
+				height: 50%;
+				transform-style: preserve-3d;
+				transform: rotateY(50deg);
+				-webkit-transform: rotateY(0deg);
+				-moz-transform: rotateY(0deg);
+			}
+			
+			.bb{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				opacity: 0.7;
+				display: inline-block;
+			}
+			
+			.bb1 {
+				background-color: balck;
+				-webkit-transform: rotateX(90deg) translateZ(100px);
+				-moz-transform: rotateX(90deg) translateZ(100px);
+			}
+			
+			.bb2 {
+				background-color: orange;
+				-webkit-transform: rotateX(270deg) translateZ(100px);
+				-moz-transform: rotateX(270deg) translateZ(100px);
+			}
+			
+			.bb3 {
+				background-color: blue;
+				-webkit-transform: rotateY(90deg) translateZ(100px);
+				-moz-transform: rotateY(90deg) translateZ(100px);
+			}
+			
+			.bb4 {
+				background-color: green;
+				-webkit-transform: rotateY(270deg) translateZ(100px);
+				-moz-transform: rotateY(270deg) translateZ(100px);
+			}
+			
+			.bb5 {
+				background-color: yellow;
+				-webkit-transform: translateZ(-100px);
+				-moz-transform: translateZ(-100px);
+			}
+			
+			.bb6 {
+				background-color: palevioletred;
+				-webkit-transform: translateZ(100px);
+				-moz-transform: translateZ(100px);
+			}
+			
+			
+			.dd1 {
+				background-color: balck;
+				-webkit-transform: rotateX(90deg) translateZ(50px);
+				-moz-transform: rotateX(90deg) translateZ(50px);
+			}
+			
+			.dd2 {
+				background-color: orange;
+				-webkit-transform: rotateX(270deg) translateZ(50px);
+				-moz-transform: rotateX(270deg) translateZ(50px);
+			}
+			
+			.dd3 {
+				background-color: blue;
+				-webkit-transform: rotateY(90deg) translateZ(50px);
+				-moz-transform: rotateY(90deg) translateZ(50px);
+			}
+			
+			.dd4 {
+				background-color: green;
+				-webkit-transform: rotateY(270deg) translateZ(50px);
+				-moz-transform: rotateY(270deg) translateZ(50px);
+			}
+			
+			.dd5 {
+				background-color: yellow;
+				-webkit-transform: translateZ(-50px);
+				-moz-transform: translateZ(-50px);
+			}
+			
+			.dd6 {
+				background-color: palevioletred;
+				-webkit-transform: translateZ(50px);
+				-moz-transform: translateZ(50px);
+			}
+			
+			
+			/*这是自动旋转*/
+			.translate{
+				animation:myfirst 3s infinite;
+				-moz-animation:myfirst 3s infinite; /* Firefox */
+				-webkit-animation:myfirst 3s infinite; /* Safari and Chrome */
+				-o-animation:myfirst 3s infinite; /* Opera */
+			}
+			
+			
+			@keyframes myfirst
+			{
+			from{transform: rotateY(0deg);}
+			to {transform: rotateY(360deg);}
+			}
+			
+			
+		</style>
+		
+		<script>
+			/*tt = parseFloat(0);*/
+			//鼠标事件
+			$(document).mousedown(function(e){
+					start = e.pageX;
+			});
+		
+			$(document).mousemove(function(e) {
+				mil = (e.pageX - start)/5.33;
+				$(".aa").css({
+					"transform": "rotateY(" + mil + "deg)"
+				});
+			});
+			
+
+			
+			
+			
+			//触屏事件
+			$(document).bind("touchstart", function (event) {
+	            event.preventDefault();
+	            start = event.originalEvent.changedTouches[0].clientX;
+	        });
+	        
+	        
+	        $(document).bind("touchmove", function (event) {
+	            event.preventDefault();
+	            mil = (event.originalEvent.changedTouches[0].clientX - start)/5.33;
+	            $(".aa").css({
+					"transform": "rotateY(" + mil + "deg)"
+				});
+				
+	        });
+	       
+	       
+	       
+			
+			
+			
+			
+		</script>
+
+	</head>
+
+	<body>
+		<div class="father">
+			<div class="aa"><!-- 若在此加入translate类名，则自动旋转 -->
+				<div class="bb bb1"></div>
+				<div class="bb bb2"></div>
+				<div class="bb bb3"></div>
+				<div class="bb bb4"></div>
+				<div class="bb bb5"></div>
+				<div class="bb bb6"></div>
+			</div>
+			
+			<div class="aa cc"><!-- 若在此加入translate类名，则自动旋转 -->
+				<div class="bb dd1"></div>
+				<div class="bb dd2"></div>
+				<div class="bb dd3"></div>
+				<div class="bb dd4"></div>
+				<div class="bb dd5"></div>
+				<div class="bb dd6"></div>
+			</div>
+		</div>
+	</body>
+
+</html>

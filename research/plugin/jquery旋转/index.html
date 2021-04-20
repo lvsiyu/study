@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../lib/js/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="../../../lib/js/rotate_Js/jquery.rotate.min.js"></script>
+		<style>
+			body {
+				text-align: center;
+			}
+			
+			.div {
+				position: relative;
+				width: 100px;
+				height: 100px;
+				background-color: black;
+				display: inline-block;
+				margin: 50px;
+				border-radius: 50%;
+				overflow: hidden;
+			}
+			.aa{
+				position: absolute;
+				width: 50px;
+				height: 50px;
+				top: 0px;
+				left: 0px;
+				background-color: orange;
+			}
+			.bb{
+				position: absolute;
+				width: 50px;
+				height: 50px;
+				top: 0px;
+				right: 0px;
+				background-color: green;
+			}
+			.cc{
+				position: absolute;
+				width: 50px;
+				height: 50px;
+				bottom: 0px;
+				left: 0px;
+				background-color: cornflowerblue;
+			}
+			.dd{
+				position: absolute;
+				width: 50px;
+				height: 50px;
+				bottom: 0px;
+				right: 0px;
+				background-color: deepskyblue;
+			}
+		</style>
+		<script>
+			$(document).ready(function() {
+				$(".div1").rotate({
+					bind: {
+						mouseover: function() {
+							$(this).rotate({
+								animateTo: 180
+							});
+						},
+						mouseout: function() {
+							$(this).rotate({
+								animateTo: 0
+							});
+						}
+					}
+				});
+			})
+			$(document).ready(function() {
+				var value2 = 0
+				$(".div2").rotate({
+					bind: {
+						click: function() {
+							value2 += 90;
+							$(this).rotate({
+								animateTo: value2
+							})
+						}
+					}
+				});
+			})
+			$(document).ready(function() {
+				var rotation = function() {
+					$(".div3").rotate({
+						angle: 0,
+						animateTo: 90,
+						callback: rotation
+					});
+				}
+				rotation();
+			});
+			$(document).ready(function() {
+				var rotation2 = function() {
+					$(".div4").rotate({
+						angle: 0,
+						animateTo: 90,
+						callback: rotation2,
+						easing: function(x, t, b, c, d) { // t: 当前时间, b: 初始值, c: 变化值, d: 持续时间
+							return c * (t / d) + b;
+						}
+					});
+				}
+				rotation2();
+			})
+			$(document).ready(function() {
+				var angle = 0;
+				setInterval(function() {
+					angle += 3;
+					$(".div5").rotate(angle);
+				}, 10);
+			})
+			$(document).ready(function() {
+				$(".div6").rotate({
+					bind: {
+						click: function() {
+							$(this).rotate({
+								angle: 0,
+								animateTo: 180,
+								easing: $.easing.easeInOutExpo
+							})
+						}
+					}
+				});
+			})
+		</script>
+	</head>
+
+	<body>
+		<div class="div div1">
+			<div class="aa"></div>
+			<div class="bb"></div>
+			<div class="cc"></div>
+			<div class="dd"></div>
+		</div>
+		<div class="div div2" style="cursor: pointer;">
+			<div class="aa"></div>
+			<div class="bb"></div>
+			<div class="cc"></div>
+			<div class="dd"></div>
+		</div>
+		<div class="div div3">
+			<div class="aa"></div>
+			<div class="bb"></div>
+			<div class="cc"></div>
+			<div class="dd"></div>
+		</div>
+		<div class="div div4">
+			<div class="aa"></div>
+			<div class="bb"></div>
+			<div class="cc"></div>
+			<div class="dd"></div>
+		</div>
+		<div class="div div5">
+			<div class="aa"></div>
+			<div class="bb"></div>
+			<div class="cc"></div>
+			<div class="dd"></div>
+		</div>
+		<div class="div div6" style="cursor: pointer;">
+			<div class="aa"></div>
+			<div class="bb"></div>
+			<div class="cc"></div>
+			<div class="dd"></div>
+		</div>
+	</body>
+
+</html>

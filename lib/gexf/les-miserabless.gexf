@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gexf xmlns="http://www.gexf.net/1.2draft" version="1.2" xmlns:viz="http://www.gexf.net/1.2draft/viz" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd">
+  <meta lastmodifieddate="2014-01-30">
+    <creator>Gephi 0.8.1</creator>
+    <description></description>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static">
+    <attributes class="node" mode="static">
+      <attribute id="modularity_class" title="Modularity Class" type="integer"></attribute>
+    </attributes>
+    <nodes>
+      <node id="0" label="英俊潇洒的我">
+        <attvalues>
+          <attvalue for="modularity_class" value="0"></attvalue>
+        </attvalues>
+        <viz:size value="30"></viz:size>
+        <viz:position x="0.0" y="299.6904" z="0.0"></viz:position>
+        <viz:color r="235" g="81" b="72"></viz:color>
+      </node>
+     
+      <node id="1" label="傅照豪">
+        <attvalues>
+          <attvalue for="modularity_class" value="1"></attvalue>
+        </attvalues>
+        <viz:size value="20"></viz:size>
+        <viz:position x="-818.08344" y="446.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      
+      <node id="2" label="朱靖东">
+        <attvalues>
+          <attvalue for="modularity_class" value="1"></attvalue>
+        </attvalues>
+        <viz:size value="20"></viz:size>
+        <viz:position x="818.08344" y="446.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      
+      <node id="3" label="袁子鹏">
+        <attvalues>
+          <attvalue for="modularity_class" value="1"></attvalue>
+        </attvalues>
+        <viz:size value="20"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="4" label="小弟4">
+        <attvalues>
+          <attvalue for="modularity_class" value="2"></attvalue>
+        </attvalues>
+        <viz:size value="20"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="5" label="小弟5">
+        <attvalues>
+          <attvalue for="modularity_class" value="2"></attvalue>
+        </attvalues>
+        <viz:size value="20"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="6" label="小弟6">
+        <attvalues>
+          <attvalue for="modularity_class" value="2"></attvalue>
+        </attvalues>
+        <viz:size value="20"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="7" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="8" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="9" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="10" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="11" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="12" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="13" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="14" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="15" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="16" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="17" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="18" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="19" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="20" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="21" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="22" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="23" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="24" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="25" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="26" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="27" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="28" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="29" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="30" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="31" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="32" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="33" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="34" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="35" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="36" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="37" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="38" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="39" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="40" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+      <node id="41" label="小小弟">
+        <attvalues>
+          <attvalue for="modularity_class" value="3"></attvalue>
+        </attvalues>
+        <viz:size value="10"></viz:size>
+        <viz:position x="418.08344" y="846.8853" z="0.0"></viz:position>
+        <viz:color r="236" g="81" b="72"></viz:color>
+      </node>
+    </nodes> 
+     
+    <edges>
+      <edge id="0" source="0" target="0">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="1" source="0" target="1">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="2" source="0" target="2">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="3" source="0" target="3">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="4" source="0" target="4">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="5" source="0" target="5">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="6" source="0" target="6">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="7" source="1" target="7">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="8" source="1" target="8">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="9" source="1" target="9">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="10" source="1" target="10">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="11" source="1" target="11">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="12" source="2" target="12">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="13" source="2" target="13">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="14" source="2" target="14">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="15" source="2" target="15">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="16" source="2" target="16">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="17" source="3" target="17">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="18" source="3" target="18">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="19" source="3" target="19">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="20" source="3" target="20">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="21" source="3" target="21">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="22" source="4" target="22">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="23" source="4" target="23">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="24" source="4" target="24">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="25" source="4" target="25">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="26" source="4" target="26">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="27" source="5" target="27">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="28" source="5" target="28">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="29" source="5" target="29">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="30" source="5" target="30">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="31" source="5" target="31">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="32" source="6" target="32">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="33" source="6" target="33">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="34" source="6" target="34">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="35" source="6" target="35">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="36" source="6" target="36">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="37" source="0" target="37">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="38" source="0" target="38">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="39" source="0" target="39">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="40" source="0" target="40">
+        <attvalues></attvalues>
+      </edge>
+      <edge id="41" source="0" target="41">
+        <attvalues></attvalues>
+      </edge>
+    </edges>
+  </graph>
+</gexf>

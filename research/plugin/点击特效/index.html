@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <!--<link rel="stylesheet" type="text/css" href="http://tympanus.net/Tutorials/SVGRipples/css/normalize.css" />-->
+    <!--<link rel="stylesheet" type="text/css" href="http://tympanus.net/Tutorials/SVGRipples/css/demo.css" />-->
+    <!--<link rel="stylesheet" type="text/css" href="http://tympanus.net/Tutorials/SVGRipples/css/component.css" />-->
+    <link rel="stylesheet" href="../../../lib/css/click_Css/normalize.css" />
+    <link rel="stylesheet" href="../../../lib/css/click_Css/demo.css" />
+    <link rel="stylesheet" href="../../../lib/css/click_Css/component.css" />
+    <!--[if IE]>
+	  <script src="/libs/html5.js"></script>
+	<![endif]-->
+</head>
+
+<body class="theme-3">
+    <!-- SVG Sprite -->
+    <div style="height: 0; width: 0; position: absolute; visibility: hidden;" aria-hidden="true">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" focusable="false">
+            <symbol id="ripply-scott" viewBox="0 0 100 100">
+                <g>
+                    <polygon points="5.6,77.4 0,29 39.1,0 83.8,19.3 89.4,67.7 50.3,96.7" />
+                    <polygon fill="rgba(255,255,255,0.35)" transform="scale(0.5), translate(50, 50)" points="5.6,77.4 0,29 39.1,0 83.8,19.3 89.4,67.7 50.3,96.7" />
+                    <polygon fill="rgba(255,255,255,0.25)" transform="scale(0.25), translate(145, 145)" points="5.6,77.4 0,29 39.1,0 83.8,19.3 89.4,67.7 50.3,96.7" />
+                </g>
+            </symbol>
+        </svg>
+    </div>
+    <!-- /end sprite -->
+    <div class="container">
+        <div class="content">
+            <!-- button component -->
+            <button id="js-ripple-btn" class="button styl-material">
+                Click for Ripple
+                <svg class="ripple-obj" id="js-ripple">
+                    <use width="2" height="4" xlink:href="#ripply-scott" class="js-ripple"></use>
+                </svg>
+            </button>
+            <!-- /end button component -->
+        </div>
+
+    </div>
+    <!-- /container -->
+    <!-- GreenSock Power : Required for Demo -->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>-->
+    <!--<script src="http://tympanus.net/Tutorials/SVGRipples/js/ripple-config.js"></script>-->
+    <script type="text/javascript" src="../../../lib/js/click_Js/TweenMax.min.js" ></script>
+    <script type="text/javascript" src="../../../lib/js/click_Js/ripple-config.js" ></script>
+</body>
+
+</html>>

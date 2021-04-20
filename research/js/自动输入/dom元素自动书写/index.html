@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<span id="demo"></span>
+		<script defer>
+			var text = "123123123123123123123";
+			var delay = 200;
+			var i = 0;
+
+			function scrollit() {
+				demo.innerText = text.slice(0, i++);
+				if (i > text.length) {
+					i = 0
+					setTimeout("scrollit()", delay * 10);
+				} else setTimeout("scrollit()", delay);
+			}
+			scrollit()
+		</script>
+	</body>
+
+</html>

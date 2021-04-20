@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../../lib/js/jquery-1.11.3.min.js"></script>
+		<style>
+			.father {
+				position: absolute;
+				perspective: 800px;
+				perspective-origin: 50% 50%;
+				left: 48%;
+				top: 200px;
+			}
+			
+			.aa {
+				position: relative;
+				width: 128px;
+				height: 100px;
+				transform-style: preserve-3d;
+				transform: rotateY(0deg);
+				-webkit-transform: rotateY(0deg);
+			}
+			
+			.bb {
+				position: absolute;
+				width: 100%;
+				height: 100px;
+				opacity: 0.5;
+			}
+			
+			.bb1 {
+				background-color: black;
+				transform: rotateY(0deg) translateZ(195.839px);
+			}
+			
+			.bb2 {
+				background-color: orange;
+				transform: rotateY(40deg) translateZ(195.839px);
+			}
+			
+			.bb3 {
+				background-color: blue;
+				transform: rotateY(80deg) translateZ(195.839px);
+			}
+			
+			.bb4 {
+				background-color: green;
+				transform: rotateY(120deg) translateZ(195.839px);
+			}
+			
+			.bb5 {
+				background-color: yellow;
+				transform: rotateY(160deg) translateZ(195.839px);
+			}
+			
+			.bb6 {
+				background-color: blueviolet;
+				transform: rotateY(200deg) translateZ(195.839px);
+			}
+			
+			.bb7 {
+				background-color: olivedrab;
+				transform: rotateY(240deg) translateZ(195.839px);
+			}
+			
+			.bb8 {
+				background-color: brown;
+				transform: rotateY(280deg) translateZ(195.839px);
+			}
+			
+			.bb9 {
+				background-color: darkblue;
+				transform: rotateY(320deg) translateZ(195.839px);
+			}
+			/*以下代码打开自动滚动*/
+			
+			.translate {
+				animation: myfirst 1s;
+				-moz-animation: myfirst 1s;
+				-webkit-animation: myfirst 1s;
+				-o-animation: myfirst 1s;
+				animation-fill-mode: forwards;
+			}
+			
+			@keyframes myfirst {
+				to {
+					transform: rotateY(40deg);
+				}
+			}
+			
+			.cc {
+				position: absolute;
+				width: 50px;
+				height: 50px;
+				right: 100px;
+				top: 200px;
+				background-color: orange;
+				text-align: center;
+				font-weight: bold;
+				font-size: 20px;
+				line-height: 50px;
+				cursor: pointer;
+			}
+			
+			.dd {
+				position: absolute;
+				width: 50px;
+				height: 50px;
+				left: 100px;
+				top: 200px;
+				background-color: orange;
+				text-align: center;
+				font-weight: bold;
+				font-size: 20px;
+				line-height: 50px;
+				cursor: pointer;
+			}
+			
+			.ee {
+				position: absolute;
+				width: 50px;
+				height: 50px;
+				left: 50%;
+				top: 530px;
+				background-color: orange;
+				text-align: center;
+				font-weight: bold;
+				font-size: 20px;
+				line-height: 50px;
+				cursor: pointer;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="father">
+			<div class="aa" id="aa">
+				<div class="bb bb1"></div>
+				<div class="bb bb2"></div>
+				<div class="bb bb3"></div>
+				<div class="bb bb4"></div>
+				<div class="bb bb5"></div>
+				<div class="bb bb6"></div>
+				<div class="bb bb7"></div>
+				<div class="bb bb8"></div>
+				<div class="bb bb9"></div>
+			</div>
+		</div>
+
+		<div class="cc lala" />右</div>
+		<div class="dd lala" />左</div>
+		<div class="ee lala" />重置</div>
+		
+		<script>
+			
+			var aa = document.getElementById('aa');
+			var lala = $(".lala");
+			var x = 0,y = 0;
+				
+			
+			//*********************************************************点击按钮事件开始****************************************************//
+			for (var i = 0; i < lala.length; i++) {
+				lala[i].onclick = run;
+			}
+
+			function run() {
+				aa.style.webkitTransition = '-webkit-transform 0.1s linear'; //设置立方体变换的属性、持续时间、动画类型
+
+				if (lala[0] == this) {
+					y += 40;
+				}
+				if (lala[1] == this) {
+					y -= 40;
+				}
+				if (lala[2] == this) {
+					x = 0;
+					y = 0;
+					aa.style.webkitTransition = '-webkit-transform 0.1s linear';
+				} //当点击重置按钮时，迅速转回到初始状态。
+				//当点击重置按钮时，迅速转回到初始状态。
+				aa.style.webkitTransform = "rotateX(" + x + "deg) rotateY(" + y + "deg)"; //变换效果（沿X轴和Y轴旋转）
+			}
+
+			//*********************************************************点击按钮事件结束****************************************************//
+
+			//*********************************************************键盘按键事件开始****************************************************//
+			document.addEventListener('keydown', function(e) {
+				aa.style.webkitTransition = '-webkit-transform 0.1s linear';
+				switch (e.keyCode) {
+					case 37:
+						y -= 40; //左箭头
+						break;
+					case 38:
+						x += 40; //上箭头
+						break;
+					case 39:
+						y += 40; //下箭头
+						break;
+					case 40:
+						x -= 40; //右箭头
+						break;
+					case 13:
+						x = 0;
+						y = 0; //回车 （当回车时，迅速转回初始状态）
+						aa.style.webkitTransition = '-webkit-transform 0.1s linear';
+						break;
+				}
+				aa.style.webkitTransform = "rotateX(" + x + "deg) rotateY(" + y + "deg)"; //变换效果（沿X轴和Y轴旋转）
+			}, false);
+			//*********************************************************键盘按键事件结束****************************************************//
+
+			//*********************************************************鼠标滚轮事件开始****************************************************//
+			function scroll() {
+				var scrollFunc = function(e) {
+					e = e || window.event;
+					aa.style.webkitTransition = '-webkit-transform 0.1s linear';
+					if (e.wheelDelta) { // 判断浏览器IE，谷歌滑轮事件
+						if (e.wheelDelta > 0) { // 当滑轮向上滚动时
+							/*alert("上")*/
+							y -= 40;
+						} else if (e.wheelDelta < 0) { // 当滑轮向下滚动时
+							/*alert("下")*/
+							y += 40;
+						}
+					} else if (e.detail) { // Firefox滑轮事件
+						if (e.detail < 0) { // 当滑轮向上滚动时
+							/*alert("上")*/
+							y += 40;
+						} else if (e.detail > 0) { // 当滑轮向下滚动时
+							/*alert("下")*/
+							y -= 40;
+						}
+					}
+					aa.style.webkitTransform = "rotateX(" + x + "deg) rotateY(" + y + "deg)"; //变换效果（沿X轴和Y轴旋转）
+				}
+
+				// 给页面绑定滑轮滚动事件
+				if (document.addEventListener) { // firefox
+					document.addEventListener('DOMMouseScroll', scrollFunc, false);
+				}
+				// 滚动滑轮触发scrollFunc方法 //ie 谷歌
+				document.onmousewheel = scrollFunc;
+			}
+			scroll();
+
+			//*********************************************************鼠标滚轮事件开始****************************************************//
+		</script>
+	</body>
+
+</html>

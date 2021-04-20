@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="shortcut icon" href="img/hahaha.ico" site="1" >
+		<script type="text/javascript" src="../../../lib/js/jquery-1.11.3.min.js" ></script>
+		<style>
+			html,body{
+				text-align: center;
+			}
+			.aa{
+				position: absolute;
+			    width: 300px;
+			    height: 10px;
+			    border: 1px solid black;
+			    margin: auto;
+			    border-radius: 10px;
+			    overflow: hidden;
+			    top: 0;
+			    left: 0;
+			    right: 0;
+			    bottom: 0;
+			}
+			.bb{
+				position: relative;
+				width: 0;
+				height: 100%;
+				background-color: cornflowerblue;
+			}
+			
+			.num_value_father{
+				position: relative;
+				width: 200px;
+				height: 50px;
+				background-color: orange;
+				cursor: pointer;
+				margin-left: 15px;
+				display: inline-block;
+				float: left;
+			}
+			
+			.num_value{
+				position: relative;
+			    width: 186px;
+			    height: 44px;
+			    font-size: 30px;
+			    padding-left: 10px;
+			}
+			
+			.start_button{
+				position: relative;
+				width: 200px;
+				height: 50px;
+				background-color: orange;
+				cursor: pointer;
+				margin-left: 15px;
+				display: inline-block;
+				float: left;
+				text-align: center;
+				line-height: 50px;
+				font-size: 25px;
+				font-weight: bold;
+			}
+			
+			.stop_button{
+				position: relative;
+				width: 200px;
+				height: 50px;
+				background-color: yellowgreen;
+				cursor: pointer;
+				margin-left: 15px;
+				display: inline-block;
+				float: left;
+				text-align: center;
+				line-height: 50px;
+				font-size: 25px;
+				font-weight: bold;
+			}
+			
+			.reset_button{
+				position: relative;
+				width: 200px;
+				height: 50px;
+				background-color: paleturquoise;
+				cursor: pointer;
+				margin-left: 15px;
+				display: inline-block;
+				float: left;
+				text-align: center;
+				line-height: 50px;
+				font-size: 25px;
+				font-weight: bold;
+			}
+			.continue_button{
+				position: relative;
+				width: 200px;
+				height: 50px;
+				background-color: azure;
+				cursor: pointer;
+				margin-left: 15px;
+				display: inline-block;
+				float: left;
+				text-align: center;
+				line-height: 50px;
+				font-size: 25px;
+				font-weight: bold;
+			}
+		</style>
+		
+		<script>
+			
+			$(document).ready(function(){
+				$(".start_button").click(function(){
+					$(".bb").stop(true);
+					$(".bb").css("width","0px");
+					var num = parseFloat($(".num_value").val());
+					var la = num/300;
+					
+					var a = 300 - parseFloat($(".bb").width());
+					
+					var b = a * la;
+					$(".bb").animate({
+						width : "100%"
+					},b);
+				});
+				
+				$(".stop_button").click(function(){
+					$(".bb").stop(true);
+				});
+				
+				$(".reset_button").click(function(){
+					$(".bb").stop(true);
+					$(".bb").css("width","0px");
+				});
+				
+				$(".continue_button").click(function(){
+					var num = parseFloat($(".num_value").val());
+					var la = num/300;
+					
+					var a = 300 - parseFloat($(".bb").width());
+					
+					var b = a * la;
+					$(".bb").animate({
+						width : "100%"
+					},b);
+				});
+			});
+			
+			
+			/*改变link标签的属性*/
+			$(document).ready(function(){
+				/*var rurl = $("link[rel='shortcut icon']").attr("href");*/
+				
+				setInterval(function(){
+					var site = $("link[rel='shortcut icon']").attr("site");
+					if(site==1){
+						$("link[rel='shortcut icon']").attr("href","img/heihei.ico");
+						$("link[rel='shortcut icon']").attr("site","2");
+					}else if(site==2){
+						$("link[rel='shortcut icon']").attr("href","img/hahaha.ico");
+						$("link[rel='shortcut icon']").attr("site","1");
+					}else{}
+				},100)
+			});
+		</script>
+	</head>
+	
+	
+	<body>
+		<div class="aa">
+			<div class="bb"></div>
+		</div>
+		<div class="num_value_father">
+			<input type="text" class="num_value" value="" />
+		</div>
+		<div class="start_button">start</div>
+		<div class="stop_button">stop</div>
+		<div class="reset_button">reset</div>
+		<div class="continue_button">continue</div>
+	</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title></title>
+		<meta charset="utf-8" />
+	</head>
+
+	<body>
+		<input type="text" value="" class="aa">
+		<input type="text" value="" class="bb">
+		<input type="submit" value="提交" id="sub" onclick="commit()">
+		<ul></ul>
+
+		<script type="text/javascript" src="../../../../lib/js/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript">
+			function commit(){
+				var kk = {name: $('.aa').val(),age: $('.bb').val()};
+				var str = JSON.stringify(kk);
+				
+				$.ajax({
+					type: "post",
+					data: str,
+					url: "lalala,heiheihei",
+					dataType: "JSON",
+					contentType: "application/json; charset=utf-8",
+					success: callback
+				});
+			}
+
+			function callback(data) {
+				var json = JSON.parse(data);
+				var ulist = $("ul");
+				$.each(json, function(i, item) {
+					ulist.append(
+						"<li>" + item.name + "</li><li>" + item.age + "</li>"
+					);
+				})
+			}
+		</script>
+
+	</body>
+
+</html>

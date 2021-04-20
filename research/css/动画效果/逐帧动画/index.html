@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.father {
+				position: absolute;
+				width: 283px;
+				height: 209px;
+				top: 0;
+				left: auto;
+				right: 0;
+				overflow: hidden;
+				background-position: 0px 0px;
+				animation: lalala 5s linear;
+				-webkit-animation: lalala 5s linear infinite;
+				/* Safari and Chrome */
+				-webkit-animation-fill-mode: both;
+				-webkit-animation-direction: alternate;
+			}
+			
+			.aa {
+				position: relative;
+				width: 100%;
+				height: 100%;
+				background-image: url("../../../../lib/img/bus/lalala.png");
+				-webkit-animation: hahaha 0.4s steps(1) infinite 0s;
+			}
+			
+			.heiheihei {
+				-webkit-transform: rotateY(180deg);
+			}
+			
+			@-webkit-keyframes lalala {
+				0% {
+					right: 0px;
+				}
+				100% {
+					right: 85%;
+				}
+			}
+			
+			@-webkit-keyframes hahaha {
+				0% {
+					background-position: 0px 0px;
+				}
+				20% {
+					background-position: 0px -242px;
+				}
+				40% {
+					background-position: 0px -480px;
+				}
+				60% {
+					background-position: 0px -720px;
+				}
+				80% {
+					background-position: 0px -958px;
+				}
+				100% {
+					background-position: 0px -1202px;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			window.onload = function(){
+				setInterval(function() {
+					var a = document.querySelector(".aa");
+					if(a.classList.contains("heiheihei")) {
+						a.className = "aa";
+					}
+					else {
+						a.className = "aa heiheihei";
+					}
+				}, 5000);
+			}
+		</script>
+		<div class="father">
+			<div class="aa"></div>
+		</div>
+	</body>
+
+</html>

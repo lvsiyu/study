@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../lib/js/jquery-1.11.3.min.js" ></script>
+		
+	</head>
+	<body>
+		<canvas id="aa" width="1800" height="800"></canvas>
+		
+		
+		
+		<script>
+			kk = 100;
+			$(document).ready(function () {
+				bb = setInterval(function () {
+			    	var c=document.getElementById("aa");
+					var ctx=c.getContext("2d");
+					ctx.beginPath();
+					ctx.moveTo(100,100);
+					ctx.lineTo(kk,100);
+					ctx.stroke();
+					kk++;
+					if(kk>300){
+						clearInterval(bb);
+					}
+				}, 10);
+				
+			});
+		</script>
+	</body>
+</html>

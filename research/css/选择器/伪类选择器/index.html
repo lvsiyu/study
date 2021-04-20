@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.a{
+				position:relative;
+				width: 20px;
+				height: 20px;
+				display: inline-block;
+				background-color: black;
+			}
+			
+			/*选择偶数子元素*/
+			.a:nth-child(2n){
+				background-color: yellow;
+			}
+			/*选择奇数子元素*/
+			.a:nth-child(2n+1){
+				background-color: orange;
+			}
+			/*选择第5个子元素*/
+			.a:nth-child(7){
+				background-color: blue;
+			}
+			/*选择第1个子元素*/
+			.a:first-child{
+				background-color: green;
+			}
+			/*选择第6个子元素之后的所有子元素*/
+			.a:nth-child(n+8){
+				background-color: blueviolet;
+			}
+			/*选择最后1个子元素*/
+			.a:last-child{
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="a"></div>
+		<div class="a"></div>
+		<div class="a"></div>
+		<div class="a"></div>
+		<div class="a"></div>
+		<div class="a"></div>
+		<div class="a"></div>
+		<div class="a"></div>
+		<div class="a"></div>
+		<div class="a"></div>
+		<div class="a"></div>
+		<div class="a"></div>
+		<div class="a"></div>
+		<div class="a"></div>
+		<div class="a"></div>
+		<div class="a"></div>
+		<div class="a"></div>
+	</body>
+</html>

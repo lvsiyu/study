@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../lib/js/jquery-1.11.3.min.js" ></script>
+		<style>
+			.aa{
+				position: relative;
+				width: 200px;
+				height: 50px;
+				border: 1px solid black;
+				cursor: pointer;
+				display: inline-block;
+			}
+		</style>
+		
+		<script>
+			$(document).ready(function(){
+				$(".aa").hover(function(){
+					var aa = $(this).text();
+					$(this).attr("title",aa);
+				},function(){
+					$(this).removeAttr("title");
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="aa">lalalala</div>
+		<div class="aa">hahahaha</div>
+	</body>
+</html>

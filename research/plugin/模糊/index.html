@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../lib/js/mohu/mohu.js" ></script>
+		<style>
+			.box {
+				width: 1600px;
+				height: 1200px;
+				background: url("../../../lib/img/mountain/aa.jpg") no-repeat;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			.drag {
+				width: 50%;
+				height: 100%;
+				background: inherit;
+				-webkit-filter: blur(10px);
+				-moz-filter: blur(10px);
+				filter: blur(10px);
+				cursor: -webkit-grab;
+				cursor: -moz-grab;
+				cursor: grab;
+				position: absolute;
+				overflow: hidden;
+			}
+			
+			.drag:active {
+				cursor: -webkit-grabbing;
+				cursor: -moz-grabbing;
+				cursor: grabbing;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+			<div id="drag" class="drag"></div>
+		</div>
+
+		<script>
+			var eleDrag = document.getElementById("drag");
+			if(eleDrag) {
+				startDrag(eleDrag, eleDrag, function(x, y) {
+					eleDrag.style.backgroundPosition = (-1 * x) + "px " + (-1 * y) + "px";
+				});
+			}
+		</script>
+	</body>
+
+</html>

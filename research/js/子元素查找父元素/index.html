@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../lib/js/jquery-1.11.3.min.js" ></script>
+		<script>
+			$(document).ready(function(){
+				/*var a = $('#aa').parents(); // 带s表示显示所有上级元素都选中。不带s表示只显示上一级*/
+				var a = $('#aa').parent().attr("id");
+				var b = $('#aa').parent().parent().attr("id");
+				alert("第一个父元素:" + a +  "\n第二个父元素:" + b);
+			});
+		</script>
+	</head>
+
+	<body>
+		<div id="ii" class="a">
+			<div id="hh" class="a">
+				<div id="gg" class="a">
+					<div id="ff" class="a">
+						<div id="ee" class="a">
+							<div id="dd" class="a">
+								<div id="cc" class="a">
+									<div id="bb" class="a">
+										<div id="aa" class="a"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

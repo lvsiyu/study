@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+			
+			html,
+			body {
+				background: #ece5dd;
+			}
+			
+			.aa {
+				width: 170px;
+				height: 140px;
+				background-image: radial-gradient(circle at 50% 120%, rgba(0, 0, 0, 0.7) 23%, rgba(0, 0, 0, 0) 48%), linear-gradient(30deg, rgba(0, 0, 0, 0.4) 10%, rgba(0, 0, 0, 0) 20%), radial-gradient(circle at 50% 33%, #f8f6f7 32%, rgba(255, 255, 255, 0) 32%), radial-gradient(circle at -13% 55%, #f8f6f7 20%, rgba(255, 255, 255, 0) 20%), radial-gradient(circle at 113% 55%, #f8f6f7 20%, rgba(255, 255, 255, 0) 20%), linear-gradient(to bottom, #ef0015 20%, #b2000c 100%);
+				border-radius: 140px 140px 80px 80px;
+			}
+			
+			.bb {
+				position: relative;
+				width: 300px;
+				height: 300px;
+				background: rgba(255, 255, 255, 0.75);
+				padding: 10%;
+				margin: 0px auto;
+			}
+			
+			.bb:before {
+				content: "➞";
+				font-family: sans-serif;
+				text-align: center;
+				line-height: 100px;
+				font-size: 60px;
+				color: white;
+				position: absolute;
+				top: 21px;
+				left: -85px;
+				height: 100px;
+				width: 100px;
+				pointer-events: none;
+				opacity: 0.66;
+				border-radius: 50%;
+				background: linear-gradient(140deg, rgb(244, 242, 242) 0%, rgb(244, 242, 242) 10%, rgb(232, 230, 230) 10%, rgb(232, 230, 230) 20%, rgb(215, 213, 213) 19%, rgb(220, 218, 218) 21%, rgb(220, 218, 218) 20%, rgb(220, 218, 218) 30%, rgb(203, 201, 201) 29%, rgb(208, 206, 206) 31%, rgb(208, 206, 206) 30%, rgb(208, 206, 206) 40%, rgb(191, 189, 189) 39%, rgb(195, 194, 194) 41%, rgb(195, 194, 194) 40%, rgb(195, 194, 194) 50%, rgb(178, 177, 177) 49%, rgb(183, 181, 181) 51%, rgb(183, 181, 181) 50%, rgb(183, 181, 181) 60%, rgb(166, 164, 164) 59%, rgb(171, 169, 169) 61%, rgb(171, 169, 169) 60%, rgb(171, 169, 169) 70%, rgb(154, 152, 152) 69%, rgb(159, 157, 157) 71%, rgb(159, 157, 157) 70%, rgb(159, 157, 157) 80%, rgb(142, 140, 140) 79%, rgb(147, 145, 145) 81%, rgb(147, 145, 145) 80%, rgb(147, 145, 145) 90%, rgb(129, 128, 128) 89%, rgb(134, 133, 133) 91%, rgb(134, 133, 133) 90%, rgb(134, 133, 133) 100%) rgb(244, 242, 242);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="aa"></div>
+		<div class="bb"></div>
+	</body>
+
+</html>

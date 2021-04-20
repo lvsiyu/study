@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../../lib/js/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="../../../../lib/js/hoverdelay/hoverdelay.js"></script>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+			
+			#father{
+				position: relative;
+				width: 100%;
+			}
+			
+			.aa{
+				position: relative;
+				width: auto;
+				padding: 10px;
+				border: 2px solid black;
+				display: inline-block;
+				cursor: pointer;
+				font-weight: bold;
+			}
+			
+			.s1 {
+				background-color: orange;
+			}
+			
+			.s2 {
+				background-color: white;
+			}
+		</style>
+		
+	</head>
+
+	<body>
+		<div class="father">
+			<div id="a" class="aa s1">哈哈</div>
+			<div id="b" class="aa s2">哈哈</div>
+			<div id="c" class="aa s2">哈哈</div>
+			<div id="d" class="aa s2">哈哈</div>
+			<div id="e" class="aa s2">哈哈</div>
+			<div id="f" class="aa s2">哈哈</div>
+			<div id="g" class="aa s2">哈哈</div>
+			<div id="h" class="aa s2">哈哈</div>
+			<div id="i" class="aa s2">哈哈</div>
+			<div id="j" class="aa s2">哈哈</div>
+			<div id="k" class="aa s2">哈哈</div>
+			<div id="l" class="aa s2">哈哈</div>
+			<div id="m" class="aa s2">哈哈</div>
+			<div id="n" class="aa s2">哈哈</div>
+			<div id="o" class="aa s2">哈哈</div>
+			<div id="p" class="aa s2">哈哈</div>
+			<div id="q" class="aa s2">哈哈</div>
+			<div id="r" class="aa s2">哈哈</div>
+			<div id="s" class="aa s2">哈哈</div>
+		</div>
+		
+		
+		<script>
+			$(".father div").each(function() {
+				var that = $(this);
+				var id = that.attr("id");
+				
+				that.hoverDelay({
+					hoverEvent: function() {
+						$(".s1").attr("class", "aa s2");
+						$(this).attr("class", "aa s1");
+					}
+				});
+				
+				
+				/*if(id) {
+					that.hoverDelay({
+						hoverEvent: function() {
+							$(".s1").attr("class", "s2");
+							$(this).attr("class", "s1");
+						}
+					});
+				} else {
+					that.hoverDelay({
+						outDuring: 1000,
+						hoverEvent: function() {
+							$("#tm").show();
+						},
+						outEvent: function() {
+							$("#tm").hide();
+						}
+					});
+				}*/
+			});
+		</script>
+	</body>
+
+</html>

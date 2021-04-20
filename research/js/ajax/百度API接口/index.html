@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../../lib/js/jquery-1.11.3.min.js" ></script>
+		
+		<style>
+			.city{
+				position: relative;
+				width: 100%;
+				text-align: center;
+				color: orange;
+				font-weight: bold;
+				font-size: 20px;
+			}
+			
+			.weather{
+				position: relative;
+				width: 100%;
+				text-align: center;
+				color: orange;
+				font-weight: bold;
+				font-size: 20px;
+			}
+		</style>
+		
+		<script type="text/javascript">
+	        
+		</script>
+		
+		<script>
+			$(document).ready(function(){
+				$.getScript('http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js', function(_result) {//定位地理位置
+		            if (remote_ip_info.ret == '1') {
+		            	$.ajax({
+							type:"get",
+							dataType:"jsonp",
+							url:"http://api.map.baidu.com/telematics/v3/weather?location="+ remote_ip_info.city +"&output=json&ak=6CGHipYY6kdPdovrL2hluIig",
+							async:true,
+							success:function(resulet){
+								var a = resulet.results[0].currentCity;
+								var b = resulet.results[0].weather_data[0].date;
+								
+								$(".city").html(a);
+								$(".weather").html(b);
+							}
+						});
+		            } else {
+		                alert('没有找到匹配的IP地址信息！');
+		            }
+		        });
+			})
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		<div class="city"></div>
+		<div class="weather"></div>
+	</body>
+</html>

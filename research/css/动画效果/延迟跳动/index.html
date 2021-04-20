@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../lib/js/jquery-1.11.3.min.js" ></script>
+		<style>
+			.father {
+				position: absolute;
+				top: 200px;
+				left: 200px;
+			}
+			
+			.aa {
+				position: absolute;
+				width: 21px;
+				height: 28px;
+				bottom: 0;
+				left: 0;
+				animation: mymove 1s forwards;
+				-webkit-animation: mymove 1s forwards;
+				/*Safari and Chrome*/
+			}
+			
+			@-webkit-keyframes mymove
+			/*Safari and Chrome*/
+			
+			{
+				0% {
+					
+					height: 0px;
+				}
+				
+				
+				50% {
+					
+					height: 30px;
+				}
+				75% {
+					
+					height: 26px;
+				}
+				100% {
+					
+					height: 28px;
+				}
+			}
+			
+			.bb {
+				position: relative;
+				width: 100%;
+				height: 100%;
+			}
+			
+			.father2 {
+				position: absolute;
+				top: 400px;
+				left: 400px;
+			}
+			
+			.aa2 {
+				position: absolute;
+				width: 21px;
+				height: 28px;
+				bottom: 0;
+				left: 0;
+				animation: mymove2 2s forwards 0s;
+				-webkit-animation: mymove2 2s forwards 0s;
+				opacity: 0;
+				/*Safari and Chrome*/;
+			}
+			
+			@-webkit-keyframes mymove2
+			/*Safari and Chrome*/
+			
+			{
+				0% {
+					opacity: 0;
+					height: 0px;
+				}
+				
+				50% {
+					opacity: 1;
+					height: 0px;
+				}
+				75% {
+					opacity: 1;
+					height: 28px;
+				}
+				87.5% {
+					opacity: 1;
+					height: 26px;
+				}
+				100% {
+					opacity: 1;
+					height: 28px;
+				}
+			}
+			
+			.bb2 {
+				position: relative;
+				width: 100%;
+				height: 100%;
+			}
+			
+			
+			.father3{
+				position: absolute;
+				top: 260px;
+				left: 600px;
+				width: 21px;
+				height: 28px;
+				opacity: 1;
+				background-color: #FFF;
+				
+			}
+			.aa3 {
+				position: absolute;
+				width: 21px;
+				height: 28px;
+				bottom: 0;
+				left: 0;
+				animation: mymove3 3s forwards 0s;
+				-webkit-animation: mymove3 3s forwards 0s;
+				opacity: 0;
+				/*Safari and Chrome*/;
+			}
+			
+			@-webkit-keyframes mymove3
+			/*Safari and Chrome*/
+			
+			{
+				0% {
+					opacity: 0;
+					height: 0px;
+				}
+				
+				66.6% {
+					opacity: 1;
+					height: 0px;
+				}
+				83.25% {
+					opacity: 1;
+					height: 28px;
+				}
+				91.575% {
+					opacity: 1;
+					height: 26px;
+				}
+				100% {
+					opacity: 1;
+					height: 28px;
+				}
+			}
+			
+			.bb3 {
+				position: relative;
+				width: 100%;
+				height: 100%;
+			}
+			
+			.father4{
+				position: absolute;
+				top: 560px;
+				left: 800px;
+				width: 21px;
+				height: 28px;
+				opacity: 1;
+				background-color: #FFF;
+				
+			}
+			.aa4 {
+				position: absolute;
+				width: 21px;
+				height: 28px;
+				bottom: 0;
+				left: 0;
+				animation: mymove4 4s forwards 0s;
+				-webkit-animation: mymove4 4s forwards 0s;
+				opacity: 0;
+				/*Safari and Chrome*/;
+			}
+			
+			@-webkit-keyframes mymove4
+			/*Safari and Chrome*/
+			
+			{
+				0% {
+					opacity: 0;
+					height: 0px;
+				}
+				
+				75% {
+					opacity: 1;
+					height: 0px;
+				}
+				87.5% {
+					opacity: 1;
+					height: 28px;
+				}
+				93.75% {
+					opacity: 1;
+					height: 26px;
+				}
+				100% {
+					opacity: 1;
+					height: 28px;
+				}
+			}
+			
+			.bb4 {
+				position: relative;
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+		<!--<script>
+			$(document).ready(function() {
+				$(".father3").delay(1100).animate({opacity: "0"},0);
+			});
+		</script>-->
+	</head>
+
+	<body>
+		<div class="father">
+			<div class="aa">
+				<img class="bb" src="../../../../lib/img/point/point.png" />
+			</div>
+		</div>
+		
+		<div class="father2"">
+			<div class="aa2">
+				<img class="bb2" src="../../../../lib/img/point/point.png" />
+			</div>
+		</div>
+		<div class="father3">
+			<div class="aa3">
+				<img class="bb3" src="../../../../lib/img/point/point.png" />
+			</div>
+		</div>
+		<div class="father4">
+			<div class="aa4">
+				<img class="bb4" src="../../../../lib/img/point/point.png" />
+			</div>
+		</div>
+	</body>
+
+</html>

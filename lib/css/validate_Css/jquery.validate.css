@@ -1,0 +1,39 @@
+input.error {
+	border: 1px solid #C6192B !important;
+}
+input[type='radio'], input[type='checkbox'] {
+	border: 0px !important;
+}
+
+select.error {
+	border: 1px solid #C6192B;
+}
+
+label.error {
+	position: absolute;
+	top: 4px;
+	left: auto;
+	color: #C6192B;
+	height: 24px;
+	line-height: 24px;
+	margin-left: 8px;
+	padding: 0px 6px; 
+	background-color: #FFF9C9;
+	border: 1px solid #C5BC91;
+	border-radius: 2px;
+	white-space: nowrap;
+	font-size: 14px;
+	z-index: 9;
+}
+
+label.error:before {
+	content: "";
+	position: absolute;
+	display: block;
+	white-space: nowrap;
+	left: -5px;
+	top: 8px;
+	width: 6px;
+	height: 9px;
+	background-image:url('arrow_left.png');
+}

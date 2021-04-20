@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.love {
+				display: block;
+				width: 100px;
+				height: 100px;
+				background: url("../../../../lib/img/love/web_heart_animation.png") 0 0 no-repeat;
+				background-size: 2900%;
+				animation: heart-burst steps(28) 0.8s infinite both;
+			}
+			
+			.stop {
+				animation-play-state: paused;
+			}
+			
+			@keyframes heart-burst {
+				0% {
+					background-position: 0%;
+				}
+				100% {
+					background-position: 100%;
+				}
+			}
+		</style>
+		
+	</head>
+
+	<body>
+		<i id="testImg" class="love"></i>
+		<p><input type="button" id="testBtn" value="暂停"></p>
+		
+		<script>
+			var image = document.getElementById("testImg"),
+				button = document.getElementById("testBtn");
+
+			if(image.classList && image && button) {
+				button.onclick = function() {
+					if(this.value == '暂停') {
+						image.classList.add('stop');
+						this.value = '播放';
+					} else {
+						image.classList.remove('stop');
+						this.value = '暂停';
+					}
+				};
+			}
+		</script>
+	</body>
+
+</html>

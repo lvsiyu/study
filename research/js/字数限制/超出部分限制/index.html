@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>jquery限制输入字数,并提示剩余字数</title>
+		<script type="text/javascript" src="../../../../lib/js/jquery-1.11.3.min.js" ></script>
+		<script type="text/javascript">
+			function words_deal() {
+				var curLength = $("#TextArea1").val().length;
+				if (curLength > 20) {
+					var num = $("#TextArea1").val().substr(0, 20);
+					$("#TextArea1").val(num);
+					alert("超过字数限制，多出的字将被截断！");
+				} else {
+					$("#textCount").text(20 - $("#TextArea1").val().length);
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		剩余<span id="textCount">20</span>个字<br />
+		<textarea name="textarea" id="TextArea1" cols="45" rows="5" onkeyup="words_deal();"></textarea>
+	</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body onload="main()">
+		<canvas id="aa" width="400" height="400">你的浏览器太老,不支持canvas</canvas>
+		<script>
+			/*定义主方法*/
+			function main(){
+				/*获取id为aa的canvas元素*/
+				var canvas = document.getElementById("aa");
+				/*校验canvas获取是否成功,成功不报错,失败报null*/
+				if(!canvas){
+					console.log("lalala");
+					return;
+				}
+				
+				/*获取上下文支持,通过上下文机制绘图*/
+				var ctx = canvas.getContext("2d");
+				
+				/*设置颜色值,最后一个参数为透明度*/
+				ctx.fillStyle = 'rgba(0,0,255,1.0)';
+				/*设置填充为矩形,参数为x,y,宽,高
+				 * x,y为设置矩形的位置,宽高为设置形状*/
+				ctx.fillRect(120,10,150,150);
+			}
+		</script>
+	</body>
+</html>

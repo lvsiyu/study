@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../lib/js/jquery-2.2.2.min.js"></script>
+		<style>
+			html,
+			body {
+				position: relative;
+				margin: 0;
+				padding: 0;
+				border: 0;
+				font-family: "微软雅黑";
+				user-select: none;
+				-moz-user-select: none;
+				-webkit-user-select: none;
+				-ms-user-select: none;
+				-khtml-user-select: none;
+			}
+			
+			.father {
+				position: relative;
+				width: 70%;
+				height: 800px;
+				border: 1px solid black;
+				margin: 100px auto;
+				border-radius: 10px;
+				overflow: hidden;
+			}
+			
+			.head {
+				position: relative;
+				width: 100%;
+				height: 50px;
+				background-color: aliceblue;
+				border-radius: 10px;
+				font-size: 20px;
+				line-height: 50px;
+				font-weight: bold;
+				padding-left: 50px;
+				z-index: 2;
+			}
+			
+			.close {
+				position: absolute;
+				top: 0px;
+				right: 0px;
+				width: 50px;
+				height: 50px;
+				font-size: 25px;
+				font-weight: bold;
+				border-radius: 10px;
+				line-height: 50px;
+				text-align: center;
+				cursor: pointer;
+				z-index: 2;
+			}
+			
+			.close:hover {
+				color: orange;
+			}
+			
+			.title {
+				position: relative;
+				width: 100%;
+				font-size: 40px;
+				padding-left: 50px;
+				font-weight: bold;
+				margin: 40px auto;
+			}
+			
+			.content {
+				position: relative;
+				width: 100%;
+				text-align: center;
+				font-size: 90px;
+				font-weight: bold;
+				margin: 200px auto;
+			}
+			
+			.chose {
+				position: absolute;
+				width: 100px;
+				height: 40px;
+				bottom: 70px;
+				border: 2px solid black;
+				border-radius: 10px;
+				text-align: center;
+				font-weight: bold;
+				line-height: 40px;
+				font-size: 20px;
+				cursor: pointer;
+				z-index: 1;
+			}
+			
+			.chose:hover {
+				background-color: aliceblue;
+			}
+			
+			.yes {
+				right: 230px;
+			}
+			
+			.no {
+				right: 50px;
+			}
+			.choseyes{
+				position: absolute;
+				width: 50%;
+				height: 300px;
+				top: 265px;
+				left: 25%;
+				border: 1px solid black;
+				background-color: #FFF;
+				border-radius: 10px;
+				overflow: hidden;
+			}
+			.choseyes_close{
+				position: absolute;
+				top: 0px;
+				right: 0px;
+				width: 50px;
+				height: 50px;
+				font-size: 25px;
+				font-weight: bold;
+				border-radius: 10px;
+				line-height: 50px;
+				text-align: center;
+				cursor: pointer;
+				z-index: 2;
+			}
+			.choseyes_close:hover {
+				color: orange;
+			}
+			.choseyes_content{
+				position: relative;
+				width: 100%;
+				font-size: 25px;
+				text-align: center;
+				font-weight: bold;
+				margin: 90px auto;
+			}
+			.choseyes_ok{
+				position: absolute;
+				width: 100px;
+				height: 40px;
+				bottom: 20px;
+				right: 30px;
+				border: 2px solid black;
+				border-radius: 10px;
+				text-align: center;
+				font-weight: bold;
+				line-height: 40px;
+				font-size: 20px;
+				cursor: pointer;
+			}
+			.choseyes_ok:hover{
+				background-color: orange;
+			}
+			.chose_father_close{
+				position: absolute;
+				width: 50%;
+				height: 300px;
+				top: 265px;
+				left: 25%;
+				border: 1px solid black;
+				background-color: #FFF;
+				border-radius: 10px;
+				overflow: hidden;
+			}
+			.choseyes_close2{
+				position: absolute;
+				top: 0px;
+				right: 0px;
+				width: 50px;
+				height: 50px;
+				font-size: 25px;
+				font-weight: bold;
+				border-radius: 10px;
+				line-height: 50px;
+				text-align: center;
+				cursor: pointer;
+				z-index: 2;
+			}
+			.choseyes_close2:hover {
+				color: orange;
+			}
+			.choseyes_content2{
+				position: relative;
+				width: 100%;
+				font-size: 25px;
+				text-align: center;
+				font-weight: bold;
+				margin: 90px auto;
+			}
+			.choseyes_ok2{
+				position: absolute;
+				width: 100px;
+				height: 40px;
+				bottom: 20px;
+				right: 30px;
+				border: 2px solid black;
+				border-radius: 10px;
+				text-align: center;
+				font-weight: bold;
+				line-height: 40px;
+				font-size: 20px;
+				cursor: pointer;
+			}
+			.choseyes_ok2:hover{
+				background-color: orange;
+			}
+			.want_leave{
+				position: absolute;
+				width: 50%;
+				height: 300px;
+				top: 265px;
+				left: 25%;
+				border: 1px solid black;
+				background-color: #FFF;
+				border-radius: 10px;
+				overflow: hidden;
+				z-index: 6;
+			}
+			.choseyes_close3{
+				position: absolute;
+				top: 0px;
+				right: 0px;
+				width: 50px;
+				height: 50px;
+				font-size: 25px;
+				font-weight: bold;
+				border-radius: 10px;
+				line-height: 50px;
+				text-align: center;
+				cursor: pointer;
+				z-index: 6;
+			}
+			.choseyes_close3:hover {
+				color: orange;
+			}
+			.choseyes_content3{
+				position: relative;
+				width: 100%;
+				font-size: 25px;
+				text-align: center;
+				font-weight: bold;
+				margin: 90px auto;
+				z-index: 6;
+			}
+			.choseyes_ok3{
+				position: absolute;
+				width: 100px;
+				height: 40px;
+				bottom: 20px;
+				right: 30px;
+				border: 2px solid black;
+				border-radius: 10px;
+				text-align: center;
+				font-weight: bold;
+				line-height: 40px;
+				font-size: 20px;
+				cursor: pointer;
+				z-index: 6;
+			}
+			.choseyes_ok3:hover{
+				background-color: orange;
+			}
+			.mengbanzhezhao{
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				opacity: 0.5;
+				background-color: black;
+				z-index: 5;
+			}
+		</style>
+
+		<script>
+			/*
+			 定义全局变量。监听time属性值
+			 * */
+			function init() {
+				notime = $(".no").attr("time");
+				yestime = $(".yes").attr("time");
+			}
+			
+			/*
+			 定义abc方法。回到原点
+			 * */
+			function abc(){
+				haha = $(".no").position().top;
+				if(haha < 0){
+					$(".no").stop().animate({
+						bottom: "70px"
+					}, 500);
+					$(".no").attr("time", "2");
+					$(".yes").attr("time", "2");
+				}
+			}
+			/*
+			 将要关闭浏览器时调用此方法
+			 * */
+			kk = 10;
+			function aaa(){
+				if(kk >= 1){
+					alert("傻逼，想跑？没门！！！")
+					kk--;
+					aaa();
+				}else{
+					alert("这么多次都不放弃，你牛！")
+				}
+			}
+			
+			/*
+			 监听鼠标移动，移动到某位置时调用某方法
+			 * */
+			$(document).mousemove(function(e) {
+				var wwidthright = $(window).width() * 0.85;
+				var wwidthleft = $(window).width() * 0.15;
+				if(e.pageY <= 0){
+					$(".mengbanzhezhao").show();
+					$(".want_leave").show();
+					aaa()
+				}else if (e.pageY >= 830 || e.pageY <= 150 || e.pageX <= wwidthleft || e.pageX >= wwidthright ) {
+					abc();
+				}else{};
+				
+			});
+			
+			
+			/*
+			 鼠标到按钮式改变至相应time属性
+			 * */
+			$(document).ready(function() {
+				$(".no").hover(function() {
+					var lala = $(".no").position().top;
+					init()
+					if (notime == 1) {
+						$(".no").stop().animate({
+							bottom: "110px"
+						}, 500);
+						$(".no").attr("time", "2");
+						$(".yes").attr("time", "2");
+					} else if (notime == 2) {
+						$(".yes").html("不是");
+						$(".no").html("是");
+						$(".no").attr("time", "2");
+						$(".yes").attr("time", "2");
+					} else if (notime == 4) {
+						if(lala > 0){
+							$(".no").stop().animate({
+								bottom:800- lala + 44 + "px"
+							}, 500);
+							$(".no").attr("time", "4");
+							$(".yes").attr("time", "4");
+						}else{
+							
+						}
+						
+					} else {}
+				}, function() {
+					if (notime == 1) {
+						$(".no").stop().animate({
+							bottom: "70px"
+						}, 500);
+						$(".no").attr("time", "2");
+						$(".yes").attr("time", "2");
+					} else if (notime == 2) {
+						$(".yes").html("是");
+						$(".no").html("不是");
+						$(".no").attr("time", "2");
+						$(".yes").attr("time", "2");
+					} else {}
+				});
+			});
+			
+			
+			/*
+			 点击是按钮
+			 * */
+			$(document).ready(function() {
+				$(".yes").click(function() {
+					$(".choseyes").show();
+				});
+				$(".no").click(function() {
+					init();
+					if (notime == 2) {
+						$(".choseyes").show();
+					} else {}
+				});
+			});
+			
+			/*
+			 点击各个关闭按钮
+			 * */
+			$(document).ready(function(){
+				$(".choseyes_ok").click(function(){
+					$(".choseyes").hide();
+				});
+				$(".choseyes_close").click(function(){
+					$(".choseyes").hide();
+				});
+				$(".close").click(function(){
+					$(".chose_father_close").show();
+				});
+				$(".choseyes_ok2").click(function(){
+					$(".chose_father_close").hide();
+				});
+				$(".choseyes_close2").click(function(){
+					$(".chose_father_close").hide();
+				});
+				$(".choseyes_close3").click(function(){
+					$(".mengbanzhezhao").hide();
+					$(".want_leave").hide();
+				});
+				$(".choseyes_ok3").click(function(){
+					$(".mengbanzhezhao").hide();
+					$(".want_leave").hide();
+				});
+			});
+			
+			
+			/*$(document).keydown(function(event) {
+				//判断当event.keyCode 为37时（即左方面键），执行函数to_left();
+				//判断当event.keyCode 为39时（即右方面键），执行函数to_right();
+				
+				if (event.keyCode == 27) {
+					alert('哈哈，傻逼了吧，就是关不掉我！略略略略略略~');
+				} else if (event.keyCode == 13) {
+					alert('哈哈，傻逼了吧，就是关不掉我！略略略略略略~');
+				} else if (event.keyCode == 8) {
+					alert('哈哈，傻逼了吧，就是关不掉我！略略略略略略~');
+				} else {}
+				
+			});*/
+			
+			
+		</script>
+	</head>
+
+	<body>
+		<div class="father">
+			<div class="head">绝对牛逼到爆的测试题</div>
+			<div class="close">X</div>
+			<div class="title">请问:</div>
+			<div class="content">你是傻逼吗？</div>
+			<div class="chose yes" time="1">是的</div>
+			<div class="chose no" time="4">不是</div>
+		</div>
+		
+		<div class="choseyes" style="display: none;">
+			<div class="head">恭喜你回答正确</div>
+			<div class="choseyes_close">X</div>
+			<div class="choseyes_content">回答正确！</div>
+			<div class="choseyes_ok">確定</div>
+		</div>
+		
+		<div class="chose_father_close" style="display: none;">
+			<div class="head">请正视你自己</div>
+			<div class="choseyes_close2">X</div>
+			<div class="choseyes_content2">就算你关闭，也改变不了你是傻逼这个事实！</div>
+			<div class="choseyes_ok2">確定</div>
+		</div>
+		
+		
+		<div class="mengbanzhezhao" style="display: none;"></div>
+			<div class="want_leave" style="display: none;">
+				<div class="head">不要选择逃避</div>
+				<div class="choseyes_close3">X</div>
+				<div class="choseyes_content3">请直面人生，请痛痛快快傻逼一次！</div>
+				<div class="choseyes_ok3">確定</div>
+			</div>
+		</div>
+	</body>
+
+</html>

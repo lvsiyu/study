@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../lib/js/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="../../../lib/js/jqueryqrcode/jquery.qrcode.min.js"></script>
+
+		<style>
+			.father {
+				position: relative;
+				width: 50%;
+				padding: 10px;
+				border: 2px solid #000;
+				margin: 0px auto;
+				text-align: center;
+			}
+			
+			.input {
+				position: relative;
+				width: 50%;
+				margin: 20px auto;
+				text-align: center;
+			}
+			
+			#input_content {
+				position: relative;
+				width: 100px;
+				display: inline-block;
+				vertical-align: middle;
+			}
+			
+			#sub_btn {
+				position: relative;
+				width: auto;
+				padding: 5px;
+				cursor: pointer;
+				background-color: orange;
+				display: inline-block;
+				border-radius: 5px;
+				vertical-align: middle;
+			}
+			
+			#code {
+				margin-top: 10px;
+				width: 200px;
+				height: 200px;
+				border: 1px solid black;
+				line-height: 200px;
+				text-align: center;
+				margin: 0px auto;
+			}
+			
+			.download {
+				position: relative;
+				width: 25%;
+				text-align: center;
+				line-height: 50px;
+				font-size: 16px;
+				font-weight: bold;
+				background-color: orange;
+				cursor: pointer;
+				margin: 20px auto;
+			}
+		</style>
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+				/*var str = "http://www.helloweba.com";
+				$('#code').qrcode(str);*/
+
+				$("#sub_btn").click(function() {
+					$("#code").empty();
+					var str = toUtf8($("#mytxt").val());
+
+					if(str == null || str == "") {
+						$("#code").html("请输入网址");
+						$("#code").css("border", "1px solid black");
+						alert("请输入网址");
+
+					} else {
+						$("#code").html("");
+						$("#code").css("border", "0");
+
+						//table,支持IE8
+						/*$("#code").qrcode({
+							render: "table",
+							width: 200,
+							height: 200,
+							text: str
+						});*/
+
+						//canvas，不支持IE8
+						$('#code').qrcode({
+							width: 200,
+							height: 200,
+							text: str
+						});
+
+					};
+
+				});
+			});
+
+			function toUtf8(str) {
+				var out, i, len, c;
+				out = "";
+				len = str.length;
+				for(i = 0; i < len; i++) {
+					c = str.charCodeAt(i);
+					if((c >= 0x0001) && (c <= 0x007F)) {
+						out += str.charAt(i);
+					} else if(c > 0x07FF) {
+						out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
+						out += String.fromCharCode(0x80 | ((c >> 6) & 0x3F));
+						out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+					} else {
+						out += String.fromCharCode(0xC0 | ((c >> 6) & 0x1F));
+						out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+					}
+				}
+				return out;
+			}
+
+			/*$(document).ready(function(canvas) {
+				var canvas = $("#code").children();
+				var image = new Image();
+				image.src = canvas.toDataURL("image/png");
+				return image;
+			});*/
+		</script>
+	</head>
+
+	<body>
+		<div class="father">
+			<div class="input">
+				<input type="text" class="input_content" id="mytxt" value="" placeholder="请输入网址">
+				<div id="sub_btn">提交</div>
+			</div>
+			<div id="code">二维码显示区</div>
+
+			<div class="download">鼠标移至图片处右键下载图片</div>
+		</div>
+	</body>
+
+</html>

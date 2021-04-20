@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../lib/js/jquery-1.11.3.min.js" ></script>
+		<style>
+			*{
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+			}
+			.aa{
+				position: relative;
+				display: inline-block;
+				cursor: pointer;
+				border: 1px solid black;
+				text-align: center;
+				width: 30px;
+			}
+			
+			.aa:hover{
+				background-color: orange;
+			}
+			
+			.bb{
+				background-color: orange;
+			}
+			
+		</style>
+		
+		<script>
+			$(document).ready(function(){
+				$(".aa").click(function(){
+					var cc = $(this).prev().attr("site");
+					$(this).nextAll().css("background-color","#FFF");
+					$(this).nextAll().attr("site","0");
+					if(cc == 1){
+						/*var index = $(".aa").index(this);*/
+						$(this).prevAll().css("background-color","orange");
+						$(this).prev().addClass("bb");
+						$(this).attr("site","1");
+						$(this).css("background-color","orange");
+					}
+					
+					/*var id = $("." + $(this).attr("target")).find(".box").attr("id");
+					alert(id)*/
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="aa bb" site="1" target="1">0</div>
+		<div class="aa" site="0" target="2">1</div>
+		<div class="aa" site="0" target="3">2</div>
+		<div class="aa" site="0" target="4">3</div>
+		<div class="aa" site="0" target="5">4</div>
+		<div class="aa" site="0" target="6">5</div>
+		<div class="aa" site="0" target="7">6</div>
+		<div class="aa" site="0" target="8">7</div>
+		<div class="aa" site="0" target="9">8</div>
+		<div class="aa" site="0" target="10">9</div>
+		
+		<!--<div id="0" class="box" target="1">0</div>
+		<div id="1" class="box" target="2">1</div>
+		<div id="2" class="box" target="2">2</div>
+		<div id="3" class="box" target="3">3</div>
+		<div id="4" class="box" target="4">4</div>
+		<div id="5" class="box" target="6">5</div>
+		<div id="6" class="box" target="7">6</div>
+		<div id="7" class="box" target="8">7</div>
+		<div id="8" class="box" target="9">8</div>
+		<div id="9" class="box" target="10">9</div>-->
+	</body>
+</html>

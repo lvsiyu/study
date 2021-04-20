@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../lib/js/jquery-1.11.3.min.js" ></script>
+		<style>
+			.box {
+				position: relative;
+				width: 400px;
+				min-height: 140px;
+				/*max-height: 300px;*/
+				margin-left: auto;
+				margin-right: auto;
+				padding: 0px 3px;
+				outline: 0;
+				border: 1px solid #a0b3d6;
+				font-size: 16px;
+				font-weight: bold;
+				word-wrap: break-word;
+				overflow-x: hidden;
+				overflow-y: auto;
+				line-height: 20px;
+				-webkit-user-modify: read-write-plaintext-only;
+				color: black;
+				-webkit-background-size: 40px 40px;
+				-moz-background-size: 40px 40px;
+				background-size: 40px 40px;
+				/* 控制条纹的大小 */
+				-moz-box-shadow: 1px 1px 8px gray;
+				-webkit-box-shadow: 1px 1px 8px gray;
+				background-color: #0ae;
+				background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, rgba(255, 255, 255, .2)), color-stop(.5, transparent), to(transparent));
+				background-image: -moz-linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
+				background-image: -o-linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
+				background-image: linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
+				
+				
+				
+				
+				/*此处解锁注释就能让字体变颜色，不过和背景颜色不兼容*/
+				/*-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-image: linear-gradient( to bottom, #9588DD, #9588DD 25%, #DD88C8 25%, #DD88C8 50%, #D3DD88 50%, #D3DD88 75%, #88B0DD 75%, #88B0DD);
+				background-size: 100% 80px;*/
+			}
+			
+			.aa{
+				position: relative;
+				width: 200px;
+				height: 50px;
+				background-color: orange;
+				cursor: pointer;
+				margin: 20px auto;
+				line-height: 50px;
+				text-align: center;
+				font-weight: bold;
+			}
+		</style>
+		
+		<script>
+			$(document).ready(function(){
+				$(".aa").click(function(){
+					alert($(".box").html())
+				})
+				
+			})
+		</script>
+	</head>
+
+	<body>
+		<div class="box" contenteditable="true"><br /></div>
+		<div class="aa">显示文本内容</div>
+		<script>
+			//纯文本输入
+			$('[contenteditable]').each(function() {
+				// 干掉IE http之类地址自动加链接
+				try {
+					document.execCommand("AutoUrlDetect", false, false);
+				} catch(e) {}
+
+				$(this).on('paste', function(e) {
+					e.preventDefault();
+					var text = null;
+
+					if(window.clipboardData && clipboardData.setData) {
+						// IE
+						text = window.clipboardData.getData('text');
+					} else {
+						text = (e.originalEvent || e).clipboardData.getData('text/plain') || prompt('在这里输入文本');
+					}
+					if(document.body.createTextRange) {
+						if(document.selection) {
+							textRange = document.selection.createRange();
+						} else if(window.getSelection) {
+							sel = window.getSelection();
+							var range = sel.getRangeAt(0);
+
+							// 创建临时元素，使得TextRange可以移动到正确的位置
+							var tempEl = document.createElement("span");
+							tempEl.innerHTML = "&#FEFF;";
+							range.deleteContents();
+							range.insertNode(tempEl);
+							textRange = document.body.createTextRange();
+							textRange.moveToElementText(tempEl);
+							tempEl.parentNode.removeChild(tempEl);
+						}
+						textRange.text = text;
+						textRange.collapse(false);
+						textRange.select();
+					} else {
+						// Chrome之类浏览器
+						document.execCommand("insertText", false, text);
+					}
+				});
+				// 去除Crtl+b/Ctrl+i/Ctrl+u等快捷键
+				$(this).on('keydown', function(e) {
+					// e.metaKey for mac
+					if(e.ctrlKey || e.metaKey) {
+						switch(e.keyCode) {
+							case 66: //ctrl+B or ctrl+b
+							case 98:
+							case 73: //ctrl+I or ctrl+i
+							case 105:
+							case 85: //ctrl+U or ctrl+u
+							case 117:
+								{
+									e.preventDefault();
+									break;
+								}
+						}
+					}
+				});
+			});
+		</script>
+	</body>
+
+</html>

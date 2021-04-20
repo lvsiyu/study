@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			div {
+				width: 100px;
+				height: 100px;
+				-webkit-transform: rotate(90deg);
+			}
+			
+			div:before {
+				content: "";
+				display: block;
+				width: 100px;
+				height: 50px;
+				margin-top: 10px;
+				padding: 10px;
+				padding-bottom: 0;
+				box-sizing: border-box;
+				border-top-left-radius: 50px;
+				border-top-right-radius: 50px;
+				background: -webkit-gradient( linear, left top, right top, color-stop(0, #fff), color-stop(1, #fff)), -webkit-gradient( linear, left top, right top, color-stop(0, #077df8), color-stop(1, #74baff));
+				background-clip: content-box, padding-box;
+			}
+			
+			div:after {
+				content: "";
+				display: block;
+				width: 100px;
+				height: 50px;
+				padding: 10px;
+				padding-top: 0;
+				box-sizing: border-box;
+				border-bottom-left-radius: 50px;
+				border-bottom-right-radius: 50px;
+				background: -webkit-gradient( linear, left top, right top, color-stop(0, #fff), color-stop(1, #fff)), -webkit-gradient( linear, left top, right top, color-stop(0, #fff), color-stop(1, #74baff));
+				background-clip: content-box, padding-box;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div></div>
+	</body>
+
+</html>

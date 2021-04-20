@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				position: relative;
+			}
+			
+			html,
+			body {
+				position: fixed;
+				margin: 0px;
+				padding: 0px;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				-webkit-overflow-scrolling: touch;
+				background-color: #FFF;
+				font-family: "微软雅黑";
+			}
+			
+			.cn-wrapper {
+				width: 26em;
+				height: 26em;
+				position: absolute;
+				bottom: 0;
+				margin: auto;
+				pointer-events: none;
+				border: 1px solid #7C5089;
+				border-radius: 50%;
+				overflow: hidden;
+				top: 0;
+				left: 0;
+				right: 0;
+				z-index: 99;
+			}
+			
+			.cn-wrapper:after {
+				content: "";
+				display: block;
+				height: 8px;
+				width: 8px;
+				background-color: maroon;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: -4px;
+				margin-left: -4px;
+				border-radius: 50%;
+				z-index: 11;
+			}
+			
+			.cn-wrapper li {
+				position: absolute;
+				font-size: 1.5em;
+				width: 10em;
+				height: 10em;
+				overflow: hidden;
+				transform-origin: 100% 100%;
+				background-color: #eee;
+				border: 1px solid #ddd;
+				color: #aaa;
+				left: 50%;
+				top: 50%;
+				margin-top: -1.3em;
+				margin-left: -10em;
+			}
+			
+			.cn-wrapper li:nth-child(1) {
+				transform: rotate(-10deg) skew(50deg);
+			}
+			
+			.cn-wrapper li:nth-child(2) {
+				transform: rotate(30deg) skew(50deg);
+			}
+			
+			.cn-wrapper li:nth-child(3) {
+				transform: rotate(70deg) skew(50deg);
+			}
+			
+			.cn-wrapper li:nth-child(4) {
+				transform: rotate(110deg) skew(50deg);
+			}
+			
+			.cn-wrapper li:nth-child(5) {
+				transform: rotate(150deg) skew(50deg);
+			}
+			
+			.cn-wrapper li:nth-child(6) {
+				transform: rotate(190deg) skew(50deg);
+			}
+			
+			.cn-wrapper li:nth-child(7) {
+				transform: rotate(230deg) skew(50deg);
+			}
+			
+			.cn-wrapper li:nth-child(8) {
+				transform: rotate(270deg) skew(50deg);
+			}
+			
+			.cn-wrapper li:nth-child(9) {
+				transform: rotate(310deg) skew(50deg);
+			}
+			
+			.cn-wrapper li:nth-child(10) {
+				transform: rotate(350deg) skew(50deg);
+			}
+			
+			.cn-wrapper li a {
+				display: block;
+				font-size: 1.2em;
+				height: 13.5em;
+				width: 13.5em;
+				position: absolute;
+				bottom: -6.75em;
+				right: -6.75em;
+				text-decoration: none;
+				color: white;
+				background-color: #7C5089;
+				transform: skew(-50deg) rotate(-70deg) scale(1);
+				border-radius: 50%;
+				text-align: center;
+				padding-top: 2em;
+				cursor: pointer;
+			}
+			
+			.cn-wrapper li a:hover{
+				background-color: orange;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="cn-wrapper">
+			<ul>
+				<li>
+					<a href="#"><span class="icon-picture"></span></a>
+				</li>
+				<li>
+					<a href="#"><span>a</span></a>
+				</li>
+				<li>
+					<a href="#"><span>b</span> </a>
+				</li>
+				<li>
+					<a href="#"><span>c</span></a>
+				</li>
+				<li>
+					<a href="#"><span>d</span></a>
+				</li>
+				<li>
+					<a href="#"><span class="icon-picture">e</span></a>
+				</li>
+				<li>
+					<a href="#"><span>f</span></a>
+				</li>
+				<li>
+					<a href="#"><span>g</span> </a>
+				</li>
+				<li>
+					<a href="#"><span>h</span></a>
+				</li>
+				<li>
+					<a href="#"><span>i</span></a>
+				</li>
+			</ul>
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>会跑的按钮</title>
+		<link rel="shortcut icon" href="img/hahaha.ico" site="1" >
+		<script type="text/javascript" src="../../../lib/js/jquery-1.11.3.min.js" ></script>
+		
+		<style>
+			html,body{
+			    -webkit-user-select: none;
+			    -moz-user-select: none;
+			    -ms-user-select: none;
+			}
+			.aa{
+				position: absolute;
+				width: 8%;
+				height: 50px;
+				top: 0;
+				left: 46%;
+				right: auto;
+				bottom: 0;
+				margin: auto;
+				background-color: cornflowerblue;
+				border-radius: 10px;
+				cursor: pointer;
+			}
+			
+			.bb{
+				background-color: blue;
+				box-shadow: 0px 0px 20px #c4c4c4;
+			}
+			
+			.cc{
+				position: absolute;
+				width: 8%;
+				height: 50px;
+				top: 0;
+				left: 46%;
+				right: auto;
+				bottom: 0;
+				margin: auto;
+				background-color: cornflowerblue;
+				border-radius: 10px;
+				cursor: pointer;
+			}
+			
+			.ouch {
+			    position: absolute;
+			    width: 20px;
+			    right: -20px;
+			    top: -14px;
+			    display: none;
+			}
+			.ouch_han {
+			    position: absolute;
+			    width: 30px;
+			    right: -30px;
+			    top: -20px;
+			    display: none;
+			}
+			
+			.ouch_yi{
+				position: absolute;
+			    width: 40px;
+			    right: -40px;
+			    top: -30px;
+			    display: none;
+			}
+			
+			.ouch_font{
+				position: absolute;
+			    width: 40%;
+			    margin: auto;
+			    top: -40px;
+			    left: 0;
+			    right: 0;
+			    display: inline-block;
+			    border: 2px solid red;
+			    text-align: center;
+			    border-radius: 5px;
+			    font-weight: bold;
+			    display: none;
+			}
+			
+			.ouch_sanjiao{
+				position: absolute;
+			    margin: auto;
+			    width: 0;
+			    height: 0;
+			    border-left: 5px solid transparent;
+			    border-right: 5px solid transparent;
+			    border-top: 10px solid red;
+			    left: 0;
+			    right: 0;
+			}
+			
+			.run{
+				position: absolute;
+				width: 45px;
+				height: 16px;
+				bottom: -16px;
+				left: 0;
+				right: 0;
+				margin: auto;
+				overflow: hidden;
+				background-position: 0px 0px;
+				animation: lalala 5s linear;
+				-webkit-animation: lalala 5s linear infinite;
+				/* Safari and Chrome */
+				-webkit-animation-fill-mode: both;
+				-webkit-animation-direction: alternate;
+				display: none;
+			}
+			
+			
+			.run_run{
+				position: relative;
+				width: 100%;
+				height: 100%;
+				background-image: url("../../../lib/img/run/run.jpg");
+				animation: hahaha 0.8s steps(1) infinite 0s;
+				-webkit-animation: hahaha 0.8s steps(1) infinite 0s;
+				-moz-animation: hahaha 0.8s steps(1) infinite 0s;
+			}
+			
+			@media only screen and (min-width: 1px) and (max-width: 765px) {
+				.aa{
+					width: 30%;
+					left: 35%;
+				}
+				
+				.cc{
+					width: 30%;
+					left: 35%;
+				}
+			}
+			
+			@keyframes hahaha {
+				0% {
+					background-position: 0px 0px;
+				}
+				4% {
+					background-position: 0px 16px;
+				}
+				8% {
+					background-position: 0px 32px;
+				}
+				12% {
+					background-position: 0px 48px;
+				}
+				16% {
+					background-position: 0px 64px;
+				}
+				20% {
+					background-position: 0px 80px;
+				}
+				24% {
+					background-position: 0px 96px;
+				}
+				28% {
+					background-position: 0px 112px;
+				}
+				32% {
+					background-position: 0px 128px;
+				}
+				36% {
+					background-position: 0px 144px;
+				}
+				40% {
+					background-position: 0px 160px;
+				}
+				44% {
+					background-position: 0px 176px;
+				}
+				48% {
+					background-position: 0px 192px;
+				}
+				52% {
+					background-position: 0px 208px;
+				}
+				56% {
+					background-position: 0px 224px;
+				}
+				60% {
+					background-position: 0px 240px;
+				}
+				64% {
+					background-position: 0px 256px;
+				}
+				68% {
+					background-position: 0px 272px;
+				}
+				72% {
+					background-position: 0px 288px;
+				}
+				76% {
+					background-position: 0px 304px;
+				}
+				80% {
+					background-position: 0px 320px;
+				}
+				84% {
+					background-position: 0px 336px;
+				}
+				88% {
+					background-position: 0px 352px;
+				}
+				92% {
+					background-position: 0px 368px;
+				}
+				96% {
+					background-position: 0px 384px;
+				}
+				100% {
+					background-position: 0px 384px;
+				}
+			}
+			
+			@-webkit-keyframes hahaha {
+				0% {
+					background-position: 0px 0px;
+				}
+				4% {
+					background-position: 0px 16px;
+				}
+				8% {
+					background-position: 0px 32px;
+				}
+				12% {
+					background-position: 0px 48px;
+				}
+				16% {
+					background-position: 0px 64px;
+				}
+				20% {
+					background-position: 0px 80px;
+				}
+				24% {
+					background-position: 0px 96px;
+				}
+				28% {
+					background-position: 0px 112px;
+				}
+				32% {
+					background-position: 0px 128px;
+				}
+				36% {
+					background-position: 0px 144px;
+				}
+				40% {
+					background-position: 0px 160px;
+				}
+				44% {
+					background-position: 0px 176px;
+				}
+				48% {
+					background-position: 0px 192px;
+				}
+				52% {
+					background-position: 0px 208px;
+				}
+				56% {
+					background-position: 0px 224px;
+				}
+				60% {
+					background-position: 0px 240px;
+				}
+				64% {
+					background-position: 0px 256px;
+				}
+				68% {
+					background-position: 0px 272px;
+				}
+				72% {
+					background-position: 0px 288px;
+				}
+				76% {
+					background-position: 0px 304px;
+				}
+				80% {
+					background-position: 0px 320px;
+				}
+				84% {
+					background-position: 0px 336px;
+				}
+				88% {
+					background-position: 0px 352px;
+				}
+				92% {
+					background-position: 0px 368px;
+				}
+				96% {
+					background-position: 0px 384px;
+				}
+				100% {
+					background-position: 0px 384px;
+				}
+				
+			}	
+				
+					
+			.ripple {
+			    width: 0;
+			    height: 0;
+			    border-radius: 50%;
+			    background: #FFF;
+			    transform: scale(0);
+			    position: absolute;
+			    opacity: 1;
+			}
+			.rippleEffect {
+			    animation: rippleDrop .6s linear;
+			}
+			@keyframes rippleDrop {
+			    100% {
+			        transform: scale(2);
+			        opacity: 0;
+			    }
+			}
+			
+			
+			
+			
+		</style>
+		
+		
+		<script>
+			kk=0;
+			width = $(window).width();
+			$(document).ready(function(){
+				$(".aa").mousedown(function(){
+					$(".aa").addClass("bb");
+				});
+				
+				$(".aa").mouseup(function(){
+					$(".aa").removeClass("bb");
+				});
+				
+				
+				$(".aa").click(function(){
+					kk++;
+					if(kk==1){
+						$(".ouch").show();
+					}else if(kk==5){
+						$(".ouch_font").show();
+						setTimeout(function(){
+							$(".ouch_font").hide();
+						},1000);
+					}else if(kk == 13){
+						$(".ouch_font").html("hey!!<div class='ouch_sanjiao'></div>");
+						$(".ouch_font").show();
+						$(".ouch").hide();
+						$(".ouch_yi").show();
+						setTimeout(function(){
+							$(".ouch_font").hide();
+						},1000);
+					}else if(kk == 20){
+						$(".ouch_font").html("!!!!!<div class='ouch_sanjiao'></div>");
+						$(".ouch_font").show();
+						setTimeout(function(){
+							$(".ouch_font").hide();
+						},1000);
+					}else if(kk >= 25){
+						
+						$(".run").show();
+						$(".ouch_han").show();
+						$(".ouch_yi").hide();
+						$(".aa").animate({
+							/*left: qq - 150 + "px"*/
+							left: "-200px"
+						},3000);
+						$(".aa").attr("class","cc");
+						
+						//还原初始样子
+						setTimeout(function(){
+							
+							if(width >= 765){
+								$(".cc").attr("class","aa");
+								$(".ouch_font").html("ouch<div class='ouch_sanjiao'></div>");
+								$(".run").hide();
+								$(".ouch").hide();
+								$(".ouch_han").hide();
+								$("#hahaha").attr("id","lalala");
+								$(".aa").css("left","46%");
+								kk = 0;
+							}else{
+								$(".cc").attr("class","aa");
+								$(".ouch_font").html("ouch<div class='ouch_sanjiao'></div>");
+								$(".run").hide();
+								$(".ouch").hide();
+								$(".ouch_han").hide();
+								$("#hahaha").attr("id","lalala");
+								$(".aa").css("left","35%");
+								kk = 0;
+							}
+							
+						},4000);
+						
+						/*$(".aa").hover(function() {
+							var qqq = $(".aa").offset().left;
+							$(".aa").stop().animate({
+								left: qqq - 100 + "px"
+								
+							},500);
+						}, function() {
+							
+						});*/
+					}
+				});
+			});
+			
+			
+			/*移动鼠标，还原初始状态*/
+			/*$(document).mousemove(function(e) {
+				var time = $("#lalala").css("left");
+				if(time== "-200px"){
+					
+					setTimeout(function(){
+						
+					},1000)
+				}
+			});*/
+			
+			/*改变link标签的属性*/
+			$(document).ready(function(){
+				/*var rurl = $("link[rel='shortcut icon']").attr("href");*/
+				
+				setInterval(function(){
+					var site = $("link[rel='shortcut icon']").attr("site");
+					if(site==1){
+						$("link[rel='shortcut icon']").attr("href","img/heihei.ico");
+						$("link[rel='shortcut icon']").attr("site","2");
+					}else if(site==2){
+						$("link[rel='shortcut icon']").attr("href","img/hahaha.ico");
+						$("link[rel='shortcut icon']").attr("site","1");
+					}else{}
+				},100)
+			});
+			
+			
+			/* 点击增加效果 */
+			$(document).ready(function(){
+				$("#lalala").click(function(e) {
+					if(width>=765){
+						// 删除老的标签
+					    $(".ripple").remove();
+					
+					    // 确定按钮位置
+					    var posX = $(this).offset().left,
+					        posY = $(this).offset().top,
+					        buttonWidth = $(this).width(),
+					        buttonHeight = $(this).height();
+					
+					    // 添加元素
+					    $(this).prepend("<span class='ripple'></span>");
+					
+					    // 让它循环
+					    if (buttonWidth >= buttonHeight) {
+					        buttonHeight = buttonWidth;
+					    } else {
+					        buttonWidth = buttonHeight;
+					    }
+					
+					    // 得到他的中心
+					    var x = e.pageX - posX - buttonWidth / 2;
+					    var y = e.pageY - posY - buttonHeight / 2;
+					
+					    // 增加效果class
+					    $(".ripple").css({
+					        width: buttonWidth,
+					        height: buttonHeight,
+					        top: y + 'px',
+					        left: x + 'px'
+					    }).addClass("rippleEffect");
+					}else{
+						
+					}
+					
+					
+				});
+			})
+			
+		</script>
+	</head>
+	<body>
+		<div id="lalala" class="aa">
+			<img class="ouch" src="../../../lib/img/run/ouch.png" />
+			<img class="ouch_han" src="../../../lib/img/run/sankehan.png" />
+			<img class="ouch_yi" src="../../../lib/img/run/yi.png" />
+			<div class="ouch_font">
+				ouch
+				<div class="ouch_sanjiao"></div>
+			</div>
+			<div class="run">
+				<div class="run_run"></div>
+			</div>
+		</div>
+	</body>
+</html>

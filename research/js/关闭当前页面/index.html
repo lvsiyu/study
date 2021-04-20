@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="renderer" content="webkit" />
+		<meta http-equiv="X-UA-Compatible" content="IE=EDGE, chrome=1">
+		<script type="text/javascript" src="../../../lib/js/jquery-1.11.3.min.js" ></script>
+		<style>
+			.aa{
+				position: relative;
+				width: 200px;
+				height: 50px;
+				background-color: orange;
+				border: 1px solid black;
+				border-radius: 5px;
+				line-height: 50px;
+				font-weight: bold;
+				text-align: center;
+				cursor: pointer;
+			}
+		</style>
+		<script>
+			$(document).ready(function(){
+				$(".aa").click(function(){
+					window.close();
+				})
+				var width = $(window).width();
+				if(width <= 768){
+					alert("对不起，该页面不支持手机访问")
+					window.close();
+				}
+			})
+		</script>
+	</head>
+	<body>
+		<div class="aa">点击关闭页面</div>
+	</body>
+</html>

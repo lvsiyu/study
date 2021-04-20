@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+
+		<script type="text/javascript" src="../../../lib/js/jquery-2.2.2.min.js"></script>
+		<!--<script type="text/javascript" src="http://html2canvas.hertzen.com/build/html2canvas.js"></script>-->
+		<script type="text/javascript" src="../../../lib/js/htmlCanvas/html2canvas.js" ></script>
+		<style>
+			.img {
+				position: relative;
+				width: 200px;
+				height: 200px;
+				overflow: hidden;
+			}
+			
+			.bb {
+				position: relative;
+				width: 200px;
+				height: 50px;
+				background-color: orange;
+				cursor: pointer;
+				display: inline-block;
+				margin-top: 30px;
+			}
+			.cc {
+				position: relative;
+				width: 200px;
+				height: 50px;
+				background-color: orange;
+				cursor: pointer;
+				display: inline-block;
+				text-align: center;
+				line-height: 50px;
+			}
+			
+			.yuantu{
+				position: relative;
+				width: 100%;
+				font-weight: bold;
+				margin-top: 50px;
+				border: 1px solid #000;
+				text-align: center;
+				font-size: 26px;
+			}
+			
+			
+			.yuan_img{
+				position: relative;
+				width: 100%;
+			}
+		</style>
+
+		<script>
+			$(window).load(function() {
+				aa();
+			});
+
+			function aa() {
+				html2canvas($('.img'), {
+					onrendered: function(canvas) {
+						$('.bb').attr('href', canvas.toDataURL());
+						$('.bb').attr('download', 'aaaaaaa.png');
+						$('.bb').css('display', 'inline-block');
+					}
+				});
+			}
+		</script>
+	</head>
+
+	<body>
+		<div class="img">
+			<img src="../../../lib/img/drop/img2.jpg" class="img_img" />
+		</div>
+		<a class="bb" href=""><div class="cc">点我下载图片</div></a>
+		
+		<div class="yuantu">我是原图
+			<img class="yuan_img" src="../../../lib/img/drop/img2.jpg" />
+		</div>
+	</body>
+
+</html>

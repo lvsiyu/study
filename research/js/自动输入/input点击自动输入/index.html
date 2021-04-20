@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../../lib/js/jquery-1.11.3.min.js"></script>
+		<script>
+			function focusTxt_en() {
+				
+				marquee_en(1);
+			}
+
+			function marquee_en(i) {
+				var showString = "你是一个大傻逼！2333333";
+				var stringLength = showString.length;
+				$(".aa").val(showString.substring(0, i));
+				i++;
+				var timeID = setTimeout("marquee_en(" + i + ")", 200);
+				if (i > stringLength) {
+					clearTimeout(timeID);
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<input class="aa" type="text" value="" onfocus="focusTxt_en()" />
+	</body>
+
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>三次机会猜大小</title>
+		<script type="text/javascript" src="../../../lib/js/jquery-1.11.3.min.js"></script>
+		<style>
+			html,
+			body {
+				position: relative;
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				padding: 0;
+				border: 0;
+				font-family: "黑体";
+				user-select: none;
+				-moz-user-select: none;
+				-webkit-user-select: none;
+				-ms-user-select: none;
+				-khtml-user-select: none;
+				text-align: center;
+			}
+			
+			.vertical{
+				position: relative;
+				width: 0px;
+				height: 100%;
+				display: inline-block;
+				vertical-align: middle;
+			}
+			
+			.father {
+				position: relative;
+				width: 50%;
+				height: auto;
+				text-align: center;
+				margin: 0px auto;
+				border: 1px solid black;
+				display: inline-block;
+				vertical-align: middle;
+			}
+			
+			.sese{
+				position: absolute;
+				top: 0;
+				right: 0;
+				padding: 10px;
+				font-size: 16px;
+			}
+			
+			.sese2{
+				font-weight: bold;
+				color: red;
+			}
+			
+			.title{
+				position: relative;
+				width: 100%;
+				font-size: 30px;
+				font-weight: bold;
+				margin-top: 20px;
+			}
+			
+			.bbcc{
+				position: relative;
+				width: 100%;
+				height: 50px;
+				text-align: center;
+				margin-bottom: 20px;
+			}
+			
+			.bb {
+				position: relative;
+				width: 25%;
+				height: 100%;
+				font-size: 30px;
+				background-color: orange;
+				border-radius: 10px;
+				cursor: pointer;
+				display: inline-block;
+				vertical-align: middle;
+				text-align: center;
+				line-height: 50px;
+				font-weight: bold;
+				border: none;
+			    outline: none;
+			}
+			
+			
+			
+			.cc {
+				position: relative;
+				width: 25%;
+				height: 100%;
+				font-size: 30px;
+				background-color: orange;
+				border-radius: 10px;
+				cursor: pointer;
+				display: inline-block;
+				vertical-align: middle;
+				text-align: center;
+				line-height: 50px;
+				font-weight: bold;
+				border: none;
+			    outline: none;
+			}
+			
+			
+			
+			.aa {
+				position: relative;
+				width: 50%;
+				height: 40px;
+				margin: 20px auto;
+				font-size: 30px;
+				padding-left: 20px;
+				vertical-align: middle;
+				border: 1px solid black;
+			}
+			
+			
+			
+			.ripple {
+			    width: 0;
+			    height: 0;
+			    border-radius: 50%;
+			    background: rgba(255, 255, 255, 0.4);
+			    transform: scale(0);
+			    position: absolute;
+			    opacity: 1;
+			}
+			.rippleEffect {
+			    animation: rippleDrop .6s linear;
+			}
+			@keyframes rippleDrop {
+			    100% {
+			        transform: scale(2);
+			        opacity: 0;
+			    }
+			}
+			
+		</style>
+		<script>
+			lala = 0;
+			ii = 3;
+			function random(){
+				ran = Math.floor(Math.random()*11);
+			};
+			
+			
+			
+			function guize(){
+				var kk = $(".aa").val();
+				var haha = parseFloat(kk);
+				var zheng = /^([0-9](\.[0-9]+)?|10)$/;
+				if(zheng.test(haha) == true){
+					lala ++;
+					if(lala <= 3){
+						if(haha > ran){
+							$(".title").html(kk + " ==> 大了");
+							ii--;
+							$(".sese2").html(ii);
+							$(".aa").val("").focus(); 
+							$(".aa").focus();
+						}else if(haha < ran){
+							$(".title").html(kk + " ==> 小了");
+							ii--;
+							$(".sese2").html(ii);
+							$(".aa").val("").focus(); 
+							$(".aa").focus();
+						}else{
+							$(".title").html("恭喜你猜对了");
+							lala = 0;
+							ii = 3;
+							$(".sese2").html("3");
+							$(".aa").val("").focus(); 
+							$(".aa").focus();
+							random();
+						}
+						
+					}else{
+						
+					};
+				}else{
+					$(".title").html("请输入0-10的数字");
+					alert("请输入0-10的数字");
+					$(".aa").focus();
+				};
+				
+				if(lala == 3){
+					if(haha == ran){
+						$(".title").html("恭喜你猜对了");
+						$(".aa").val("").focus(); 
+						$(".sese2").html("3");
+						random();
+						lala = 0;
+						ii = 3;
+						$(".aa").val("").focus(); 
+						$(".aa").focus();
+					}else{
+						$(".title").html("很遗憾，机会已经用完，请重新开始");
+						$(".aa").val("").focus(); 
+						$(".sese2").html("3");
+						random();
+						lala = 0;
+						ii = 3;
+						$(".aa").val("").focus(); 
+						$(".aa").focus();
+					}
+				}else{};
+			};
+			
+			$(document).ready(function(){
+				
+				$(".bb").click(function(e) {
+					var kk = $(".aa").val();
+					var haha = parseFloat(kk);
+					var zheng = /^([0-9](\.[0-9]+)?|10)$/;
+					if(zheng.test(haha) == false){
+						
+					}else{
+						 /* Add the ripple */
+				
+					    // Remove any old one
+					    $(".ripple").remove();
+					
+					    // Setup
+					    var posX = $(this).offset().left,
+					        posY = $(this).offset().top,
+					        buttonWidth = $(this).width(),
+					        buttonHeight = $(this).height();
+					
+					    // Add the element
+					    $(this).prepend("<span class='ripple'></span>");
+					
+					    // Make it round!
+					    if (buttonWidth >= buttonHeight) {
+					        buttonHeight = buttonWidth;
+					    } else {
+					        buttonWidth = buttonHeight;
+					    }
+					
+					    // Get the center of the element
+					    var x = e.pageX - posX - buttonWidth / 2;
+					    var y = e.pageY - posY - buttonHeight / 2;
+					
+					    // Add the ripples CSS and start the animation
+					    $(".ripple").css({
+					        width: buttonWidth,
+					        height: buttonHeight,
+					        top: y + 'px',
+					        left: x + 'px'
+					    }).addClass("rippleEffect");
+					}
+
+				   
+				});
+				
+				$(".cc").click(function(e) {
+					var kk = $(".aa").val();
+					var haha = parseFloat(kk);
+					var zheng = /^([0-9](\.[0-9]+)?|10)$/;
+					if(zheng.test(haha) == false){
+						
+					}else{
+						/* Add the ripple */
+				
+					    // Remove any old one
+					    $(".ripple").remove();
+					
+					    // Setup
+					    var posX = $(this).offset().left,
+					        posY = $(this).offset().top,
+					        buttonWidth = $(this).width(),
+					        buttonHeight = $(this).height();
+					
+					    // Add the element
+					    $(this).prepend("<span class='ripple'></span>");
+					
+					    // Make it round!
+					    if (buttonWidth >= buttonHeight) {
+					        buttonHeight = buttonWidth;
+					    } else {
+					        buttonWidth = buttonHeight;
+					    }
+					
+					    // Get the center of the element
+					    var x = e.pageX - posX - buttonWidth / 2;
+					    var y = e.pageY - posY - buttonHeight / 2;
+					
+					    // Add the ripples CSS and start the animation
+					    $(".ripple").css({
+					        width: buttonWidth,
+					        height: buttonHeight,
+					        top: y + 'px',
+					        left: x + 'px'
+					    }).addClass("rippleEffect");
+					}
+
+				    
+				});
+			});
+			
+			
+			$(document).ready(function(){
+				random();
+				$(".aa").focus();
+				$(".bb").click(function(){
+					guize();
+					$(".aa").focus();
+				});
+			});
+			
+			$(document).ready(function(){
+				$(".cc").click(function(){
+					random();
+					lala = 0;
+					ii = 3;
+					$(".aa").val("").focus(); 
+					$(".sese2").html("3");
+					$(".title").html("请输入0-10的数字");
+					$(".aa").focus();
+				});
+			});
+			
+			
+		</script>
+	</head>
+
+	<body>
+		<div class="vertical"></div>
+		<div class="father">
+			<div class="sese">您还有<span class="sese2">3</span>次机会</div>
+			<div class="title">请输入0-10的数字</div>
+			<input type="text" class="aa" />
+			<div class="bbcc">
+				<button class="bb">确认数字</button>
+				<button class="cc">重新开始</button>
+			</div>
+		</div>
+		
+	</body>
+
+</html>

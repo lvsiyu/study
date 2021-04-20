@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="renderer" content="webkit" />
+		<meta http-equiv="X-UA-Compatible" content="IE=EDGE, chrome=1">
+		<title></title>
+		<script type="text/javascript" src="../../../lib/js/jquery-1.11.3.min.js" ></script>
+		
+		<style>
+			*{
+				box-sizing: border-box;
+			}
+			html,
+			body {
+				position: fixed;
+				margin: 0px;
+				padding: 0px;
+				width: 100%;
+				height: 100%;
+				overflow: auto;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+			    -ms-user-select: none;
+			    user-select: none;
+				-webkit-overflow-scrolling: touch;
+			}
+			
+			.alon_img{
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+			
+			.father_mengban{
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background-color: black;
+				opacity: 0.5;
+				filter: alpha(opacity=50);
+			}
+			
+			.father{
+				position: absolute;
+				width: 980px;/*这里宽高要比原比例多出20px，因为有padding*/
+				height: 560px;
+				margin: auto;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				background-color: #FFF;
+				padding: 10px;
+				overflow: hidden;
+				z-index: 2;
+			}
+			
+			.close{
+				position: absolute;
+				width: 980px;
+				height: 560px;
+				margin: auto;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				background-color: #FFF;
+				padding: 10px;
+			}
+			
+			.close_icon{
+				position: absolute;
+				width: 30px;
+				height: 30px;
+				top: 0;
+				left: 101%;
+				/*background-color: #FFF;*/
+				cursor: pointer;
+				text-align: center;
+				line-height: 40px;
+				font-size: 50px;
+				font-weight: bold;
+			}
+			
+			.pic{
+				position: relative;
+				width: 100%;
+				display: none;
+			}
+			
+			.img{
+				position: relative;
+				width: 100%;
+			}
+			
+			.show{
+				display: block;
+				opacity: 1;
+				animation-delay:0.5s;
+				-webkit-animation-delay: 0.5s;
+				-moz-animation-delay: 0.5s;
+				-o-animation-delay: 0.5s;
+				-ms-animation-delay: 0.5s;
+				animation:myfirst 0.5s;
+				-moz-animation:myfirst 0.5s; /* Firefox */
+				-webkit-animation:myfirst 0.5s; /* Safari and Chrome */
+				-o-animation:myfirst 0.5s; /* Opera */
+				-ms-animation:myfirst 0.5s; /* IE */
+			}
+			
+			@keyframes myfirst{
+				from {opacity: 0;}
+				to {opacity: 1;}
+			}
+			
+			@-moz-keyframes myfirst /* Firefox */{
+				from {opacity: 0;}
+				to {opacity: 1;}
+			}
+			
+			@-webkit-keyframes myfirst /* Safari and Chrome */{
+				from {opacity: 0;}
+				to {opacity: 1;}
+			}
+			
+			@-o-keyframes myfirst /* Opera */{
+				from {opacity: 0;}
+				to {opacity: 1;}
+			}
+			
+			@-ms-keyframes myfirst /* IE */{
+				from {opacity: 0;}
+				to {opacity: 1;}
+			}
+			
+			.button{
+				position: absolute;
+				width: 30px;
+				height: 30px;
+				margin: auto;
+				top: 0;
+				bottom: 0;
+				cursor: pointer;
+				text-align: center;
+				border: 2px solid #FFF;
+				line-height: 27px;
+				font-weight: bold;
+				font-size: 34px;
+				color: #FFF;
+			}
+			.left{
+				left: 20%;
+			}
+			
+			.right{
+				right: 20%;
+			}
+			
+			.left_right_opacity{
+				opacity: 0.5;
+				filter: alpha(opacity=50);
+				cursor: default;
+			}
+			
+			.row{
+				position: relative;
+				width: 80%;
+				max-width: 1200px;
+				margin: 0px auto;
+			}
+			
+			.row:after{
+				content: "";
+				display: block;
+				clear: both;
+			}
+			
+			.row_pic{
+				position: relative;
+				width: 25%;
+				float: left;
+				padding: 15px;
+				cursor: pointer;
+			}
+			
+			@media only screen and (min-width: 766px) and (max-width: 1919px) {
+				.left{
+					left: 10%;
+				}
+				
+				.right{
+					right: 10%;
+				}
+			}
+			
+			@media only screen and (min-width: 1px) and (max-width: 765px) {
+				.father{
+					width: 340px;/*这里宽高要比原比例多出20px，因为有padding*/
+					height: 200px;
+				}
+				
+				.row_pic{
+					width: 100%;
+				}
+				
+				.left{
+					top: auto;
+					bottom: 15%;
+					left: 35%;
+				}
+				
+				.right{
+					top: auto;
+					bottom: 15%;
+					right: 35%;
+				}
+				.close{
+					display: none;
+				}
+			}
+		</style>
+		
+		<script>
+			$(document).ready(function(){
+				var width = $(window).width();
+				$(".row_pic").click(function(){
+					event.stopPropagation();
+					var index = $(".row_pic").index(this);
+					$(".father").children().eq(index).addClass("show");
+					$(".alon_img").show();
+				});
+				if(width<765){
+					$("html body").click(function() {
+						$(".alon_img").hide();
+						$(".pic").removeClass("show");
+						$(".left").removeClass("left_right_opacity");
+						$(".right").removeClass("left_right_opacity");
+					});
+				}
+				
+			});
+			
+			$(document).ready(function(){
+				$(".close_icon").click(function(){
+					event.stopPropagation();
+					$(".alon_img").hide();
+					$(".pic").removeClass("show");
+					$(".left").removeClass("left_right_opacity");
+					$(".right").removeClass("left_right_opacity");
+				});
+			});
+			
+				
+			$(document).ready(function() {
+				$(".right").click(function(){
+					event.stopPropagation();
+					var a = $(".show");
+					var b = $('.father').children().length;
+					var c = $(".pic").index($(".pic.show")) + 1;
+					if(b>c){
+						a.next().addClass("show");
+						a.removeClass("show");
+						$(".right").removeClass("left_right_opacity");
+						$(".left").removeClass("left_right_opacity");
+					}else{
+						$(".right").addClass("left_right_opacity");
+					}
+				});
+				
+				$(".left").click(function(){
+					event.stopPropagation();
+					var a = $(".show");
+					var c = $(".pic").index($(".pic.show")) + 1;
+					if(c > 1){
+						a.prev().addClass("show");
+						a.removeClass("show");
+						$(".left").removeClass("left_right_opacity");
+						$(".right").removeClass("left_right_opacity");
+					}else{
+						$(".left").addClass("left_right_opacity");
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="row">
+			<div class="row_pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai1.jpg" /></div>
+			<div class="row_pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai2.jpg" /></div>
+			<div class="row_pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai3.jpg" /></div>
+			<div class="row_pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai4.jpg" /></div>
+			<div class="row_pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai5.jpg" /></div>
+			<div class="row_pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai1.jpg" /></div>
+			<div class="row_pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai2.jpg" /></div>
+			<div class="row_pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai3.jpg" /></div>
+			<div class="row_pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai4.jpg" /></div>
+			<div class="row_pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai5.jpg" /></div>
+			<div class="row_pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai1.jpg" /></div>
+			<div class="row_pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai2.jpg" /></div>
+			<div class="row_pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai3.jpg" /></div>
+			<div class="row_pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai4.jpg" /></div>
+			<div class="row_pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai5.jpg" /></div>
+			<div class="row_pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai1.jpg" /></div>
+			<div class="row_pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai2.jpg" /></div>
+			<div class="row_pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai3.jpg" /></div>
+			<div class="row_pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai4.jpg" /></div>
+			<div class="row_pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai5.jpg" /></div>
+		</div>
+		
+		
+		<div class="alon_img">
+			<div class="father_mengban"></div>
+			<div class="father">
+				<div class="pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai1.jpg" /></div>
+				<div class="pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai2.jpg" /></div>
+				<div class="pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai3.jpg" /></div>
+				<div class="pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai4.jpg" /></div>
+				<div class="pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai5.jpg" /></div>
+				<div class="pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai1.jpg" /></div>
+				<div class="pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai2.jpg" /></div>
+				<div class="pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai3.jpg" /></div>
+				<div class="pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai4.jpg" /></div>
+				<div class="pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai5.jpg" /></div>
+				<div class="pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai1.jpg" /></div>
+				<div class="pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai2.jpg" /></div>
+				<div class="pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai3.jpg" /></div>
+				<div class="pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai4.jpg" /></div>
+				<div class="pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai5.jpg" /></div>
+				<div class="pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai1.jpg" /></div>
+				<div class="pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai2.jpg" /></div>
+				<div class="pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai3.jpg" /></div>
+				<div class="pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai4.jpg" /></div>
+				<div class="pic"><img class="img" src="../../../lib/img/fangkuai/fangkuai5.jpg" /></div>
+			</div>
+			<div class="button left">&lt;</div>
+			<div class="button right">&gt;</div>
+			<div class="close">
+				<!--<div class="close_icon">x</div>-->
+				<img class="close_icon" src="../../../lib/img/close/close_icon.png" />
+			</div>
+		</div>
+	</body>
+</html>

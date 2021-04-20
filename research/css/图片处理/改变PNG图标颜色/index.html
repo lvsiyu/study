@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../../lib/js/jquery-1.11.3.min.js"></script>
+		<style>
+			.father {
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				overflow: hidden;
+			}
+			
+			.son {
+				background: url("../../../../lib/img/delete/delete.png") no-repeat center;
+			}
+			
+			.father> .father {
+				position: relative;
+				left: -20px;
+				border-right: 20px solid transparent;
+				filter: drop-shadow(rgb(153, 0, 255) 20px 0px);
+				-webkit-filter: drop-shadow(rgb(153, 0, 255) 20px 0px);
+				-moz-filter: drop-shadow(rgb(153, 0, 255) 20px 0px);
+				-ms-filter: drop-shadow(rgb(153, 0, 255) 20px 0px);
+				-o-filter: drop-shadow(rgb(153, 0, 255) 20px 0px);
+			}
+			
+			.k {
+				position: relative;
+				width: 30px;
+				height: 30px;
+				display: inline-block;
+				cursor: pointer;
+			}
+			
+			.k:nth-child(2n) {
+				background-color: black;
+			}
+			
+			.k:nth-child(2n+1) {
+				background-color: red;
+			}
+			
+			.k:nth-child(3n+1) {
+				background-color: green;
+			}
+			
+			.k:nth-child(4n+1) {
+				background-color: orange;
+			}
+		</style>
+
+		<script>
+			$(document).ready(function() {
+				$(".k").click(function() {
+					var a = $(this).css("background-color");
+					$(".father> .father").css("filter", "drop-shadow(" + a + " 20px 0px)");
+					$(".father> .father").css("-webkit-filter", "drop-shadow(" + a + " 20px 0px)");
+					$(".father> .father").css("-moz-filter", "drop-shadow(" + a + " 20px 0px)");
+					$(".father> .father").css("-ms-filter", "drop-shadow(" + a + " 20px 0px)");
+					$(".father> .father").css("-o-filter", "drop-shadow(" + a + " 20px 0px)");
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+		<!--显示出来的-->
+		<div class="father">
+			<div class="father son"></div>
+		</div>
+
+		<!--色块选择-->
+		<div class="k"></div>
+		<div class="k"></div>
+		<div class="k"></div>
+		<div class="k"></div>
+	</body>
+
+</html>

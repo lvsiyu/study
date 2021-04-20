@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../lib/js/jquery-1.11.3.min.js" ></script>
+		<style>
+			.aa{
+				position: relative;
+				width: 50%;
+				display: block;
+				border: 1px solid black;
+				cursor: pointer;
+				margin: 0px;
+			}
+			
+			.img{
+				position: relative;
+				width: 100%;
+				display: block;
+			}
+		</style>
+		
+		<script>
+			$(document).ready(function(){
+				$(".aa").click(function(){
+					$(this).animate({
+						width:"75%",
+						margin:"0px auto",
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="aa">
+			<img class="img" src="../../../lib/img/startwar/a.jpg" />
+		</div>
+	</body>
+</html>

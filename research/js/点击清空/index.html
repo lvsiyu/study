@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../lib/js/jquery-1.11.3.min.js"></script>
+		<style>
+			.b{
+				position: relative;
+				width: 50px;
+				height: 50px;
+				background-color: orange;
+				cursor: pointer;
+				
+			}
+		</style>
+		<script>
+			/* 点击清空文本框内容 */
+			$(function() {
+				$(".b").click(function() {
+					
+					 $(".a").val("").focus(); 
+					
+				});
+			});
+		
+		</script>
+	</head>
+
+	<body>
+	<input class="a" type="text" value="" />
+	<div class="b"></div>
+	</body>
+
+</html>

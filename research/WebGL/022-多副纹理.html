@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body onload="main()">
+		<canvas id="aa" width="400" height="400"></canvas>
+		<!--引入基础的WebGL的支持包，封装了很多有用的函数-->
+		<script type="text/javascript" src="js/webgl-utils.js"></script>
+		<script type="text/javascript" src="js/webgl-debug.js"></script>
+		<script type="text/javascript" src="js/cuon-utils.js"></script>
+		<script type="text/javascript" src="js/cuon-matrix.js"></script>
+		<script>
+			/*设置顶点着色器==>设置大小,位置*/
+			var VSHADER_SOURCE = //注：attribute变量只能适用于顶点着色器
+				'attribute vec4 a_Position;\n' + //设置attribute存储限定符，格式为存储限定符，类型，变量名
+				'attribute vec2 a_TexCoord;\n' +
+				'varying vec2 v_TexCoord;\n' + //varying变量
+				'void main() {\n' +
+				'gl_Position = a_Position;\n' + //设置位置，把attribute存储的变量获取后赋值
+				'v_TexCoord = a_TexCoord;\n' +
+				'}\n';
+			/*设置片元着色器==>设置颜色*/
+			var FSHADER_SOURCE =
+				'#ifdef GL_ES\n' +
+				'precision mediump float;\n' + //设置uniform的精度值
+				'#endif\n' +
+				'uniform sampler2D u_Sampler0;\n' + //储存限定符，类型，变量名，类型可以随便设定
+				'uniform sampler2D u_Sampler1;\n' + //储存限定符，类型，变量名，类型可以随便设定
+				'varying vec2 v_TexCoord;\n' +
+				'void main() {\n' +
+					'vec4 color0 = texture2D(u_Sampler0,v_TexCoord);\n' + //设置颜色
+					'vec4 color1 = texture2D(u_Sampler1,v_TexCoord);\n' + //设置颜色
+					'gl_FragColor = color0 * color1;\n'+
+				'}\n';
+
+			function main() {
+				/*获取id为aa的canvas元素*/
+				var canvas = document.getElementById("aa");
+				/*获取WebGL绘图上下文*/
+				var gl = getWebGLContext(canvas);
+				/*判断浏览器支不支持WebGL*/
+				if(!gl) {
+					console.log("hahaha");
+					return;
+				}
+				/*初始化着色器，判断浏览器支不支持着色器*/
+				if(!initShaders(gl, VSHADER_SOURCE, FSHADER_SOURCE)) {
+					console.log("lalala");
+					return;
+				}
+
+				/*设置顶点位置*/
+				var n = initVertexBuffers(gl);
+				/*判断定点位置是否超过*/
+				if(n < 0) {
+					console.log("xixixi");
+					return;
+				}
+
+				/*设置清空画布颜色，使用rgba值*/
+				gl.clearColor(0.0, 0.0, 0.0, 1.0);
+
+				/*配置纹理*/
+				if(!initTextures(gl, n)) {
+					console.log("gouride");
+					return;
+				}
+			}
+			/*使用缓冲区对象向顶点着色器传输多个顶点*/
+			function initVertexBuffers(gl) {
+				/*顶点坐标和点的尺寸*/
+				var verticesTexCoords = new Float32Array([
+					-0.5, 0.5, 0.0, 1.0, //第一个点
+					-0.5, -0.5, 0.0, 0.0, //第二个点
+					0.5, 0.5, 1.0, 1.0, //第三个点
+					0.5, -0.5, 1.0, 0.0, //第四个点
+				]);
+				/*设置点的个数*/
+				var n = 4;
+
+				/*创建缓冲区对象*/
+				var vertexTexCoordBuffer = gl.createBuffer();
+				if(!vertexTexCoordBuffer) {
+					console.log("创建缓冲区对象失败");
+					return -1;
+				}
+
+				/*将顶点坐标和纹理坐标写入缓冲区对象*/
+				gl.bindBuffer(gl.ARRAY_BUFFER, vertexTexCoordBuffer);
+
+				/*将缓冲区对象中写入数据*/
+				gl.bufferData(gl.ARRAY_BUFFER, verticesTexCoords, gl.STATIC_DRAW);
+
+				var FSIZE = verticesTexCoords.BYTES_PER_ELEMENT;
+				/*获取attribute变量存储位置*/
+				var a_Position = gl.getAttribLocation(gl.program, 'a_Position');
+				/*判断是否获取变量成功*/
+				if(a_Position < 0) {
+					console.log("heiheihei");
+					return -1;
+				}
+
+				/*将缓冲对象非配给a_Position变量*/
+				gl.vertexAttribPointer(a_Position, 2, gl.FLOAT, false, FSIZE * 4, 0);
+
+				/*链接a_Position变量与分配给它的缓冲区对象*/
+				gl.enableVertexAttribArray(a_Position);
+
+				/*获取attribute变量存储位置*/
+				var a_TexCoord = gl.getAttribLocation(gl.program, 'a_TexCoord');
+				/*判断是否获取变量成功*/
+				if(a_TexCoord < 0) {
+					console.log("heiheihei");
+					return -1;
+				}
+
+				gl.vertexAttribPointer(a_TexCoord, 2, gl.FLOAT, false, FSIZE * 4, FSIZE * 2);
+
+				/*链接a_PointSize变量与分配给它的缓冲区对象*/
+				gl.enableVertexAttribArray(a_TexCoord);
+
+				return n;
+			}
+
+			function initTextures(gl, n) {
+				/*创建纹理对象*/
+				var texture0 = gl.createTexture();
+				if(!texture0) {
+					console.log('创建纹理对象失败');
+					return false;
+				}
+				var texture1 = gl.createTexture();
+				if(!texture1) {
+					console.log('创建纹理对象失败');
+					return false;
+				}
+
+				/*获取u_Sampler的存储位置*/
+				var u_Sampler0 = gl.getUniformLocation(gl.program, 'u_Sampler0');
+				if(!u_Sampler0) {
+					console.log('获取u_Sampler的存储位置失败');
+					return false;
+				}
+				var u_Sampler1 = gl.getUniformLocation(gl.program, 'u_Sampler1');
+				if(!u_Sampler1) {
+					console.log('获取u_Sampler的存储位置失败');
+					return false;
+				}
+
+				/*创建image对象*/
+				var image0 = new Image();
+				if(!image0) {
+					console.log('创建image对象失败');
+					return false;
+				}
+				var image1 = new Image();
+				if(!image1) {
+					console.log('创建image对象失败');
+					return false;
+				}
+
+				/*注册图像加载事件的响应函数*/
+				image0.onload = function() {
+					loadTexture(gl, n, texture0, u_Sampler0, image0,0);
+				}
+				image1.onload = function() {
+					loadTexture(gl, n, texture1, u_Sampler1, image1,1);
+				}
+
+				/*浏览器开始加载图像*/
+				image0.src = 'img/xiaoxiong.jpg';
+				image1.src = 'img/circle.gif';
+
+				return true;
+			}
+			
+			var g_texUnit0 = false,g_texUnit1 = false;
+			
+			function loadTexture(gl, n, texture, u_Sampler, image,textUnit) {
+				/*对纹理图像进行y轴反转*/
+				gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 1);
+				
+				/*激活纹理*/
+				if(textUnit == 0){
+					/*开启0号纹理单元*/
+					gl.activeTexture(gl.TEXTURE0);
+					g_texUnit0 = true;
+				}else{
+					/*开启0号纹理单元*/
+					gl.activeTexture(gl.TEXTURE1);
+					g_texUnit1 = true;
+				}
+				
+
+				/*向target绑定纹理对象*/
+				gl.bindTexture(gl.TEXTURE_2D, texture);
+
+				/*配置纹理参数*/
+				gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+
+				/*配置纹理图像*/
+				gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, image);
+
+				/*将0号纹理传递给着色器*/
+				gl.uniform1i(u_Sampler, textUnit);
+
+				/*清空画布，调用创建好的颜色值来清空*/
+				gl.clear(gl.COLOR_BUFFER_BIT);
+				if(g_texUnit0 && g_texUnit1){
+					/*绘制矩形*/
+					gl.drawArrays(gl.TRIANGLE_STRIP, 0, n);
+				}
+				
+			}
+		</script>
+
+	</body>
+
+</html>

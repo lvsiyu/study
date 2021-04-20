@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			html,
+			body {
+				width: 100%;
+				height: 100%;
+				padding: 0;
+				margin: 0;
+				overflow: auto;
+			}
+			
+			.aa {
+				width: 100%;
+				height: 100%;
+				background-color: #beceeb;
+				font-size: 0;
+				text-align: center;
+			}
+			
+			.bb {
+				vertical-align: middle;
+				width: 50px;
+				height: 50px;
+				display: inline-block;
+				background-color: orange;
+			}
+			
+			.aa:after {
+				display: inline-block;
+				width: 0;
+				height: 100%;
+				content: "center";
+				vertical-align: middle;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="aa">
+			<div class="bb"></div>
+		</div>
+	</body>
+
+</html>

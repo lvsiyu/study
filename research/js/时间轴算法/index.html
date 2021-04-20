@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../lib/js/jquery-1.11.3.min.js" ></script>
+		<style>
+			*{
+				box-sizing: border-box;
+			}
+			html,body{
+				margin: 0;
+				padding: 0;
+			}
+			.father{
+				position: relative;
+				width: 1200px;
+				margin: 0px auto;
+			}
+			.time_line{
+				position: relative;
+				width: 100%;
+				height: 2px;
+				margin: 50px auto;
+				background-color: black;
+				text-align: justify;
+			}
+			
+			.time_line:after{
+				content: "";
+				position: relative;
+				display: inline-block;
+				width: 100%;
+				height: 1px;
+			}
+			
+			.aa{
+				position: relative;
+				width: 30px;
+				height: 30px;
+				top: -15px;
+				background-color: orange;
+				border-radius: 50%;
+				display: inline-block;
+				cursor: pointer;
+			}
+			
+			.qiu{
+				position: absolute;
+				width: 32px;
+				height: 32px;
+				left: -2px;
+				top: -16px;
+				border-radius: 50%;
+				background-color: #FFF;
+				border: 7px solid red;
+			}
+			
+			
+		</style>
+		
+		<script>
+			$(document).ready(function(){
+				$(".aa").click(function(){
+					var width = $(window).width();
+					var aawidth = $(".time_line").width();
+					var marginwidth = (width - aawidth)/2;
+					var pointleft = $(this).offset().left;
+					var pointmargin = pointleft - marginwidth;
+					$(".qiu").stop().animate({
+						left: pointmargin + "px"
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+	<div class="father">
+		<div class="time_line">
+			<div class="aa a"></div>
+			<div class="aa b"></div>
+			<div class="aa c"></div>
+			<div class="aa d"></div>
+			<div class="aa e"></div>
+			<div class="aa f"></div>
+			<div class="aa g"></div>
+			<div class="aa h"></div>
+			<div class="aa i"></div>
+			<div class="aa j"></div>
+			<div class="aa k"></div>
+			<div class="aa l"></div>
+		</div>
+		<div class="qiu"></div>
+	</div>
+	</body>
+</html>

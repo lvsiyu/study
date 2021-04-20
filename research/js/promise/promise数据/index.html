@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../../lib/js/jquery-1.11.3.min.js" ></script>
+		
+		<script>
+			var wait = function(ms) {
+			  var dtd = $.Deferred();
+			  setTimeout(dtd.resolve, ms);
+			  // setTimeout(dtd.reject, ms);
+			  // setTimeout(dtd.notify, ms);
+			  return dtd.promise(); //此处也可以直接返回dtd
+			};
+			
+			wait(1000).done(function() {
+			  alert('haha,师太，你可让老衲久等了');
+			}).fail(function() {
+			  alert('失败了');
+			}).progress(function(res) {
+			  alert('等待中...');
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

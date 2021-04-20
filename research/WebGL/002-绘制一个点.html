@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body onload="main()">
+		<canvas id="aa" width="400" height="400"></canvas>
+		<!--引入基础的WebGL的支持包，封装了很多有用的函数-->
+		<script type="text/javascript" src="js/webgl-utils.js" ></script>
+		<script type="text/javascript" src="js/webgl-debug.js" ></script>
+		<script type="text/javascript" src="js/cuon-utils.js" ></script>
+		<script>
+			/*设置顶点着色器==>设置大小,位置*/
+			var VSHADER_SOURCE=
+				'void main() {\n'+
+				'gl_Position = vec4(0.0, 0.0, 0.0, 1.0);\n'+//设置位置
+				'gl_PointSize = 10.0;\n'+//设置大小
+				'}\n';
+			/*设置片元着色器==>设置颜色*/
+			var FSHADER_SOURCE = 
+				'void main() {\n'+
+				'gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);\n' + //设置颜色
+				'}\n';
+			/*定义主方法*/
+			function main(){
+				/*获取id为aa的canvas元素*/
+				var canvas = document.getElementById("aa");
+				/*获取WebGL绘图上下文*/
+				var gl = getWebGLContext(canvas);
+				/*判断浏览器支不支持WebGL*/
+				if(!gl){
+					console.log("获取WebGL绘图上下文失败");
+					return;
+				}
+				/*初始化着色器，判断浏览器支不支持着色器*/
+				if(!initShaders(gl,VSHADER_SOURCE,FSHADER_SOURCE)){
+					console.log("初始化着色器失败");
+					return;
+				}
+				/*设置清空画布颜色，使用rgba值*/
+				gl.clearColor(0.0,0.0,0.0,1.0);
+				/*清空画布，调用创建好的颜色值来清空*/
+				gl.clear(gl.COLOR_BUFFER_BIT);
+				/*把设置好的点描绘出来,drawArrays函数三个参数为画什么图形,指定从哪个顶点开始,绘制需要多少个顶点*/
+				gl.drawArrays(gl.POINTS,0,1);
+			}
+		</script>
+		
+		
+	</body>
+</html>

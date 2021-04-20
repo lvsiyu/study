@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body onload="main()">
+		<canvas id="aa" width="400" height="400"></canvas>
+		<!--引入基础的WebGL的支持包，封装了很多有用的函数-->
+		<script type="text/javascript" src="js/webgl-utils.js" ></script>
+		<script type="text/javascript" src="js/webgl-debug.js" ></script>
+		<script type="text/javascript" src="js/cuon-utils.js" ></script>
+		<script>
+			/*设置顶点着色器==>设置大小,位置*/
+			var VSHADER_SOURCE=//注：attribute变量只能适用于顶点着色器
+				'attribute vec4 a_Position;\n'+//设置attribute存储限定符，格式为存储限定符，类型，变量名
+				'uniform float u_CosB,u_SinB;\n'+//计算90度正弦值和余弦值，计算出来后再传给顶点着色器两个uniform变量
+				'void main() {\n'+
+					'gl_Position.x = a_Position.x * u_CosB - a_Position.y * u_SinB;\n'+//设置齐次坐标系x轴位置，把attribute存储的变量获取后赋值,取值从三角函数算法中获取
+					'gl_Position.y = a_Position.x * u_SinB + a_Position.y * u_CosB;\n'+//设置齐次坐标系y轴位置，把attribute存储的变量获取后赋值,取值从三角函数算法中获取
+					'gl_Position.z = a_Position.z;\n'+//设置齐次坐标系z轴位置，把attribute存储的变量获取后赋值,取值从三角函数算法中获取
+					'gl_Position.w = 1.0;'+//设置齐次坐标系w轴位置，把attribute存储的变量获取后赋值,取值从三角函数算法中获取
+				'}\n';
+			/*设置片元着色器==>设置颜色*/	
+			var FSHADER_SOURCE = 
+				'void main() {\n'+
+				'gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);\n' + //设置颜色
+				'}\n';
+			
+			/*设置旋转角度*/
+			var ANGLE = 90.0;
+			
+			function main(){
+				/*获取id为aa的canvas元素*/
+				var canvas = document.getElementById("aa");
+				/*获取WebGL绘图上下文*/
+				var gl = getWebGLContext(canvas);
+				/*判断浏览器支不支持WebGL*/
+				if(!gl){
+					console.log("hahaha");
+					return;
+				}
+				/*初始化着色器，判断浏览器支不支持着色器*/
+				if(!initShaders(gl,VSHADER_SOURCE,FSHADER_SOURCE)){
+					console.log("lalala");
+					return;
+				}
+				
+				/*设置顶点位置*/
+				var n = initVertexBuffers(gl);
+				/*判断顶点位置是否超过*/
+				if(n<0){
+					console.log("xixixi");
+					return;
+				}
+				
+				/*将旋转图形所需的数据传输给顶点着色器*/
+				//转为弧度制
+				var radian = Math.PI * ANGLE / 180.0; 
+				var cosB = Math.cos(radian);
+				var sinB = Math.sin(radian);
+				
+				var u_CosB = gl.getUniformLocation(gl.program, 'u_CosB');
+				var u_SinB = gl.getUniformLocation(gl.program, 'u_SinB');
+				
+				gl.uniform1f(u_CosB, cosB);
+				gl.uniform1f(u_SinB, sinB);
+				
+				/*设置清空画布颜色，使用rgba值*/
+				gl.clearColor(0.0,0.0,0.0,1.0);
+				/*清空画布，调用创建好的颜色值来清空*/
+				gl.clear(gl.COLOR_BUFFER_BIT);
+				/*把设置好的点描绘出来,drawArrays函数三个参数为画什么图形,指定从哪个顶点开始,绘制需要多少个顶点*/
+				gl.drawArrays(gl.TRIANGLES,0,n);//注：此处是画一个三角形
+			}
+			/*使用缓冲区对象向顶点着色器传输多个顶点*/
+			function initVertexBuffers(gl){
+				var vertices = new Float32Array([
+					0.0,0.5,-0.5,-0.5,0.5,-0.5
+				]);
+				/*设置点的个数*/
+				var n = 3;
+				
+				/*创建缓冲区对象*/
+				var vertexBuffer = gl.createBuffer();
+				if(!vertexBuffer){
+					console.log("xixixi");
+					return -1;
+				}
+				
+				/*将缓冲区对象绑定到目标*/
+				gl.bindBuffer(gl.ARRAY_BUFFER,vertexBuffer);
+				
+				/*将缓冲区对象中写入数据*/
+				gl.bufferData(gl.ARRAY_BUFFER,vertices,gl.STATIC_DRAW);
+				
+				/*获取attribute变量存储位置*/
+				var a_Position = gl.getAttribLocation(gl.program,'a_Position');
+				/*判断是否获取变量成功*/
+				if(a_Position < 0){
+					console.log("heiheihei");
+					return;
+				}
+				
+				/*将缓冲对象非配给a_Position变量*/
+				gl.vertexAttribPointer(a_Position,2,gl.FLOAT,false,0,0);
+				
+				/*链接a_Position变量与分配给它的缓冲区对象*/
+				gl.enableVertexAttribArray(a_Position);
+				
+				return n;
+			}
+		</script>
+		
+		
+	</body>
+</html>

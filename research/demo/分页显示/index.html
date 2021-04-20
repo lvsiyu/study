@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../lib/js/jquery-1.11.3.min.js"></script>
+		<style>
+			.one {position: relative;background-color: orange;text-align: center;font-weight: bold;display: inline-block;width: 100px;height: 100px;line-height: 100px;}
+			.list {position: relative;text-align: center;width: 100%;height: auto;display: none;}
+			.list_curr {display: block;}
+			.dian_father {position: relative;width: 100%;height: auto;padding: 0px;padding-top: 40px;text-align: center;}
+			.dian {position: relative;display: inline-block;width: 40px;height: 40px;line-height: 40px;border: 1px solid #ccc;font-size: 18px;margin-right: 20px;cursor: pointer;}
+			.dian:hover,.dian_curr {color: #E41F2B;border: 1px solid #E41F2B;}
+			.left {position: relative;display: inline-block;width: 40px;height: 40px;line-height: 40px;border: 1px solid #ccc;font-size: 18px;margin-right: 20px;cursor: pointer;background-color: lightseagreen;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
+			.right {position: relative;display: inline-block;width: 40px;height: 40px;line-height: 40px;border: 1px solid #ccc;font-size: 18px;margin-right: 20px;cursor: pointer;background-color: lightseagreen;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
+			.button {position: relative;width: 100px;height: 50px;border: 1px solid black;background-color: honeydew;margin: 0px auto;line-height: 50px;text-align: center;cursor: pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
+		</style>
+		<script>
+			$(document).ready(function() {
+				var a = $("#father");
+				var b = $(".list");
+				var g = $(".dian");
+				var sh = a.offset().top;
+				//点击页数方框。判定是第几页
+				$(".dian_father").on("click", ".dian", function(e) {
+					var index = $(this).data("index");
+					b.removeClass("list_curr");
+					b.eq(index - 1).addClass("list_curr");
+					g.removeClass("dian_curr");
+					$(this).addClass("dian_curr");
+				});
+				//点击左边向左移动
+				$(".left").click(function(e) {
+					var bb = $(".dian").index($(".dian.dian_curr"));
+					b.removeClass("list_curr");
+					b.eq(bb - 1).addClass("list_curr");
+					g.removeClass("dian_curr");
+					g.eq(bb - 1).addClass("dian_curr");
+				})
+				//点击右边享有移动
+				$(".right").click(function(e) {
+					var bb = $(".dian").index($(".dian.dian_curr"));
+					var cc = $('.dian_father').children('.dian').length;
+					var dd = $("#father").find(".list").eq(0);//找到父元素id为father的子元素名class为dian的第一个元素
+					var ee = $(".dian_father").find(".dian").eq(0);
+					if (cc - 1 != bb) {
+						b.removeClass("list_curr");
+						b.eq(bb + 1).addClass("list_curr");
+						g.removeClass("dian_curr");
+						g.eq(bb + 1).addClass("dian_curr");
+					} else {
+						b.removeClass("list_curr");
+						dd.addClass("list_curr");
+						g.removeClass("dian_curr");
+						ee.addClass("dian_curr");
+					}
+				})
+			});
+			$(document).ready(function() {
+				$(".button").click(function() {
+					alert("该页面是第" + ($(".dian").index($(".dian.dian_curr"))+1) + "页");
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+		<div id="father">
+			<div class="list list_curr">
+				<div class="one">one</div>
+				<div class="one">one</div>
+				<div class="one">one</div>
+			</div>
+
+			<div class="list">
+				<div class="one">two</div>
+				<div class="one">two</div>
+				<div class="one">two</div>
+			</div>
+			<div class="list">
+				<div class="one">three</div>
+				<div class="one">three</div>
+				<div class="one">three</div>
+			</div>
+			<div class="list">
+				<div class="one">four</div>
+				<div class="one">four</div>
+				<div class="one">four</div>
+			</div>
+			<ul class="dian_father">
+				<li class="left">左</li>
+				<li class="dian dian_curr" data-index="1">1</li>
+				<li class="dian" data-index="2">2</li>
+				<li class="dian" data-index="3">3</li>
+				<li class="dian" data-index="4">4</li>
+				<li class="right">右</li>
+			</ul>
+		</div>
+		<div class="button">获取是第几页</div>
+	</body>
+
+</html>

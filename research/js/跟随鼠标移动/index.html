@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../lib/js/jquery-1.11.3.min.js"></script>
+		<script>
+			function aa(){
+				x = $(".aa").after("<div class='bb'></div>");
+			}
+			
+			$(document).mousemove(function(e) {
+				/*var a = setInterval("aa()",10000)*/
+				$(".aa").css({
+					"position": "absolute",
+					"left": e.pageX - 25,
+					"top": e.pageY - 25
+				});
+			});
+			/*$(document).mousedown(function(e) {
+				
+				$(".bb").css({
+					"position": "absolute",
+					"left": e.pageX - 25,
+					"top": e.pageY - 25
+				});
+			});*/
+			$(document).mouseup(function(e) {
+				clearInterval(aa());
+			});
+		</script>
+		<style>
+			.aa{
+				position: absolute;
+				width: 50px;
+				height: 50px;
+				top: 0;
+				left: 0;
+				background-color: orange;
+				cursor: crosshair;
+				border-radius: 50%;
+			}
+			.bb{
+				position: absolute;
+				width: 50px;
+				height: 50px;
+				top: 0;
+				left: 0;
+				background-color: orange;
+				cursor: crosshair;
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="aa"></div>
+	</body>
+
+</html>

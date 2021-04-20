@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../../../lib/jwplayer-dist/css/main.css">
+		<script type="text/javascript" src="../../../lib/js/jquery-1.11.3.min.js" ></script>
+		<script type="text/javascript" src="../../../lib/jwplayer-dist/js/main.js"></script>
+		<style>
+			.aa{
+				position: relative;
+				width: 800px;
+				height: 450px;
+				border: 1px solid black;
+			}
+			.bb{
+				/*opacity: 0;*/
+			}
+			
+			.video_box{
+				position: relative;
+				width: 50%;
+				margin: 0px auto;
+			}
+			
+			.img{
+				position: relative;
+				width: 100%;
+			}
+		</style>
+		
+		<script>
+		//适配手机播放或者不播放音乐
+			$(document).ready(function(){
+				var width = $(window).width();
+				if(width >= 768){
+					$("body").append("<audio class='bb' src='../../../lib/video/here.mp3' autoplay='autoplay'></audio>");
+				}else{
+					
+				}
+			})
+		</script>
+	</head>
+	<body>
+		<!--<video class="aa" src="../../../lib/video/Love The Way You Lie 格莱美现场版 中英字幕--Eminem_超清.mp4" controls="controls" autoplay="autoplay"></video>-->
+		
+		
+		<div class="video_box">
+            <img src="../../../lib/img/fangkuai/fangkuai1.jpg" class="img">
+            <div class="player-outer-box">
+                <div class="center-block"><div id="player100" ></div></div>
+            </div>
+            <a href="#" data-play-nopop="true" data-player-id="player100" data-video-path="../../../lib/video/Love The Way You Lie 格莱美现场版 中英字幕--Eminem_超清.mp4" data-img-path="../../../lib/img/fangkuai/fangkuai1.jpg" class="js_video_player" ></a>
+        </div>
+		
+		<script type="text/javascript" src="http://www.huawei.com/Assets/CBG/js/plugins.js"></script>
+        <script type="text/javascript" src="http://www.huawei.com/Assets/CBG/js/jwplayer.js"></script>
+	</body>
+</html>

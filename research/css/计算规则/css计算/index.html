@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.numbers {
+				counter-reset: sum;
+			}
+			
+			#one:checked {
+				counter-increment: sum 1;
+			}
+			
+			#two:checked {
+				counter-increment: sum 2;
+			}
+			
+			#three:checked {
+				counter-increment: sum -3;
+			}
+			
+			#four:checked {
+				counter-increment: sum 4;
+			}
+			
+			#five:checked {
+				counter-increment: sum 5;
+			}
+			
+			#one-hundred:checked {
+				counter-increment: sum 100;
+			}
+			
+			.sum::after {
+				content: '= ' counter(sum);
+			}
+			
+			
+			
+			body {
+				font-family: Verdana, sans-serif;
+			}
+			
+			label {
+				font-size: 15px;
+				margin: 0 10px 0 0;
+				display: inline-block;
+			}
+			
+			input[type=checkbox] {
+				position: absolute;
+				left: -10000px;
+			}
+			
+			input[type=checkbox]+ label:before {
+				content: "";
+				border: 1px solid #000;
+				color: transparent;
+				cursor: pointer;
+				display: inline-block;
+				font-size: 15px;
+				line-height: 16px;
+				margin: 0 5px 0 0;
+				height: 18px;
+				width: 18px;
+				text-align: center;
+				vertical-align: middle;
+				transition: color ease .4s;
+			}
+			
+			input[type=checkbox]:checked+ label:before {
+				content: "\2713";
+				color: #000;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="numbers">
+			<input id="one" type="checkbox"><label for="one">1</label>
+			<input id="two" type="checkbox"><label for="two">2</label>
+			<input id="three" type="checkbox"><label for="three">-3</label>
+			<input id="four" type="checkbox"><label for="four">4</label>
+			<input id="five" type="checkbox"><label for="five">5</label>
+			<input id="one-hundred" type="checkbox"><label for="one-hundred">100</label>
+		</div>
+		<p class="sum">
+			Sum
+		</p>
+	</body>
+
+</html>

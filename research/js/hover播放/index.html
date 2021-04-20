@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="renderer" content="webkit" />
+	<meta http-equiv="X-UA-Compatible" content="IE=EDGE, chrome=1">
+	<title></title>
+	<script type="text/javascript" src="../../../lib/js/jquery-1.11.3.min.js"></script>
+
+	<head>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+			
+			html,
+			body {
+				position: fixed;
+				margin: 0px;
+				padding: 0px;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				-webkit-overflow-scrolling: touch;
+				background-color: #FFF;
+				font-family: "微软雅黑";
+			}
+			
+			.aa {
+				width: 200%;
+				height: 100px;
+				line-height: 100px;
+				border: 2px solid black;
+				position: absolute;
+				text-align: justify;
+				background-color: lightskyblue;
+				top: 0;
+				padding: 0px 50px;
+			}
+			
+			.aa:after {
+				content: "";
+				position: relative;
+				display: inline-block;
+				width: 100%;
+				vertical-align: middle;
+			}
+			
+			.bb {
+				position: relative;
+				width: 100%;
+				height: 100px;
+				border: 2px solid black;
+				opacity: 0;
+			}
+			
+			.zindex {
+				position: relative;
+				width: 20px;
+				height: 20px;
+				display: inline-block;
+				border: 2px solid black;
+				transform: rotateZ(45deg);
+				z-index: 2;
+				transition: all 0.25s linear;
+				-moz-transition: all 0.25s linear;/* Firefox 4 */
+				-webkit-transition: all 0.25s linear;/* Safari and Chrome */
+				-o-transition: all 0.25s linear;/* Opera */
+				cursor: pointer;
+			}
+			
+			.po1 {
+				background-color: orange;
+			}
+			
+			.po2 {
+				background-color: yellow;
+			}
+			
+			.po3 {
+				background-color: red;
+			}
+			
+			.po4 {
+				background-color: green;
+			}
+			
+			.po5 {
+				background-color: skyblue;
+			}
+			
+			.po6 {
+				background-color: cornsilk;
+			}
+			
+			.po7 {
+				background-color: deeppink;
+			}
+			
+			.po8 {
+				background-color: coral;
+			}
+			
+			.po9 {
+				background-color: gold;
+			}
+			
+			.po10 {
+				background-color: grey;
+			}
+			
+			.po11 {
+				background-color: blueviolet;
+			}
+			
+			.po12 {
+				background-color: purple;
+			}
+			
+			.zindex:hover {
+				background-color: black;
+				transform:rotate(180deg);
+				-ms-transform:rotate(180deg); 	/* IE 9 */
+				-moz-transform:rotate(180deg); 	/* Firefox */
+				-webkit-transform:rotate(180deg); /* Safari 和 Chrome */
+				-o-transform:rotate(180deg); 	/* Opera */
+			}
+		</style>
+
+		<script>
+			var _interval;
+
+			function showTime() {
+				var windowwidth = $(window).width();
+				var intervalwidth = -parseFloat($(".aa").width()) + windowwidth - 100 - 3;
+				var offsetleft = parseFloat($(".aa").offset().left);
+
+				if(intervalwidth >= offsetleft) {
+					clearInterval(_interval);
+				} else {
+					offsetleft--;
+					$(".aa").css("left", offsetleft);
+				}
+
+			}
+
+			$(document).ready(function() {
+
+				showTime();
+				_interval = setInterval("showTime()", 3);
+
+				$(".bb").hover(function() {
+
+					clearInterval(_interval);
+					$(".aa").attr("state", "1");
+
+					$(document).mousemove(function(e) {
+						var mouseleft = e.pageX;
+						var width = $(".bb").width();
+						var point = mouseleft / width;
+						var aawidth = $(".aa").width() - width - 3 + 100; //减去3是因为鼠标的指针，加100是因为padding值
+						var movewhere = point * aawidth;
+						var state = $(".aa").attr("state");
+						if(state == 1) {
+							$(".aa").css("left", -movewhere);
+						}
+
+						/*$(".aa").css("left", e.pageX);*/
+						/*$(".aa").css("top",e.pageY);*/
+					});
+				}, function() {
+					$(".aa").attr("state", "0");
+					showTime();
+					_interval = setInterval("showTime()", 3);
+				});
+				
+				$(".zindex").hover(function() {
+					clearInterval(_interval);
+					$(".aa").attr("state", "1");
+
+					$(document).mousemove(function(e) {
+						var mouseleft = e.pageX;
+						var width = $(".bb").width();
+						var point = mouseleft / width;
+						var aawidth = $(".aa").width() - width - 3 + 100; //减去3是因为鼠标的指针，加100是因为padding值
+						var movewhere = point * aawidth;
+						var state = $(".aa").attr("state");
+						if(state == 1) {
+							$(".aa").css("left", -movewhere);
+						}
+
+						/*$(".aa").css("left", e.pageX);*/
+						/*$(".aa").css("top",e.pageY);*/
+					});
+				})
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="aa" state="0">
+			<div class="po1 zindex"></div>
+			<div class="po2 zindex"></div>
+			<div class="po3 zindex"></div>
+			<div class="po4 zindex"></div>
+			<div class="po5 zindex"></div>
+			<div class="po6 zindex"></div>
+			<div class="po7 zindex"></div>
+			<div class="po8 zindex"></div>
+			<div class="po9 zindex"></div>
+			<div class="po10 zindex"></div>
+			<div class="po11 zindex"></div>
+			<div class="po12 zindex"></div>
+		</div>
+
+		<div class="bb"></div>
+
+	</body>
+
+</html>

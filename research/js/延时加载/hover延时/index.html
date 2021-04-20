@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="../../../../lib/js/jquery-1.11.3.min.js"></script>
+		<title></title>
+		<style>
+			.aa {
+				position: relative;
+				width: 100px;
+				height: 100px;
+				background-color: black;
+				margin: 0px auto;
+				text-align: center;
+				cursor: pointer;
+			}
+			
+			.bb {
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				top: 20px;
+				left: 20px;
+				display: none;
+			}
+			
+			.cc {
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				top: 160px;
+				left: 980px;
+				display: none;
+			}
+			
+			.dd {
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				top: 420px;
+				left: 440px;
+				display: none;
+			}
+			
+			.ee {
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				top: 550px;
+				left: 250px;
+				display: none;
+			}
+			
+			.ff {
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				top: 160px;
+				left: 360px;
+				display: none;
+			}
+			
+			.gg {
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				top: 570px;
+				left: 270px;
+				display: none;
+			}
+			
+			.hh {
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				top: 580px;
+				left: 880px;
+				display: none;
+			}
+			.ii {
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				top: 190px;
+				left: 90px;
+				display: none;
+			}
+			
+			
+			.x {
+				margin: 10px;
+			}
+			.img{
+				position: relative;
+				width: 100%;
+			}
+		</style>
+		<script>
+			$(document).ready(function() {
+				$(".aa").click(function() {
+					/*$("#div1").delay("slow").fadeIn();
+					$("#div2").delay("fast").fadeIn();
+					$("#div3").delay(800).fadeIn();*/
+					$(".bb").slideToggle("2000");
+					$(".cc").delay(500).slideToggle("2000");
+					$(".dd").delay(1000).slideToggle("2000");
+					$(".ee").delay(1500).slideToggle("2000");
+					$(".ff").delay(2000).slideToggle("2000");
+					$(".gg").delay(2500).slideToggle("2000");
+					$(".hh").delay(3000).slideToggle("2000");
+					$(".ii").delay(3500).slideToggle("2000");
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="aa"></div>
+		<div class="bb x"><img class="img" src="../../../../lib/img/point/aaa.gif"/></div>
+		<div class="cc x"><img class="img" src="../../../../lib/img/point/bbb.gif"/></div>
+		<div class="dd x"><img class="img" src="../../../../lib/img/point/aaa.gif"/></div>
+		<div class="ee x"><img class="img" src="../../../../lib/img/point/aaa.gif"/></div>
+		<div class="ff x"><img class="img" src="../../../../lib/img/point/aaa.gif"/></div>
+		<div class="gg x"><img class="img" src="../../../../lib/img/point/aaa.gif"/></div>
+		<div class="hh x"><img class="img" src="../../../../lib/img/point/aaa.gif"/></div>
+		<div class="ii x"><img class="img" src="../../../../lib/img/point/aaa.gif"/></div>
+	</body>
+
+</html>

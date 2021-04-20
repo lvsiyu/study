@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<script type="text/javascript" src="../../../lib/js/jquery-1.11.3.min.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title></title>
+		<style>
+			html,
+			body {
+				position: relative;
+				width: 100%;
+				height: 100%;
+				background: orange;
+				margin: 0;
+				padding: 0;
+			}
+			
+			#c1 {
+				position: relative;
+				width: 100%;
+				height: 100%;
+				background: white;
+				cursor: crosshair;
+			}
+			
+			span {
+				color: white;
+			}
+			/*.aa {
+				position: absolute;
+				width: 10px;
+				height: 10px;
+				top: 0;
+				left: 0;
+				background-color: black;
+				cursor: crosshair;
+				border-radius: 50%;
+			}*/
+			
+			.bb {
+				position: absolute;
+				top: 10px;
+				right: 10px;
+				width: 200px;
+				height: 50px;
+				background-color: orange;
+				border: 3px solid red;
+				border-radius: 5px;
+				cursor: pointer;
+				text-align: center;
+				line-height: 50px;
+				font-weight: bold;
+				font-size: 24px;
+			}
+		</style>
+		<script>
+			$(document).ready(function() {
+				var a = $(window).width();
+				var b = $(window).height();
+				$("#c1").attr("width", a);
+				$("#c1").attr("height", b);
+			});
+		</script>
+		
+		
+		<script>
+			window.onload = function() {
+				var oC = document.getElementById('c1');
+				var oGC = oC.getContext('2d');
+				oGC.strokeStyle="#0000ff";
+				oC.onmousedown = function(ev) {
+					var ev = ev || window.event;
+					oGC.moveTo(ev.clientX - oC.offsetLeft, ev.clientY - oC.offsetTop);
+					document.onmousemove = function(ev) {
+						var ev = ev || window.event;
+						oGC.lineTo(ev.clientX - oC.offsetLeft, ev.clientY - oC.offsetTop);
+						
+						oGC.stroke();
+						oGc.lineWidth = 20;
+						
+					};
+					document.onmouseup = function() {
+						document.onmousemove = null;
+						document.onmouseup = null;
+					};
+				};
+			};
+		</script>
+
+
+		
+		<script>
+			$(function() {
+				$(".bb").click(function() {
+					refresh();
+				});
+			});
+
+			function refresh() {
+				window.location.reload(); //刷新当前页面.
+				//或者下方刷新方法
+				//parent.location.reload()刷新父亲对象（用于框架）--需在iframe框架内使用
+				// opener.location.reload()刷新父窗口对象（用于单开窗口
+				//top.location.reload()刷新最顶端对象（用于多开窗口）
+			}
+		</script>
+	</head>
+
+	<body>
+
+		<canvas id="c1" width="50px" height="50px">
+
+		</canvas>
+
+		<!--<div class="aa"></div>-->
+		<div class="bb">重置</div>
+
+		<!--默认：宽300 高150-->
+
+	</body>
+
+</html>

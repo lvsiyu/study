@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../../lib/js/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="../../../../lib/js/cookie_js/rember.js" ></script>
+		<style>
+			html,body{
+				-moz-user-select: none;
+    			-webkit-user-select: none;
+    			-ms-user-select: none;
+			}
+			.a {
+				position: relative;
+				width: 30px;
+				height: 30px;
+				background-color: orange;
+				cursor: pointer;
+				display: inline-block;
+				text-align: center;
+				line-height: 30px;
+				border: 1px solid black;
+				display: none;
+			}
+			.c {
+				position: relative;
+				width: 30px;
+				height: 30px;
+				background-color: orange;
+				cursor: pointer;
+				display: inline-block;
+				text-align: center;
+				line-height: 30px;
+				border: 1px solid black;
+			}
+			
+			.d {
+				position: relative;
+				width: 30px;
+				height: 30px;
+				background-color: orange;
+				cursor: pointer;
+				display: inline-block;
+				text-align: center;
+				line-height: 30px;
+				border: 1px solid black;
+			}
+			
+			.e {
+				position: relative;
+				width: 30px;
+				height: 30px;
+				background-color: orange;
+				cursor: pointer;
+				display: inline-block;
+				text-align: center;
+				line-height: 30px;
+				border: 1px solid black;
+			}
+		</style>
+		<script>
+			$(document).ready(function() {
+				$(".c").click(function() {
+					setCookie( "aa", "1", "", "", "", "" );
+					location.reload(true); //刷新当前页面
+				});
+				var kk = getCookie( "aa" );
+				if(kk == 1){
+					$(".aa").css("display","inline-block");
+					$(".bb").css("display","none");
+				}else if(kk == null){
+					$(".bb").css("display","inline-block");
+					$(".aa").css("display","none");
+				}
+				
+				$(".d").click(function(){
+					deleteCookie( "aa", "", "" );
+					location.reload(true);
+					/*window.open("https://www.baidu.com/");*/
+					/*window.location.href="https://www.baidu.com/"; */
+				});
+				$(".e").click(function(){
+					var kk = getCookie( "aa" );
+					var newTab=window.open('about:blank');
+					if(kk == 1){
+						/*window.open("http://www.baidu.com");*/
+						newTab.location.href="http://www.baidu.com";
+					}else if(kk == null){
+						/*window.open("http://www.baidu.com");*/
+						alert("木有cookie");
+					}
+				});
+			});
+			
+		</script>
+		
+	</head>
+
+	<body>
+		<div class="a aa">有</div>
+		<div class="a bb">无</div>
+		<div class="c">存</div>
+		<div class="d">删</div>
+		<div class="e">跳</div>
+	</body>
+
+</html>

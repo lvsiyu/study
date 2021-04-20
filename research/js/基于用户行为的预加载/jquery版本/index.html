@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../../lib/js/jquery-1.11.3.min.js"></script>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+			
+			html,
+			body {
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				-webkit-overflow-scrolling: touch;
+			}
+			
+			.father {
+				position: relative;
+				width: 100%;
+			}
+			
+			.aa {
+				position: relative;
+				width: 100px;
+				text-align: center;
+				font-weight: bold;
+				display: inline-block;
+				cursor: pointer;
+				border: 2px solid black;
+			}
+			
+			.curr {
+				color: red;
+				border: 2px solid red;
+			}
+			
+			.pic {
+				position: relative;
+				width: 316px;
+				margin: 10px 0px;
+			}
+			
+			.img {
+				position: relative;
+				width: 100%;
+				display: none;
+			}
+			
+			.show {
+				display: block;
+			}
+		</style>
+
+		<script>
+			$(document).ready(function() {
+				$(".aa").click(function() {
+					$(this).removeClass("curr");
+					$(this).addClass("curr");
+					$(this).siblings().removeClass("curr");
+					$(this).siblings().addClass("aa");
+
+					$(".img").removeClass("show");
+					var index = $(".aa").index(this);
+					$(".pic").children().eq(index).addClass("show");
+				});
+				
+				
+				//预加载
+				$(".aa").hover(function(){
+					if(!this.preloaded) {
+						var index = $(".aa").index(this);
+						var thiss = $(".pic").children().eq(index);
+						var kk = thiss.attr("data-src");
+						thiss.removeAttr("data-src");
+						thiss.attr("src",kk);
+						
+						// 标记已加载
+						this.preloaded = true;
+					}
+					
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="father">
+			<div class="aa curr">1</div>
+			<div class="aa">2</div>
+			<div class="aa">3</div>
+		</div>
+
+		<div class="pic">
+			<img class="img show" src="../../../../lib/img/beautiful/mm1.jpg" />
+			<img class="img" data-src="../../../../lib/img/beautiful/mm3.jpg" />
+			<img class="img" data-src="../../../../lib/img/beautiful/mm4.jpg" />
+		</div>
+	</body>
+
+</html>

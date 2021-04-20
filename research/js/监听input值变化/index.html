@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../lib/js/jquery-1.11.3.min.js"></script>
+
+		<script type="text/javascript">
+			$(function() {
+
+				$('#username').bind('input propertychange', function() {
+					$('#result').html($(this).val().length + ' characters');
+				});
+
+			})
+		</script>
+	</head>
+
+	<body>
+		<h1>实时监测input中值的变化</h1>
+		<input type="text" id="username" autoComplete='off'>
+		<div id="result"></div>
+	</body>
+
+</html>

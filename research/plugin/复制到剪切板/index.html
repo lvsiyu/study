@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>复制到剪贴板</title>
+		<script type="text/javascript" src="../../../lib/js/jquery-1.11.3.min.js" ></script>
+		<script type="text/javascript" src="../../../lib/js/copy/copy.js"></script>
+		<style>
+			.aa{
+				position: relative;
+				width: 50px;
+				height: 50px;
+				background-color: orange;
+				display: inline-block;
+			}
+			.bb{
+				position: relative;
+				width: 50px;
+				height: 50px;
+				background-color: orange;
+				display: inline-block;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="aa">lalala</div>
+		<div class="bb">&nbsp;</div>
+		<script>
+			$(document).ready(function() {
+				if (window.clipboardData) {
+					$('.bb').click(function() {
+						window.clipboardData.setData("Text", $(".aa").text());
+						alert('复制成功！');
+					});
+				} else {
+					$(".bb").zclip({
+						path: '../../../lib/swf/ZeroClipboard.swf',
+						copy: function() {
+							return $(".aa").text();
+						},
+						afterCopy: function() {
+							alert('复制成功！');
+						}
+					});
+				}
+			});
+		</script>
+	</body>
+
+</html>

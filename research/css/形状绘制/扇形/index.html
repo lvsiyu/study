@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width" />
+		<title>扇形菜单Demo</title>
+		<style type="text/css">
+			#sectorDiv {
+				position: absolute;
+				left: 600px;
+				top: 230px;
+				z-index: 100;
+			}
+			
+			#sectorDiv ul {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+				position: absolute;
+				/*left: 0;            top: 0;            width: 0;            height: 0;*/
+			}
+			
+			#oneUl {
+				left: -203px;
+				top: -203px;
+				width: 300px;
+				height: 300px;
+				/*border-color: Red;            border-style: solid;            border-width: thick;*/
+				overflow: hidden;
+				z-index: -100;
+			}
+			
+			#twoUl {
+				left: 103px;
+				top: -203px;
+				width: 300px;
+				height: 300px;
+				/* border-color: Red;            border-style: solid;            border-width: thick;*/
+				overflow: hidden;
+				z-index: -100;
+			}
+			
+			#threeUl {
+				left: -203px;
+				top: 103px;
+				width: 300px;
+				height: 300px;
+				/* border-color: Red;            border-style: solid;            border-width: thick;*/
+				overflow: hidden;
+				z-index: -100;
+			}
+			
+			#fourUl {
+				left: 103px;
+				top: 103px;
+				width: 300px;
+				height: 300px;
+				/*border-color: Red;            border-style: solid;            border-width: thick;*/
+				overflow: hidden;
+				z-index: -100;
+			}
+			
+			#sectorDiv ul li a {
+				color: #000;
+				text-decoration: none;
+				font: bold 13px/30px arial, sans-serif;
+				text-align: center;
+				-webkit-transform-origin: 0 0;
+				-moz-transform-origin: 0 0;
+				-ms-transform-origin: 0 0;
+				-o-transform-origin: 0 0;
+				transform-origin: 0 0;
+				line-height: 100px;
+			}
+			
+			#oneUl .ulOne {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+				position: absolute;
+				width: 0;
+				height: 0;
+			}
+			
+			#oneUl li.liOne> a {
+				position: absolute;
+				display: block;
+				width: 100px;
+				height: 100px;
+				background: #c8c8c8;
+				border-radius: 0 0 100px 0;
+				left: 300px;
+				top: 300px;
+				-webkit-transform: rotate(180deg);
+				-moz-transform: rotateZ(180deg);
+				-ms-transform: rotate(180deg);
+				-o-transform: rotate(180deg);
+				transform: rotate(180deg);
+			}
+			
+			#twoUl li.liOne> a {
+				position: absolute;
+				display: block;
+				width: 100px;
+				height: 100px;
+				background: #c8c8c8;
+				top: 300px;
+				border-radius: 0 0 100px 0;
+				-webkit-transform: rotate(-90deg);
+				-moz-transform: rotateZ(-90deg);
+				-ms-transform: rotate(-90deg);
+				-o-transform: rotate(-90deg);
+				transform: rotate(-90deg);
+			}
+			
+			#threeUl li.liOne> a {
+				position: absolute;
+				display: block;
+				width: 100px;
+				height: 100px;
+				background: #c8c8c8;
+				left: 300px;
+				top: 0px;
+				border-radius: 0 0 100px 0;
+				-webkit-transform: rotate(90deg);
+				-moz-transform: rotateZ(90deg);
+				-ms-transform: rotate(90deg);
+				-o-transform: rotate(90deg);
+				transform: rotate(90deg);
+			}
+			/* #fourUl .ulOne        {            padding: 0;            margin: 0;            list-style: none;            position: absolute;            width: 0;            height: 0;        }*/
+			
+			#fourUl li.liOne> a {
+				position: absolute;
+				display: block;
+				width: 100px;
+				height: 100px;
+				background: #c8c8c8;
+				border-radius: 0 0 100px 0;
+			}
+			
+			#sectorDiv ul.ulTwo,
+			#sectorDiv ul.ulThree {
+				z-index: -1;
+			}
+			
+			#fourUl li.liTwo {
+				left: 0;
+				position: absolute;
+				top: 0;
+			}
+			
+			#oneUl li.liTwo> a {
+				position: absolute;
+				display: block;
+				width: 100px;
+				padding-left: 100px;
+				height: 200px;
+				background: #ddd;
+				border-radius: 0 0 200px 0;
+				-webkit-transform: rotate(180deg);
+				-moz-transform: rotateZ(180deg);
+				-ms-transform: rotate(180deg);
+				-o-transform: rotate(180deg);
+				transform: rotate(180deg);
+			}
+			
+			#twoUl li.liTwo> a {
+				position: absolute;
+				display: block;
+				width: 100px;
+				padding-left: 100px;
+				height: 200px;
+				background: #ddd;
+				border-radius: 0 0 200px 0;
+				-webkit-transform: rotate(-90deg);
+				-moz-transform: rotateZ(-90deg);
+				-ms-transform: rotate(-90deg);
+				-o-transform: rotate(-90deg);
+				transform: rotate(-90deg);
+			}
+			
+			#threeUl li.liTwo> a {
+				position: absolute;
+				display: block;
+				width: 100px;
+				padding-left: 100px;
+				height: 200px;
+				background: #ddd;
+				border-radius: 0 0 200px 0;
+				-webkit-transform: rotate(90deg);
+				-moz-transform: rotateZ(90deg);
+				-ms-transform: rotate(90deg);
+				-o-transform: rotate(90deg);
+				transform: rotate(90deg);
+			}
+			
+			#fourUl li.liTwo> a {
+				position: absolute;
+				display: block;
+				width: 100px;
+				padding-left: 100px;
+				height: 200px;
+				background: #ddd;
+				border-radius: 0 0 200px 0;
+			}
+			
+			#oneUl ul.ulThree li a {
+				position: absolute;
+				display: block;
+				width: 100px;
+				padding-left: 200px;
+				height: 300px;
+				background: #999;
+				border-radius: 0 0 300px 0;
+				-webkit-transform: rotate(180deg);
+				-moz-transform: rotateZ(180deg);
+				-ms-transform: rotate(180deg);
+				-o-transform: rotate(180deg);
+				transform: rotate(180deg);
+			}
+			
+			#twoUl ul.ulThree li a {
+				position: absolute;
+				display: block;
+				width: 100px;
+				padding-left: 200px;
+				height: 300px;
+				background: #999;
+				border-radius: 0 0 300px 0;
+				-webkit-transform: rotate(-90deg);
+				-moz-transform: rotateZ(-90deg);
+				-ms-transform: rotate(-90deg);
+				-o-transform: rotate(-90deg);
+				transform: rotate(-90deg);
+			}
+			
+			#threeUl ul.ulThree li a {
+				position: absolute;
+				display: block;
+				width: 100px;
+				padding-left: 200px;
+				height: 300px;
+				background: #999;
+				border-radius: 0 0 300px 0;
+				-webkit-transform: rotate(90deg);
+				-moz-transform: rotateZ(90deg);
+				-ms-transform: rotate(90deg);
+				-o-transform: rotate(90deg);
+				transform: rotate(90deg);
+			}
+			
+			#fourUl ul.ulThree li a {
+				position: absolute;
+				display: block;
+				width: 100px;
+				padding-left: 200px;
+				height: 300px;
+				background: #999;
+				border-radius: 0 0 300px 0;
+			}
+			
+			#oneUl ul.ulTwo {
+				position: absolute;
+				left: 300px;
+				top: 300px;
+			}
+			
+			#oneUl ul {
+				-webkit-transform-origin: 0 0;
+				-moz-transform-origin: 0 0;
+				-ms-transform-origin: 0 0;
+				-o-transform-origin: 0 0;
+				transform-origin: 0 0;
+				-webkit-transform: rotate(90deg);
+				-moz-transform: rotateZ(90deg);
+				-ms-transform: rotate(90deg);
+				-o-transform: rotate(90deg);
+				transform: rotate(90deg);
+				-webkit-transition: 1s;
+				-moz-transition: 1s;
+				-ms-transition: 1s;
+				-o-transition: 1s;
+				transition: 1s;
+				/*border-color:Blue;             border-style:solid;             border-width:thick;*/
+			}
+			
+			#twoUl ul.ulTwo {
+				position: absolute;
+				left: 0;
+				top: 300px;
+			}
+			
+			#twoUl ul {
+				-webkit-transform-origin: 0 0;
+				-moz-transform-origin: 0 0;
+				-ms-transform-origin: 0 0;
+				-o-transform-origin: 0 0;
+				transform-origin: 0 0;
+				-webkit-transform: rotate(90deg);
+				-moz-transform: rotateZ(90deg);
+				-ms-transform: rotate(90deg);
+				-o-transform: rotate(90deg);
+				transform: rotate(90deg);
+				-webkit-transition: 1s;
+				-moz-transition: 1s;
+				-ms-transition: 1s;
+				-o-transition: 1s;
+				transition: 1s;
+				/*border-color:Blue;             border-style:solid;             border-width:thick;*/
+			}
+			
+			#threeUl ul.ulTwo {
+				position: absolute;
+				left: 300px;
+				top: 0px;
+			}
+			
+			#threeUl ul {
+				-webkit-transform-origin: 0 0;
+				-moz-transform-origin: 0 0;
+				-ms-transform-origin: 0 0;
+				-o-transform-origin: 0 0;
+				transform-origin: 0 0;
+				-webkit-transform: rotate(90deg);
+				-moz-transform: rotateZ(90deg);
+				-ms-transform: rotate(90deg);
+				-o-transform: rotate(90deg);
+				transform: rotate(90deg);
+				-webkit-transition: 1s;
+				-moz-transition: 1s;
+				-ms-transition: 1s;
+				-o-transition: 1s;
+				transition: 1s;
+				/*border-color:Blue;             border-style:solid;             border-width:thick;*/
+			}
+			
+			#fourUl ul {
+				-webkit-transform-origin: 0 0;
+				-moz-transform-origin: 0 0;
+				-ms-transform-origin: 0 0;
+				-o-transform-origin: 0 0;
+				transform-origin: 0 0;
+				-webkit-transform: rotate(90deg);
+				-moz-transform: rotateZ(90deg);
+				-ms-transform: rotate(90deg);
+				-o-transform: rotate(90deg);
+				transform: rotate(90deg);
+				-webkit-transition: 1s;
+				-moz-transition: 1s;
+				-ms-transition: 1s;
+				-o-transition: 1s;
+				transition: 1s;
+			}
+			
+			#oneUl li.liTwo:nth-of-type(3)> a {
+				background: #bbb;
+				-webkit-transform: rotate(240deg);
+				-moz-transform: rotateZ(240deg);
+				-ms-transform: rotate(240deg);
+				-o-transform: rotate(240deg);
+				transform: rotate(240deg);
+			}
+			
+			#oneUl li.liTwo:nth-of-type(2)> a {
+				position: absolute;
+				background: #ccc;
+				-webkit-transform: rotate(210deg);
+				-moz-transform: rotateZ(210deg);
+				-ms-transform: rotate(210deg);
+				-o-transform: rotate(210deg);
+				transform: rotate(210deg);
+			}
+			
+			#twoUl li.liTwo:nth-of-type(3)> a {
+				background: #bbb;
+				-webkit-transform: rotate(-30deg);
+				-moz-transform: rotateZ(-30deg);
+				-ms-transform: rotate(-30deg);
+				-o-transform: rotate(-30deg);
+				transform: rotate(-30deg);
+			}
+			
+			#twoUl li.liTwo:nth-of-type(2)> a {
+				position: absolute;
+				background: #ccc;
+				-webkit-transform: rotate(-60deg);
+				-moz-transform: rotateZ(-60deg);
+				-ms-transform: rotate(-60deg);
+				-o-transform: rotate(-60deg);
+				transform: rotate(-60deg);
+			}
+			
+			#threeUl li.liTwo:nth-of-type(3)> a {
+				background: #bbb;
+				-webkit-transform: rotate(150deg);
+				-moz-transform: rotateZ(150deg);
+				-ms-transform: rotate(150deg);
+				-o-transform: rotate(150deg);
+				transform: rotate(150deg);
+			}
+			
+			#threeUl li.liTwo:nth-of-type(2)> a {
+				position: absolute;
+				background: #ccc;
+				-webkit-transform: rotate(120deg);
+				-moz-transform: rotateZ(120deg);
+				-ms-transform: rotate(120deg);
+				-o-transform: rotate(120deg);
+				transform: rotate(120deg);
+			}
+			
+			#fourUl li.liTwo:nth-of-type(3)> a {
+				background: #bbb;
+				-webkit-transform: rotate(60deg);
+				-moz-transform: rotateZ(60deg);
+				-ms-transform: rotate(60deg);
+				-o-transform: rotate(60deg);
+				transform: rotate(60deg);
+			}
+			
+			#fourUl li.liTwo:nth-of-type(2)> a {
+				position: absolute;
+				left: 0;
+				background: #ccc;
+				-webkit-transform: rotate(30deg);
+				-moz-transform: rotateZ(30deg);
+				-ms-transform: rotate(30deg);
+				-o-transform: rotate(30deg);
+				transform: rotate(30deg);
+			}
+			
+			#oneUl .aThree li:nth-of-type(3)> a {
+				background: #777;
+				-webkit-transform: rotate(240deg);
+				-moz-transform: rotateZ(240deg);
+				-ms-transform: rotate(240deg);
+				-o-transform: rotate(240deg);
+				transform: rotate(240deg);
+			}
+			
+			#oneUl .aThree li:nth-of-type(2)> a {
+				background: #888;
+				-webkit-transform: rotate(210deg);
+				-moz-transform: rotateZ(210deg);
+				-ms-transform: rotate(210deg);
+				-o-transform: rotate(210deg);
+				transform: rotate(210deg);
+			}
+			
+			#oneUl .aThree li:nth-of-type(1)> a {
+				/* background: #888;*/
+				-webkit-transform: rotate(180deg);
+				-moz-transform: rotateZ(180deg);
+				-ms-transform: rotate(180deg);
+				-o-transform: rotate(180deg);
+				transform: rotate(180deg);
+			}
+			
+			#twoUl .aThree li:nth-of-type(3)> a {
+				background: #777;
+				-webkit-transform: rotate(-30deg);
+				-moz-transform: rotateZ(-30deg);
+				-ms-transform: rotate(-30deg);
+				-o-transform: rotate(-30deg);
+				transform: rotate(-30deg);
+			}
+			
+			#twoUl .aThree li:nth-of-type(2)> a {
+				background: #888;
+				-webkit-transform: rotate(-60deg);
+				-moz-transform: rotateZ(-60deg);
+				-ms-transform: rotate(-60deg);
+				-o-transform: rotate(-60deg);
+				transform: rotate(-60deg);
+			}
+			
+			#twoUl .aThree li:nth-of-type(1)> a {
+				/* background: #888;*/
+				-webkit-transform: rotate(-90deg);
+				-moz-transform: rotateZ(-90deg);
+				-ms-transform: rotate(-90deg);
+				-o-transform: rotate(-90deg);
+				transform: rotate(-90deg);
+			}
+			
+			#threeUl .aThree li:nth-of-type(3)> a {
+				background: #777;
+				-webkit-transform: rotate(150deg);
+				-moz-transform: rotateZ(150deg);
+				-ms-transform: rotate(150deg);
+				-o-transform: rotate(150deg);
+				transform: rotate(150deg);
+			}
+			
+			#threeUl .aThree li:nth-of-type(2)> a {
+				background: #888;
+				-webkit-transform: rotate(120deg);
+				-moz-transform: rotateZ(120deg);
+				-ms-transform: rotate(120deg);
+				-o-transform: rotate(120deg);
+				transform: rotate(120deg);
+			}
+			
+			#threeUl .aThree li:nth-of-type(1)> a {
+				/* background: #888;*/
+				-webkit-transform: rotate(90deg);
+				-moz-transform: rotateZ(90deg);
+				-ms-transform: rotate(90deg);
+				-o-transform: rotate(90deg);
+				transform: rotate(90deg);
+			}
+			
+			#fourUl .aThree li:nth-of-type(3)> a {
+				background: #777;
+				-webkit-transform: rotate(60deg);
+				-moz-transform: rotateZ(60deg);
+				-ms-transform: rotate(60deg);
+				-o-transform: rotate(60deg);
+				transform: rotate(60deg);
+			}
+			
+			#fourUl .aThree li:nth-of-type(2)> a {
+				background: #888;
+				-webkit-transform: rotate(30deg);
+				-moz-transform: rotateZ(30deg);
+				-ms-transform: rotate(30deg);
+				-o-transform: rotate(30deg);
+				transform: rotate(30deg);
+			}
+			
+			#oneUl span {
+				display: block;
+				-webkit-transform: rotate(170deg);
+				-moz-transform: rotateZ(170deg);
+				-ms-transform: rotate(170deg);
+				-o-transform: rotate(170deg);
+				transform: rotate(170deg);
+			}
+			
+			#twoUl span {
+				display: block;
+				-webkit-transform: rotate(80deg);
+				-moz-transform: rotateZ(80deg);
+				-ms-transform: rotate(80deg);
+				-o-transform: rotate(80deg);
+				transform: rotate(80deg);
+			}
+			
+			#threeUl span {
+				display: block;
+				-webkit-transform: rotate(-80deg);
+				-moz-transform: rotateZ(-80deg);
+				-ms-transform: rotate(-80deg);
+				-o-transform: rotate(-80deg);
+				transform: rotate(-80deg);
+			}
+			
+			#fourUl span {
+				display: block;
+				-webkit-transform: rotate(5deg);
+				-moz-transform: rotateZ(5deg);
+				-ms-transform: rotate(5deg);
+				-o-transform: rotate(5deg);
+				transform: rotate(5deg);
+			}
+			
+			#sectorDiv li.liOne:hover ul.ulTwo {
+				-webkit-transform: rotate(0deg);
+				-moz-transform: rotateZ(0deg);
+				-ms-transform: rotate(0deg);
+				-o-transform: rotate(0deg);
+				transform: rotate(0deg);
+			}
+			
+			#sectorDiv li.liTwo:hover ul.ulThree {
+				-webkit-transform: rotate(0deg);
+				-moz-transform: rotateZ(0deg);
+				-ms-transform: rotate(0deg);
+				-o-transform: rotate(0deg);
+				transform: rotate(0deg);
+			}
+			
+			#sectorDiv ul li:hover> a {
+				background: #f00;
+				color: #fff;
+			}
+			
+			#sectorDiv li.liTwo:hover> a {
+				background: #d00;
+				color: #fff;
+			}
+			
+			#sectorDiv .aThree li:hover> a {
+				background: #b00;
+				color: #fff;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="sectorDiv">
+			<ul id="oneUl" class="ulOne">
+				<li class="liOne">
+					<a href="#"><span>1</span></a>
+					<ul class="ulTwo">
+						<li class="liTwo">
+							<a href="#"><span>1.1</span></a>
+							<ul class="ulThree aThree">
+								<li>
+									<a href="#"><span>1.1.1</span></a>
+								</li>
+								<li>
+									<a href="#"><span>1.1.2</span></a>
+								</li>
+								<li>
+									<a href="#"><span>1.1.3</span></a>
+								</li>
+							</ul>
+						</li>
+						<li class="liTwo">
+							<a href="#"><span>1.2</span></a>
+							<ul class="ulThree aThree">
+								<li>
+									<a href="#"><span>1.2.1</span></a>
+								</li>
+								<li>
+									<a href="#"><span>1.2.2</span></a>
+								</li>
+								<li>
+									<a href="#"><span>1.2.3</span></a>
+								</li>
+							</ul>
+						</li>
+						<li class="liTwo">
+							<a href="#"><span>1.3</span></a>
+							<ul class="ulThree aThree">
+								<li>
+									<a href="#"><span>1.3.1</span></a>
+								</li>
+								<li>
+									<a href="#"><span>1.3.2</span></a>
+								</li>
+								<li>
+									<a href="#"><span>1.3.3</span></a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<ul id="twoUl" class="ulOne">
+				<li class="liOne">
+					<a href="#"><span>2</span></a>
+					<ul class="ulTwo">
+						<li class="liTwo">
+							<a href="#"><span>2.1</span></a>
+							<ul class="ulThree aThree">
+								<li>
+									<a href="#"><span>2.1.1</span></a>
+								</li>
+								<li>
+									<a href="#"><span>2.1.2</span></a>
+								</li>
+								<li>
+									<a href="#"><span>2.1.3</span></a>
+								</li>
+							</ul>
+						</li>
+						<li class="liTwo">
+							<a href="#"><span>2.2</span></a>
+							<ul class="ulThree aThree">
+								<li>
+									<a href="#"><span>2.2.1</span></a>
+								</li>
+								<li>
+									<a href="#"><span>2.2.2</span></a>
+								</li>
+								<li>
+									<a href="#"><span>2.2.3</span></a>
+								</li>
+							</ul>
+						</li>
+						<li class="liTwo">
+							<a href="#"><span>2.3</span></a>
+							<ul class="ulThree aThree">
+								<li>
+									<a href="#"><span>2.3.1</span></a>
+								</li>
+								<li>
+									<a href="#"><span>2.3.2</span></a>
+								</li>
+								<li>
+									<a href="#"><span>2.3.3</span></a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<ul id="threeUl" class="ulOne">
+				<li class="liOne">
+					<a href="#"><span>3</span></a>
+					<ul class="ulTwo">
+						<li class="liTwo">
+							<a href="#"><span>3.1</span></a>
+							<ul class="ulThree aThree">
+								<li>
+									<a href="#"><span>3.1.1</span></a>
+								</li>
+								<li>
+									<a href="#"><span>3.1.2</span></a>
+								</li>
+								<li>
+									<a href="#"><span>3.1.3</span></a>
+								</li>
+							</ul>
+						</li>
+						<li class="liTwo">
+							<a href="#"><span>3.2</span></a>
+							<ul class="ulThree aThree">
+								<li>
+									<a href="#"><span>3.2.1</span></a>
+								</li>
+								<li>
+									<a href="#"><span>3.2.2</span></a>
+								</li>
+								<li>
+									<a href="#"><span>3.2.3</span></a>
+								</li>
+							</ul>
+						</li>
+						<li class="liTwo">
+							<a href="#"><span>3.3</span></a>
+							<ul class="ulThree aThree">
+								<li>
+									<a href="#"><span>3.3.1</span></a>
+								</li>
+								<li>
+									<a href="#"><span>3.3.2</span></a>
+								</li>
+								<li>
+									<a href="#"><span>3.3.3</span></a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<ul id="fourUl" class="ulOne">
+				<li class="liOne">
+					<a href="#">4</a>
+					<ul class="ulTwo">
+						<li class="liTwo">
+							<a href="#"><span>4.1</span></a>
+							<ul class="ulThree aThree">
+								<li>
+									<a href="#">4.1.1</a>
+								</li>
+								<li>
+									<a href="#">4.1.2</a>
+								</li>
+								<li>
+									<a href="#">4.1.3</a>
+								</li>
+							</ul>
+						</li>
+						<li class="liTwo">
+							<a href="#"><span>4.2</span></a>
+							<ul class="ulThree aThree">
+								<li>
+									<a href="#">4.2.1</a>
+								</li>
+								<li>
+									<a href="#">4.2.2</a>
+								</li>
+								<li>
+									<a href="#">4.2.3</a>
+								</li>
+							</ul>
+						</li>
+						<li class="liTwo">
+							<a href="#"><span>4.3</span></a>
+							<ul class="ulThree aThree">
+								<li>
+									<a href="#">4.3.1</a>
+								</li>
+								<li>
+									<a href="#">4.3.2</a>
+								</li>
+								<li>
+									<a href="#">4.3.3</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</body>
+
+</html>

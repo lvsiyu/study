@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../../../../lib/js/jquery-1.11.3.min.js" ></script>
+		<style>
+			.aa{
+				position: relative;
+				width: 100%;
+				height: auto;
+			}
+			.bb{
+				position: relative;
+				width: 100%;
+				height: 50px;
+				background-color: #FFF;
+			}
+		</style>
+		<script>
+			
+			$(document).ready(function(){
+				var a = $(".bb:first").attr("id");
+				var b = $(".bb:last").attr("id");
+				if(a == b){
+					alert("真");
+				}else if(a !== b){
+					alert("假")
+					$("#c").attr("id","d")
+				}else{
+					
+				}
+			})
+			
+			/*$(document).ready(function(){
+				$(".bb:last").css("background-color","black");
+			})*/
+		</script>
+	</head>
+	<body>
+		<div class="aa">
+			<div id="a" class="bb">哈哈</div>
+			<div id="b" class="bb">嘿嘿</div>
+			<div id="c" class="bb">哈哈</div>
+		</div>
+	</body>
+</html>

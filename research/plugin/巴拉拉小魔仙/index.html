@@ -1,0 +1,53 @@
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Code blast plugin for Codemirror</title>
+		<link rel="stylesheet" href="../../../lib/js/biubiubiu/codemirror.css">
+		<link rel="stylesheet" href="../../../lib/js/biubiubiu/monokai.css">
+
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				background: #222;
+			}
+			/* Codemirror */
+			
+			.Codemirror {
+				width: 100%;
+				height: 100%;
+				font-size: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<script src="../../../lib/js/biubiubiu/codemirror.js"></script>
+		<script src="../../../lib/js/biubiubiu/closetag.js"></script>
+		<script src="../../../lib/js/biubiubiu/xml.js"></script>
+		<script src="../../../lib/js/biubiubiu/javascript.js"></script>
+		<script src="../../../lib/js/biubiubiu/css.js"></script>
+		<script src="../../../lib/js/biubiubiu/htmlmixed.js"></script>
+		<script src="../../../lib/js/biubiubiu/code-blast.js"></script>
+
+		<script>
+			window.cm = CodeMirror(document.body, {
+				lineNumbers: true,
+				mode: "htmlmixed",
+				theme: 'monokai',
+				lineWrapping: true,
+				autofocus: true,
+				tabSize: 2,
+				value: "打点什么吧！",
+				autoCloseTags: true,
+				blastCode: {
+					effect: 2
+				},
+			});
+		</script>
+
+	</body>
+
+</html>

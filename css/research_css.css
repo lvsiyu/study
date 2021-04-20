@@ -1,0 +1,12 @@
+html,
+body {
+	overflow: auto;
+}
+
+.modular {
+	background-color: #FFF;
+}
+
+.title {
+	color: #000;
+}
