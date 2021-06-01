@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    svg {
+      position: absolute;
+      width: 0;
+      height: 0;
+    }
+
+    .box {
+      position: absolute;
+      margin: auto;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 200px;
+      height: 200px;
+      overflow: hidden;
+      padding: 15px;
+    }
+
+    .aa {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      filter: url(#MyFilter);
+      background-image: url("../../../lib/img/fill/index.png");
+      background-size: cover;
+    }
+  </style>
+  <body>
+    <div class="box">
+      <div class="aa"></div>
+      <svg>
+        <filter id="MyFilter">
+          <!-- offsetBlur -->
+          <feGaussianBlur in="SourceAlpha" stdDeviation="5" result="blur" />
+          <feOffset in="blur" dx="4" dy="4" result="offsetBlur" />
+
+          <!-- merge SourceGraphic + offsetBlur -->
+          <feMerge>
+            <feMergeNode in="offsetBlur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </svg>
+    </div>
+  </body>
+</html>
