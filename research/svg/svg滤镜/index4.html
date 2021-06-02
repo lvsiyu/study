@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <style>
+    .container {
+      width: -moz-fit-content;
+      width: fit-content;
+      clip-path: inset(10px);
+      background-color: #0e6caa;
+    }
+    .reflect {
+      transform: scaleY(-1);
+      filter: url(#displacementFilter);
+    }
+    img{
+      position: relative;
+      display: block;
+    }
+  </style>
+  <body>
+    <svg width="0" height="0" style="position: absolute; left: -999px">
+      <filter id="displacementFilter">
+        <feTurbulence
+          type="turbulence"
+          baseFrequency="0.01 .1"
+          numOctaves="1"
+          result="turbulence"
+          seed="53"
+        />
+        <feDisplacementMap
+          in2="turbulence"
+          in="SourceGraphic"
+          scale="20"
+          xChannelSelector="R"
+          yChannelSelector="B"
+        />
+      </filter>
+    </svg>
+    <div class="container">
+      <img src="../../../lib/img/fill/moon-night.jpg" />
+      <img src="../../../lib/img/fill/moon-night.jpg" class="reflect" />
+    </div>
+
+    <script>
+      // 流动效果实现，通过改变baseFrequency属性值实现
+      var img = document.querySelector("#displacementFilter feTurbulence");
+      var frames = 0;
+      var rad = Math.PI / 180;
+
+      function AnimateBaseFrequency() {
+        var bf = "0.01 .1";
+        bfx = Number(bf.split(" ")[0]);
+        bfy = Number(bf.split(" ")[1]);
+        frames += 0.5;
+        bfx += 0.001 * Math.cos(frames * rad);
+        bfy += 0.005 * Math.sin(frames * rad);
+
+        bf = bfx.toString() + " " + bfy.toString();
+        img.setAttributeNS(null, "baseFrequency", bf);
+
+        requestAnimationFrame(AnimateBaseFrequency);
+      }
+
+      window.requestAnimationFrame(AnimateBaseFrequency);
+    </script>
+  </body>
+</html>
