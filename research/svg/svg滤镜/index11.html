@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <title>svg滤镜菜单</title>
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../../lib/css/svgfill/normalize.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../../lib/font/font-awesome-4.3.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../../lib/font/vicons/vicons-font.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../../lib/css/svgfill/base.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../../lib/css/svgfill/send.css"
+    />
+  </head>
+  <body class="demo-3">
+    <div class="container">
+      <div class="content">
+        <div class="send">
+          <div class="send-indicator">
+            <div class="send-indicator-dot"></div>
+            <div class="send-indicator-dot"></div>
+            <div class="send-indicator-dot"></div>
+            <div class="send-indicator-dot"></div>
+          </div>
+          <button class="send-button">
+            <div class="sent-bg"></div>
+            <i class="fa fa-send send-icon"></i>
+            <i class="fa fa-check sent-icon"></i>
+          </button>
+        </div>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="800">
+        <defs>
+          <filter id="goo">
+            <feGaussianBlur
+              in="SourceGraphic"
+              stdDeviation="10"
+              result="blur"
+            />
+            <feColorMatrix
+              in="blur"
+              mode="matrix"
+              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+              result="goo"
+            />
+            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+          </filter>
+          <filter id="goo-no-comp">
+            <feGaussianBlur
+              in="SourceGraphic"
+              stdDeviation="10"
+              result="blur"
+            />
+            <feColorMatrix
+              in="blur"
+              mode="matrix"
+              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9"
+              result="goo"
+            />
+          </filter>
+        </defs>
+      </svg>
+      <!-- Related demos -->
+    </div>
+    <!-- /container -->
+    <script src="../../../lib/js/jquery-2.2.2.min.js"></script>
+    <script src="../../../lib/js/svgfill/send.js"></script>
+    <script src="../../../lib/js/TweenMax/TweenMax.min.js"></script>
+  </body>
+</html>
