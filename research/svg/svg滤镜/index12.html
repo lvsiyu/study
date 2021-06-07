@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <title>svg滤镜分享</title>
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../../lib/css/svgfill/normalize.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../../lib/font/font-awesome-4.3.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../../lib/font/vicons/vicons-font.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../../lib/css/svgfill/base.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../../lib/css/svgfill/share.css"
+    />
+  </head>
+  <body class="demo-6">
+    <div class="container">
+      <div class="content">
+        <div class="share">
+          <button class="share-toggle-button">
+            <i class="share-icon fa fa-share-alt"></i>
+          </button>
+          <ul class="share-items">
+            <li class="share-item">
+              <a href="#" class="share-button">
+                <i class="share-icon fa fa-facebook"></i>
+              </a>
+            </li>
+            <li class="share-item">
+              <a href="#" class="share-button">
+                <i class="share-icon fa fa-twitter"></i>
+              </a>
+            </li>
+            <li class="share-item">
+              <a href="#" class="share-button">
+                <i class="share-icon fa fa-pinterest"></i>
+              </a>
+            </li>
+            <li class="share-item">
+              <a href="#" class="share-button">
+                <i class="share-icon fa fa-tumblr"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="800">
+        <defs>
+          <filter id="goo">
+            <feGaussianBlur
+              in="SourceGraphic"
+              stdDeviation="12"
+              result="blur"
+            />
+            <feColorMatrix
+              in="blur"
+              mode="matrix"
+              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -15"
+              result="goo"
+            />
+            <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+          </filter>
+        </defs>
+      </svg>
+    </div>
+    <!-- /container -->
+    <script src="../../../lib/js/jquery-2.2.2.min.js"></script>
+    <script src="../../../lib/js/svgfill/share.js"></script>
+    <script src="../../../lib/js/TweenMax/TweenMax.min.js"></script>
+  </body>
+</html>
